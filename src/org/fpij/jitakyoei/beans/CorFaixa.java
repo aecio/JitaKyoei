@@ -1,0 +1,22 @@
+package org.fpij.jitakyoei.beans;
+
+public enum CorFaixa {
+	BRANCA,
+	CINZA,
+	AZUL,
+	AMARELA,
+	LARANJA,
+	VERDE,
+	ROXA,
+	MARROM,
+	PRETA1D,
+	PRETA2D,
+	PRETA3D,
+	PRETA4D,
+	PRETA5D,
+	PRETA6D,
+	PRETA7D,
+	PRETA8D,
+	PRETA9D,
+	PRETA10D
+}
