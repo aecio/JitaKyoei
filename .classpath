@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/db4o-7.4.106.13438-java5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
