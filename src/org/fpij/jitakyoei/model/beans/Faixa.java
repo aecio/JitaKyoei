@@ -1,6 +1,8 @@
-package org.fpij.jitakyoei.beans;
+package org.fpij.jitakyoei.model.beans;
 
 import java.util.Date;
+
+import org.fpij.jitakyoei.enums.CorFaixa;
 
 public class Faixa {
 	CorFaixa cor;
