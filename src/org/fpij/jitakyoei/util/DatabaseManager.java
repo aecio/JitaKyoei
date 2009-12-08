@@ -5,7 +5,7 @@ import com.db4o.ObjectContainer;
 import com.db4o.ext.ExtObjectContainer;
 
 public class DatabaseManager {
-	public static final String DATABASE_LOCATION = "fpijDB";
+	public static final String DATABASE_LOCATION = "fpij.db";
 	private static ExtObjectContainer db;
 	
 
