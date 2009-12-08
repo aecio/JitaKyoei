@@ -1,4 +1,5 @@
 ﻿bin/
 *.class
 DER.mwb.bak
+DER.mwb.beforefix
 .~lock
