@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/PgsLookAndFeel.jar"/>
+	<classpathentry kind="lib" path="lib/genesis-client-swing-3.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
