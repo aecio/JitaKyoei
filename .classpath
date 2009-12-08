@@ -3,5 +3,16 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/db4o-7.4.106.13438-java5.jar"/>
+	<classpathentry kind="lib" path="lib/forms.jar" sourcepath="lib/forms-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/git/JitaKyoei/lib/forms-javadoc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/TableLayout.jar" sourcepath="lib/TableLayout-src.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/git/JitaKyoei/lib/TableLayout-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/PgsLookAndFeel.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

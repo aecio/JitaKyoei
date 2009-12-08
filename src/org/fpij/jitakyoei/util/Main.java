@@ -3,15 +3,29 @@ package org.fpij.jitakyoei.util;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.UIManager;
+
 import org.fpij.jitakyoei.beans.Aluno;
 import org.fpij.jitakyoei.dao.AlunoDAO;
 import org.fpij.jitakyoei.dao.DAO;
+import org.fpij.jitakyoei.view.FPIJ_App;
+import org.fpij.jitakyoei.view.FiliadoPanel;
+
+import com.pagosoft.plaf.PlafOptions;
 
 public class Main {
 
 	private static Scanner in = new Scanner(System.in);
 	private static DAO<Aluno> alunoDAO =  new AlunoDAO();
+	
+	public static void main(String[] args) {
+		//PlafOptions.setAsLookAndFeel();
+		FPIJ_App app = new FPIJ_App();
+		app.setVisible(true);
+	}
 
+}
+/*
 	public static void main(String[] args) {
 		String opcao;
 		do{
@@ -127,3 +141,4 @@ public class Main {
 	}
 
 }
+*/
