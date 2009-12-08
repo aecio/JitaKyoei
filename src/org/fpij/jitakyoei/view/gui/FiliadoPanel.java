@@ -2,12 +2,13 @@
  * Created by JFormDesigner on Mon Dec 07 20:56:28 GMT-03:00 2009
  */
 
-package org.fpij.jitakyoei.view;
+package org.fpij.jitakyoei.view.gui;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import com.jgoodies.forms.layout.*;
+import org.fpij.jitakyoei.view.*;
 
 /**
  * @author Brainrain
@@ -41,7 +42,7 @@ public class FiliadoPanel extends JPanel {
 
 		//======== this ========
 		setLayout(new FormLayout(
-			"$lcgap, pref, $lcgap, 109dlu, $lcgap, 59dlu, $lcgap, 99dlu, $lcgap",
+			"$lcgap, pref, $lcgap, 109dlu, $lcgap, 69dlu, $lcgap, 99dlu:grow, $lcgap",
 			"3*($lgap, default), $lgap, fill:61dlu, $lgap, default, $lgap, 61dlu"));
 
 		//---- label1 ----

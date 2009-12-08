@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Tue Dec 08 14:59:57 GMT-03:00 2009
  */
 
-package org.fpij.jitakyoei.view;
+package org.fpij.jitakyoei.view.gui;
 
 import javax.swing.*;
 import com.jgoodies.forms.layout.*;

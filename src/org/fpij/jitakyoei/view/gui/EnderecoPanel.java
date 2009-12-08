@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Tue Dec 08 14:49:27 GMT-03:00 2009
  */
 
-package org.fpij.jitakyoei.view;
+package org.fpij.jitakyoei.view.gui;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -36,7 +36,7 @@ public class EnderecoPanel extends JPanel {
 		setBorder(new TitledBorder("Endere\u00e7o:"));
 		setName("this");
 		setLayout(new FormLayout(
-			"40dlu, $lcgap, 109dlu, $lcgap, 33dlu, $lcgap, 26dlu, $lcgap, 96dlu",
+			"40dlu, $lcgap, 109dlu, $lcgap, 33dlu, $lcgap, 26dlu, $lcgap, 96dlu:grow",
 			"2*(default, $lgap), default"));
 
 		//---- label1 ----
