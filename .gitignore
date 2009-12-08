@@ -2,3 +2,4 @@
 *.class
 DER.mwb.bak
 .~lock
+bin/org/fpij/jitakyoei/view/gui/*.jfd
