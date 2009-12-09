@@ -18,6 +18,7 @@ public class DAOImpl<E> {
 	public DAOImpl(Class<E> clazz, Validator<E> validator){
 		this.validator = validator;
 		this.clazz = clazz;
+		db.configure().objectClass(this.getClass()).cascadeOnUpdate(true);
 	}
 	
 	public DAOImpl(Class<E> clazz){
@@ -27,7 +28,6 @@ public class DAOImpl<E> {
 	
 	public boolean save(E object) {
 		if(validator.validate(object)){
-			db.queryByExample(clazz);
 			db.store(object);
 			return true;
 		}
@@ -49,9 +49,18 @@ public class DAOImpl<E> {
 		return objects;
 	}
 	
-	public E find(E object) {
-		ObjectSet<E> result = db.queryByExample(clazz);
+	public E get(E object) {
+		ObjectSet<E> result = db.queryByExample(object);
 		return result.next();
+	}
+	
+	public List<E> search(E object) {
+		List<E> objects = new ArrayList<E>();
+		ObjectSet<E> result = db.queryByExample(object);
+		while(result.hasNext()){
+			objects.add((E)result.next());
+		}
+		return objects;		
 	}
 
 	/**
