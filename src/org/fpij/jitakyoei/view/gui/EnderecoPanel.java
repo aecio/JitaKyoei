@@ -36,7 +36,7 @@ public class EnderecoPanel extends JPanel {
 		setBorder(new TitledBorder("Endere\u00e7o:"));
 		setName("this");
 		setLayout(new FormLayout(
-			"40dlu, $lcgap, 109dlu, $lcgap, 33dlu, $lcgap, 26dlu, $lcgap, 96dlu:grow",
+			"40dlu, $lcgap, 109dlu, $lcgap, 33dlu, $lcgap, 41dlu, $lcgap, 96dlu:grow",
 			"2*(default, $lgap), default"));
 
 		//---- label1 ----
