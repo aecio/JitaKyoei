@@ -81,10 +81,40 @@
        </object>
       </void>
       <void method="add">
-       <object class="com.jformdesigner.model.FormComponent">
-        <string>org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel</string>
+       <object class="com.jformdesigner.model.FormContainer">
+        <string>javax.swing.JPanel</string>
+        <object class="com.jformdesigner.model.FormLayoutManager">
+         <class>com.jgoodies.forms.layout.FormLayout</class>
+         <void method="setProperty">
+          <string>$columnSpecs</string>
+          <string>labelcompgap, default:grow, labelcompgap</string>
+         </void>
+         <void method="setProperty">
+          <string>$rowSpecs</string>
+          <string>default</string>
+         </void>
+        </object>
         <void property="name">
-         <string>alunoAtualizarPanel1</string>
+         <string>panel1</string>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel</string>
+          <void property="name">
+           <string>alunoAtualizarPanel1</string>
+          </void>
+         </object>
+         <object class="com.jformdesigner.model.FormLayoutConstraints">
+          <class>com.jgoodies.forms.layout.CellConstraints</class>
+          <void method="setProperty">
+           <string>gridX</string>
+           <int>2</int>
+          </void>
+          <void method="setProperty">
+           <string>gridY</string>
+           <int>1</int>
+          </void>
+         </object>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">

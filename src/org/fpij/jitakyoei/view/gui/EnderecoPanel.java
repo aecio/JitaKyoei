@@ -9,9 +9,11 @@ import javax.swing.border.*;
 import com.jgoodies.forms.layout.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class EnderecoPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public EnderecoPanel() {
 		initComponents();
 	}

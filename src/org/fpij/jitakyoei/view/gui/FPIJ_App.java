@@ -8,12 +8,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.jgoodies.forms.layout.*;
-import org.fpij.jitakyoei.view.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class FPIJ_App extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 	public FPIJ_App() {
 		initComponents();
 	}
@@ -48,7 +49,9 @@ public class FPIJ_App extends JFrame {
 		menuItem1 = new JMenuItem();
 		toolBar1 = new JToolBar();
 		button1 = new JButton();
+		panel1 = new JPanel();
 		alunoAtualizarPanel1 = new AlunoAtualizarPanel();
+		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
@@ -163,7 +166,15 @@ public class FPIJ_App extends JFrame {
 			toolBar1.add(button1);
 		}
 		contentPane.add(toolBar1, BorderLayout.NORTH);
-		contentPane.add(alunoAtualizarPanel1, BorderLayout.CENTER);
+
+		//======== panel1 ========
+		{
+			panel1.setLayout(new FormLayout(
+				"$lcgap, default:grow, $lcgap",
+				"default"));
+			panel1.add(alunoAtualizarPanel1, cc.xy(2, 1));
+		}
+		contentPane.add(panel1, BorderLayout.CENTER);
 		setSize(705, 575);
 		setLocationRelativeTo(null);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -192,6 +203,7 @@ public class FPIJ_App extends JFrame {
 	private JMenuItem menuItem1;
 	private JToolBar toolBar1;
 	private JButton button1;
+	private JPanel panel1;
 	private AlunoAtualizarPanel alunoAtualizarPanel1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

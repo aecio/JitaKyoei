@@ -4,16 +4,15 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import com.jgoodies.forms.layout.*;
-import org.fpij.jitakyoei.view.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class FiliadoPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public FiliadoPanel() {
 		initComponents();
 	}

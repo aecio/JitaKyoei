@@ -7,12 +7,13 @@ package org.fpij.jitakyoei.view.gui;
 import java.awt.*;
 import javax.swing.*;
 import com.jgoodies.forms.layout.*;
-import org.fpij.jitakyoei.view.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class AlunoCadastrarPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public AlunoCadastrarPanel() {
 		initComponents();
 	}
