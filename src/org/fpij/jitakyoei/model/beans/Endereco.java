@@ -8,6 +8,15 @@ public class Endereco {
 	String estado;
 	String cep;
 	
+	public String toString(){
+		return "\nRua: "+rua+
+				"\nNumero: "+numero+
+				"\nBairro: "+bairro+
+				"\nCidade: "+cidade+
+				"\nEstado: "+estado+
+				"\nCep: "+cep;
+	}
+	
 	public String getRua() {
 		return rua;
 	}

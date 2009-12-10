@@ -24,26 +24,28 @@ public class FiliadoForm {
 	private String telefone1;
 	private String telefone2;
 	private Date ultimaAnuidade;
+	private String email;
 	
 	public FiliadoForm(FiliadoPanel filiadoPanel) {
 		this.binder = new SwingBinder(filiadoPanel, this);
+		binder.bind();
 		this.enderecoForm = new EnderecoForm(filiadoPanel.getEnderecoPanel());
 	}
 	
 	public Filiado pegarBean(){
-		System.out.println("FiliadoForm.getBean()");
-		
-		binder.bind();
+		System.out.println("FiliadoForm.pegarBean()");
+
 		Filiado f = new Filiado();
 		/**
 		 * FIXME: Converter para data
 		 */
 //		f.setDataNascimento(new DateFormat.);
-//		f.setEmail(email);
+		f.setEmail(email);
 //		f.setFaixas(faixas);
 		f.setEndereco(enderecoForm.pegarBean());
 		f.setCpf(cpf);
 		f.setNome(nome);
+		System.out.println("nome: "+nome);
 		f.setRegistroCbj(registroCbj);
 		f.setRg(new Rg(rg, orgaoExpedidor));
 		f.setTelefone1(telefone1);
@@ -52,8 +54,15 @@ public class FiliadoForm {
 		
 		return f;
 	}
-
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Filiado getFiliado() {
 		return filiado;
 	}

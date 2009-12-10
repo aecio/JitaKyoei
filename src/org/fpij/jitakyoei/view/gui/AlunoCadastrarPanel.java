@@ -8,6 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import org.fpij.jitakyoei.view.forms.AlunoCadastrarForm;
+import org.fpij.jitakyoei.view.forms.AlunoForm;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 import net.java.dev.genesis.ui.swing.SwingBinder;

@@ -18,11 +18,12 @@ public class EnderecoForm {
 	
 	public EnderecoForm(EnderecoPanel enderecoPanel) {
 		this.binder = new SwingBinder(enderecoPanel, this);
+		binder.bind();
 	}
 	
 	public Endereco pegarBean(){
 		System.out.println("EnderecoForm.pegarBean()");
-		binder.bind();
+		
 		Endereco e = new Endereco();
 		e.setBairro(bairro);
 		e.setCep(cep);

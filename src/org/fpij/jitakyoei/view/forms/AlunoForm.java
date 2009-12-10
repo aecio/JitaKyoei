@@ -17,13 +17,14 @@ public class AlunoForm {
 	
 	public AlunoForm(AlunoPanel alunoPanel) {
 		binder = new SwingBinder(alunoPanel, this);
+		binder.bind();
 		filiadoForm = new FiliadoForm(alunoPanel.getFiliadoPanel());
 	}
 
 	public Aluno pegarBean() {
 		System.out.println("AlunoForm.getBean()");
 		System.out.println(binder);
-		binder.bind();
+		
 
 		Aluno a = new Aluno();
 		a.setFiliado(filiadoForm.pegarBean());

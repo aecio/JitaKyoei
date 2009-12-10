@@ -23,4 +23,8 @@ public class Aluno {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+	
+	public String toString(){
+		return filiado.toString();
+	}
 }

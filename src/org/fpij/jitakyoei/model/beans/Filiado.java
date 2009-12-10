@@ -18,6 +18,17 @@ public class Filiado {
 	Date ultimaAnuidade;
 	Set<Faixa> faixas;
 	
+	public String toString(){
+		String filiado = "Nome: "+nome+
+						"\nRegistroCbj: "+registroCbj+
+						"\nDataNasc: "+dataNascimento+
+						"\nE-mail: "+email+
+						"\nCPF: "+cpf+
+						endereco.toString();
+		return filiado;
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
