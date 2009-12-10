@@ -20,11 +20,10 @@ public class AlunoForm {
 		binder.bind();
 		filiadoForm = new FiliadoForm(alunoPanel.getFiliadoPanel());
 	}
+	
 
 	public Aluno pegarBean() {
-		System.out.println("AlunoForm.getBean()");
-		System.out.println(binder);
-		
+		System.out.println("AlunoForm.getBean()");		
 
 		Aluno a = new Aluno();
 		a.setFiliado(filiadoForm.pegarBean());

@@ -8,33 +8,35 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
-import org.fpij.jitakyoei.view.AlunoViewImpl;
+import net.java.dev.genesis.annotation.ViewHandler;
 
 /**
  * @author wansoul
  */
-public class FPIJ_App extends JFrame {
+@ViewHandler
+public class MainAppFrame extends JFrame {
 		
 	private static final long serialVersionUID = 1L;
-	public FPIJ_App() {
+	public MainAppFrame() {
 		initComponents();
-		panel1.add(new AlunoViewImpl().getGui(),BorderLayout.CENTER);
 	}
 
+	public JPanel getMainPanel() {
+		return mainPanel;
+	}
+	
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		menuBar1 = new JMenuBar();
+		mainMenuBar = new JMenuBar();
 		menu1 = new JMenu();
-		menuItem3 = new JMenuItem();
+		cadastrarAlunoMenuItem = new JMenuItem();
 		menuItem10 = new JMenuItem();
 		menuItem15 = new JMenuItem();
 		menu4 = new JMenu();
@@ -52,134 +54,142 @@ public class FPIJ_App extends JFrame {
 		menuItem8 = new JMenuItem();
 		menu2 = new JMenu();
 		menuItem1 = new JMenuItem();
-		toolBar1 = new JToolBar();
-		button1 = new JButton();
-		panel1 = new JPanel();
-		alunoCadastrarPanel1 = new AlunoCadastrarPanel();
+		mainPanel = new JPanel();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon("C:\\Documents and Settings\\User\\Meus documentos\\[ADS-IV]\\AOO\\Trabalho Final\\icon-logo.png").getImage());
+		setName("this");
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 
-		//======== menuBar1 ========
+		//======== mainMenuBar ========
 		{
+			mainMenuBar.setName("mainMenuBar");
 
 			//======== menu1 ========
 			{
 				menu1.setText("Cadastrar");
+				menu1.setName("menu1");
 
-				//---- menuItem3 ----
-				menuItem3.setText("Aluno");
-				menu1.add(menuItem3);
+				//---- cadastrarAlunoMenuItem ----
+				cadastrarAlunoMenuItem.setText("Aluno");
+				cadastrarAlunoMenuItem.setName("cadastrarAlunoMenuItem");
+				menu1.add(cadastrarAlunoMenuItem);
 
 				//---- menuItem10 ----
 				menuItem10.setText("Professor");
+				menuItem10.setName("menuItem10");
 				menu1.add(menuItem10);
 
 				//---- menuItem15 ----
 				menuItem15.setText("Entidade");
+				menuItem15.setName("menuItem15");
 				menu1.add(menuItem15);
 			}
-			menuBar1.add(menu1);
+			mainMenuBar.add(menu1);
 
 			//======== menu4 ========
 			{
 				menu4.setText("Buscar");
+				menu4.setName("menu4");
 
 				//---- menuItem4 ----
 				menuItem4.setText("Aluno");
+				menuItem4.setName("menuItem4");
 				menu4.add(menuItem4);
 
 				//---- menuItem11 ----
 				menuItem11.setText("Professor");
+				menuItem11.setName("menuItem11");
 				menu4.add(menuItem11);
 
 				//---- menuItem16 ----
 				menuItem16.setText("Entidade");
+				menuItem16.setName("menuItem16");
 				menu4.add(menuItem16);
 			}
-			menuBar1.add(menu4);
+			mainMenuBar.add(menu4);
 
 			//======== menu5 ========
 			{
 				menu5.setText("Alterar");
+				menu5.setName("menu5");
 
 				//---- menuItem9 ----
 				menuItem9.setText("Aluno");
+				menuItem9.setName("menuItem9");
 				menu5.add(menuItem9);
 
 				//---- menuItem12 ----
 				menuItem12.setText("Professor");
+				menuItem12.setName("menuItem12");
 				menu5.add(menuItem12);
 
 				//---- menuItem17 ----
 				menuItem17.setText("Entidade");
+				menuItem17.setName("menuItem17");
 				menu5.add(menuItem17);
 			}
-			menuBar1.add(menu5);
+			mainMenuBar.add(menu5);
 
 			//======== menu3 ========
 			{
 				menu3.setText("Relat\u00f3rios");
+				menu3.setName("menu3");
 
 				//---- menuItem6 ----
 				menuItem6.setText("Aniversariantes do M\u00eas");
+				menuItem6.setName("menuItem6");
 				menu3.add(menuItem6);
 
 				//---- menuItem5 ----
 				menuItem5.setText("Relat\u00f3rio de Alunos");
+				menuItem5.setName("menuItem5");
 				menu3.add(menuItem5);
 
 				//---- menuItem7 ----
 				menuItem7.setText("Relat\u00f3rio de Professores");
+				menuItem7.setName("menuItem7");
 				menu3.add(menuItem7);
 
 				//---- menuItem8 ----
 				menuItem8.setText("Relat\u00f3rio de Institui\u00e7\u00f5es");
+				menuItem8.setName("menuItem8");
 				menu3.add(menuItem8);
 			}
-			menuBar1.add(menu3);
+			mainMenuBar.add(menu3);
 
 			//======== menu2 ========
 			{
 				menu2.setText("Ajuda");
+				menu2.setName("menu2");
 
 				//---- menuItem1 ----
 				menuItem1.setText("Sobre");
+				menuItem1.setName("menuItem1");
 				menu2.add(menuItem1);
 			}
-			menuBar1.add(menu2);
+			mainMenuBar.add(menu2);
 		}
-		setJMenuBar(menuBar1);
+		setJMenuBar(mainMenuBar);
 
-		//======== toolBar1 ========
+		//======== mainPanel ========
 		{
-			toolBar1.setFloatable(false);
-
-			//---- button1 ----
-			button1.setIcon(new ImageIcon("C:\\Documents and Settings\\User\\Meus documentos\\[ADS-IV]\\AOO\\Trabalho Final\\icon-logo-32.png"));
-			toolBar1.add(button1);
+			mainPanel.setName("mainPanel");
+			mainPanel.setLayout(new BorderLayout());
 		}
-		contentPane.add(toolBar1, BorderLayout.NORTH);
-
-		//======== panel1 ========
-		{
-			panel1.setLayout(new BorderLayout());
-			panel1.add(alunoCadastrarPanel1, BorderLayout.CENTER);
-		}
-		contentPane.add(panel1, BorderLayout.CENTER);
+		contentPane.add(mainPanel, BorderLayout.CENTER);
 		setSize(705, 575);
 		setLocationRelativeTo(null);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	private JMenuBar menuBar1;
+	private JMenuBar mainMenuBar;
 	private JMenu menu1;
-	private JMenuItem menuItem3;
+	private JMenuItem cadastrarAlunoMenuItem;
 	private JMenuItem menuItem10;
 	private JMenuItem menuItem15;
 	private JMenu menu4;
@@ -197,9 +207,6 @@ public class FPIJ_App extends JFrame {
 	private JMenuItem menuItem8;
 	private JMenu menu2;
 	private JMenuItem menuItem1;
-	private JToolBar toolBar1;
-	private JButton button1;
-	private JPanel panel1;
-	private AlunoCadastrarPanel alunoCadastrarPanel1;
+	private JPanel mainPanel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

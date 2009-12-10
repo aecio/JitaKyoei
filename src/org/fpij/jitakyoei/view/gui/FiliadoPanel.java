@@ -49,11 +49,11 @@ public class FiliadoPanel extends JPanel {
 		rg = new JTextField();
 		label4 = new JLabel();
 		orgaoExpedidor = new JTextField();
-		enderecoPanel = new EnderecoPanel();
 		label10 = new JLabel();
 		telefone1 = new JTextField();
 		label11 = new JLabel();
 		telefone2 = new JTextField();
+		enderecoPanel = new EnderecoPanel();
 		label13 = new JLabel();
 		scrollPane1 = new JScrollPane();
 		observacoes = new JTextArea();
@@ -62,8 +62,8 @@ public class FiliadoPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"$lcgap, pref, $lcgap, 109dlu, $lcgap, 69dlu, $lcgap, 99dlu:grow, $lcgap",
-			"4*($lgap, default), $lgap, fill:61dlu, $lgap, default, $lgap, 55dlu"));
+			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 69dlu, $lcgap, 99dlu:grow, $lcgap",
+			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:55dlu"));
 
 		//---- label1 ----
 		label1.setText("Nome:");
@@ -128,27 +128,27 @@ public class FiliadoPanel extends JPanel {
 		orgaoExpedidor.setName("orgaoExpedidor");
 		add(orgaoExpedidor, cc.xy(8, 8));
 
-		//---- enderecoPanel ----
-		enderecoPanel.setName("enderecoPanel");
-		add(enderecoPanel, cc.xywh(1, 10, 9, 1));
-
 		//---- label10 ----
 		label10.setText("Fone 1:");
 		label10.setName("label10");
-		add(label10, cc.xy(2, 12));
+		add(label10, cc.xy(2, 10));
 
 		//---- telefone1 ----
 		telefone1.setName("telefone1");
-		add(telefone1, cc.xy(4, 12));
+		add(telefone1, cc.xy(4, 10));
 
 		//---- label11 ----
 		label11.setText("Fone 2:");
 		label11.setName("label11");
-		add(label11, cc.xy(6, 12));
+		add(label11, cc.xy(6, 10));
 
 		//---- telefone2 ----
 		telefone2.setName("telefone2");
-		add(telefone2, cc.xy(8, 12));
+		add(telefone2, cc.xy(8, 10));
+
+		//---- enderecoPanel ----
+		enderecoPanel.setName("enderecoPanel");
+		add(enderecoPanel, cc.xywh(1, 12, 9, 1));
 
 		//---- label13 ----
 		label13.setText("Observa\u00e7\u00f5es:");
@@ -183,11 +183,11 @@ public class FiliadoPanel extends JPanel {
 	private JTextField rg;
 	private JLabel label4;
 	private JTextField orgaoExpedidor;
-	private EnderecoPanel enderecoPanel;
 	private JLabel label10;
 	private JTextField telefone1;
 	private JLabel label11;
 	private JTextField telefone2;
+	private EnderecoPanel enderecoPanel;
 	private JLabel label13;
 	private JScrollPane scrollPane1;
 	private JTextArea observacoes;

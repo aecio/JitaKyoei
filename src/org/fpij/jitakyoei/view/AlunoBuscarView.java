@@ -2,22 +2,27 @@ package org.fpij.jitakyoei.view;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import org.fpij.jitakyoei.controller.AlunoController;
 import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.view.forms.AlunoBuscarForm;
 import org.fpij.jitakyoei.view.forms.AlunoCadastrarForm;
+import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
 import org.fpij.jitakyoei.view.gui.AlunoCadastrarPanel;
 
-public class AlunoViewImpl implements AlunoView {
+public class AlunoBuscarView implements AlunoView {
 	AlunoController controller;
-	AlunoCadastrarPanel gui;
-	AlunoCadastrarForm form;
+	AlunoBuscarPanel gui;
+	AlunoBuscarForm form;
 	
-	public AlunoViewImpl() {
-		gui = new AlunoCadastrarPanel();
-		form = new AlunoCadastrarForm(gui);
+	public AlunoBuscarView(){
+		gui = new AlunoBuscarPanel();
+		form = new AlunoBuscarForm(gui);
 	}
-
-	public AlunoCadastrarPanel getGui(){
+	
+	@Override
+	public JPanel getGui() {
 		return gui;
 	}
 	
@@ -36,8 +41,9 @@ public class AlunoViewImpl implements AlunoView {
 	@Override
 	public void displayResult(List<Aluno> searchResult) {
 		// TODO Auto-generated method stub
-
 	}
+
+	
 
 	@Override
 	public void registerController(AlunoController c) {

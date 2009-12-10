@@ -20,9 +20,9 @@ public class BuscaCamposPanel extends JPanel {
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label2 = new JLabel();
-		textField1 = new JTextField();
+		registroFpij = new JTextField();
 		label1 = new JLabel();
-		textField2 = new JTextField();
+		nome = new JTextField();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -32,29 +32,29 @@ public class BuscaCamposPanel extends JPanel {
 			"default, $lgap, default"));
 
 		//---- label2 ----
-		label2.setText("Registro:");
+		label2.setText("Registro FPIJ:");
 		label2.setName("label2");
 		add(label2, cc.xy(1, 1));
 
-		//---- textField1 ----
-		textField1.setName("textField1");
-		add(textField1, cc.xy(3, 1));
+		//---- registroFpij ----
+		registroFpij.setName("registroFpij");
+		add(registroFpij, cc.xy(3, 1));
 
 		//---- label1 ----
 		label1.setText("Nome:");
 		label1.setName("label1");
 		add(label1, cc.xy(1, 3));
 
-		//---- textField2 ----
-		textField2.setName("textField2");
-		add(textField2, cc.xy(3, 3));
+		//---- nome ----
+		nome.setName("nome");
+		add(nome, cc.xy(3, 3));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel label2;
-	private JTextField textField1;
+	private JTextField registroFpij;
 	private JLabel label1;
-	private JTextField textField2;
+	private JTextField nome;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

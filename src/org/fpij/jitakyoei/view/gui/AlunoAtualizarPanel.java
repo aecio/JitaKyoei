@@ -6,11 +6,15 @@ package org.fpij.jitakyoei.view.gui;
 
 import java.awt.*;
 import javax.swing.*;
+
+import net.java.dev.genesis.annotation.ViewHandler;
+
 import com.jgoodies.forms.layout.*;
 
 /**
  * @author wansoul
  */
+@ViewHandler
 public class AlunoAtualizarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -18,13 +22,17 @@ public class AlunoAtualizarPanel extends JPanel {
 		initComponents();
 	}
 
+	public AlunoPanel getAlunoPanel() {
+		return alunoPanel;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
-		alunoPanel1 = new AlunoPanel();
+		alunoPanel = new AlunoPanel();
 		panel1 = new JPanel();
-		button1 = new JButton();
-		button2 = new JButton();
+		atualizar = new JButton();
+		cancelar = new JButton();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -39,9 +47,9 @@ public class AlunoAtualizarPanel extends JPanel {
 		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
 
-		//---- alunoPanel1 ----
-		alunoPanel1.setName("alunoPanel1");
-		add(alunoPanel1, cc.xy(1, 3));
+		//---- alunoPanel ----
+		alunoPanel.setName("alunoPanel");
+		add(alunoPanel, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
@@ -50,15 +58,15 @@ public class AlunoAtualizarPanel extends JPanel {
 				"48dlu, 2*($lcgap, default)",
 				"default"));
 
-			//---- button1 ----
-			button1.setText("Atualizar");
-			button1.setName("button1");
-			panel1.add(button1, cc.xy(3, 1));
+			//---- atualizar ----
+			atualizar.setText("Atualizar");
+			atualizar.setName("atualizar");
+			panel1.add(atualizar, cc.xy(3, 1));
 
-			//---- button2 ----
-			button2.setText("Cancelar");
-			button2.setName("button2");
-			panel1.add(button2, cc.xy(5, 1));
+			//---- cancelar ----
+			cancelar.setText("Cancelar");
+			cancelar.setName("cancelar");
+			panel1.add(cancelar, cc.xy(5, 1));
 		}
 		add(panel1, cc.xy(1, 5));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -66,9 +74,9 @@ public class AlunoAtualizarPanel extends JPanel {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel label1;
-	private AlunoPanel alunoPanel1;
+	private AlunoPanel alunoPanel;
 	private JPanel panel1;
-	private JButton button1;
-	private JButton button2;
+	private JButton atualizar;
+	private JButton cancelar;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

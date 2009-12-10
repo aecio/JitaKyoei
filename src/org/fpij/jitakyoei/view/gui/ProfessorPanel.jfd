@@ -31,7 +31,13 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>org.fpij.jitakyoei.view.gui.FiliadoPanel</string>
         <void property="name">
-         <string>filiadoPanel1</string>
+         <string>filiadoPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -57,7 +63,7 @@
          </void>
          <void method="setProperty">
           <string>$rowSpecs</string>
-          <string>default</string>
+          <string>49dlu</string>
          </void>
         </object>
         <void property="name">
@@ -68,7 +74,7 @@
           <string>javax.swing.JLabel</string>
           <void method="setProperty">
            <string>text</string>
-           <string>Entidade:</string>
+           <string>Entidades:</string>
           </void>
           <void property="name">
            <string>label1</string>
@@ -87,10 +93,21 @@
          </object>
         </void>
         <void method="add">
-         <object class="com.jformdesigner.model.FormComponent">
-          <string>javax.swing.JComboBox</string>
+         <object class="com.jformdesigner.model.FormContainer">
+          <string>javax.swing.JScrollPane</string>
+          <object class="com.jformdesigner.model.FormLayoutManager">
+           <class>javax.swing.JScrollPane</class>
+          </object>
           <void property="name">
-           <string>comboBox1</string>
+           <string>scrollPane1</string>
+          </void>
+          <void method="add">
+           <object class="com.jformdesigner.model.FormComponent">
+            <string>javax.swing.JTable</string>
+            <void property="name">
+             <string>entidades</string>
+            </void>
+           </object>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -131,7 +148,7 @@
       <void method="setProperty">
        <string>size</string>
        <object class="java.awt.Dimension">
-        <int>590</int>
+        <int>650</int>
         <int>420</int>
        </object>
       </void>

@@ -20,10 +20,7 @@ public class AlunoCadastrarForm {
 
 	@Action
 	public void cadastrar() {
-		System.out.println("AlunoCadastrarForm.cadastrar()");
 		Aluno aluno = alunoForm.pegarBean();
-		 
 		System.out.println(aluno.toString());
-		 
 	}
 }

@@ -18,14 +18,22 @@ public class ProfessorBuscaPanel extends JPanel {
 		initComponents();
 	}
 
+	public BuscaCamposPanel getBuscaCamposPanel() {
+		return buscaCamposPanel;
+	}
+
+	public JTable getProfessores() {
+		return professores;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
-		buscaCamposPanel1 = new BuscaCamposPanel();
+		buscaCamposPanel = new BuscaCamposPanel();
 		panel1 = new JPanel();
-		button1 = new JButton();
+		buscar = new JButton();
 		scrollPane1 = new JScrollPane();
-		table1 = new JTable();
+		professores = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -40,19 +48,19 @@ public class ProfessorBuscaPanel extends JPanel {
 		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
 
-		//---- buscaCamposPanel1 ----
-		buscaCamposPanel1.setName("buscaCamposPanel1");
-		add(buscaCamposPanel1, cc.xy(1, 3));
+		//---- buscaCamposPanel ----
+		buscaCamposPanel.setName("buscaCamposPanel");
+		add(buscaCamposPanel, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
-			//---- button1 ----
-			button1.setText("Buscar");
-			button1.setName("button1");
-			panel1.add(button1);
+			//---- buscar ----
+			buscar.setText("Buscar");
+			buscar.setName("buscar");
+			panel1.add(buscar);
 		}
 		add(panel1, cc.xy(1, 5));
 
@@ -60,9 +68,9 @@ public class ProfessorBuscaPanel extends JPanel {
 		{
 			scrollPane1.setName("scrollPane1");
 
-			//---- table1 ----
-			table1.setName("table1");
-			scrollPane1.setViewportView(table1);
+			//---- professores ----
+			professores.setName("professores");
+			scrollPane1.setViewportView(professores);
 		}
 		add(scrollPane1, cc.xy(1, 7));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -70,10 +78,10 @@ public class ProfessorBuscaPanel extends JPanel {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel label1;
-	private BuscaCamposPanel buscaCamposPanel1;
+	private BuscaCamposPanel buscaCamposPanel;
 	private JPanel panel1;
-	private JButton button1;
+	private JButton buscar;
 	private JScrollPane scrollPane1;
-	private JTable table1;
+	private JTable professores;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
