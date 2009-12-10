@@ -4,6 +4,20 @@ public class ProfessorEntidade {
 	Professor professor;
 	Entidade entidade;
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof ProfessorEntidade){
+			ProfessorEntidade other = (ProfessorEntidade) obj;
+			return 	professor.filiado.id == other.professor.filiado.id &&
+					entidade.nome.equals(other.entidade.nome);
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return professor.hashCode()+entidade.hashCode();
+	}
+	
 	public Professor getProfessor() {
 		return professor;
 	}

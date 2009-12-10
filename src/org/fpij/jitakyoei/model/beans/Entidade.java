@@ -3,9 +3,25 @@ package org.fpij.jitakyoei.model.beans;
 
 public class Entidade {
 	String nome;
+	String cnpj;
 	String telefone1;
 	String telefone2;
 	Endereco endereco;
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Entidade){
+			Entidade other = (Entidade) obj;
+			return nome == other.nome;
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		return 29 * hash +(this.nome != null ? this.nome.hashCode() : 0);
+	}
 
 	public String getNome() {
 		return nome;

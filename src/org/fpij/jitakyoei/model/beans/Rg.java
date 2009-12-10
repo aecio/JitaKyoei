@@ -4,6 +4,20 @@ public class Rg {
 	String numero;
 	String orgaoExpedidor;
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Rg){
+			Rg other = (Rg) obj;
+			return 	numero.equals(other.numero)&&
+					orgaoExpedidor.equals(other.orgaoExpedidor);
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return (int)(long) numero.hashCode()+orgaoExpedidor.hashCode();
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
