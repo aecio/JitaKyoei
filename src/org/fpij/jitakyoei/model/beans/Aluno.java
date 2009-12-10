@@ -5,6 +5,22 @@ public class Aluno {
 	Entidade entidade;
 	Professor professor;
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Aluno){
+			Aluno other = (Aluno) obj;
+			return 	filiado.id == other.filiado.id &&
+					filiado.nome.equals(other.filiado.nome);
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		return 29 * hash +(this.filiado.getId() != null ? (int)(long)this.filiado.getId() : 0);
+	}
+	
+	
 	public Filiado getFiliado() {
 		return filiado;
 	}

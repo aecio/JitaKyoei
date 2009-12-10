@@ -26,7 +26,21 @@ public class Filiado {
 						"\nCPF: "+cpf+
 						endereco.toString();
 		return filiado;
-		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Filiado){
+			Filiado other = (Filiado) obj;
+			return 	id == other.id &&
+					nome.equals(other.nome);
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return (int)(long) id;
 	}
 	
 	public Long getId() {

@@ -49,9 +49,15 @@ public class DAOImpl<E> {
 		return objects;
 	}
 	
-	public E get(E object) {
-		ObjectSet<E> result = db.queryByExample(object);
-		return result.next();
+	public E get(E object) throws Exception {
+		List<E> objectList = db.queryByExample(clazz);
+		int index = objectList.indexOf(object);
+		if(index < 0){
+			throw new Exception("Nenhum objeto encontrado!");
+		}
+		else{
+			return objectList.get(index);
+		}
 	}
 	
 	public List<E> search(E object) {

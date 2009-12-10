@@ -4,3 +4,5 @@ DER.mwb.bak
 DER.mwb.beforefix
 .~lock
 bin/org/fpij/jitakyoei/view/gui/*.jfd
+fpij.db
+test.db
