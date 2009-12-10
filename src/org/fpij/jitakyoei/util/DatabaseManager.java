@@ -11,13 +11,16 @@ public class DatabaseManager {
 	private static ExtObjectContainer db;
 
 	public static ExtObjectContainer getConnection() {
-		open();
-		return db;
+		return open();
 	}
 
-	public static void open() {
+	public static ExtObjectContainer open() {
+		if(db != null){
+			db.close();
+		}
 		ObjectContainer objectContainer = Db4o.openFile(ENVIROMENT);
 		db = objectContainer.ext();
+		return db;
 	}
 
 	public static void close() {
