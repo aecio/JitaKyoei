@@ -8,9 +8,11 @@ import javax.swing.*;
 import com.jgoodies.forms.layout.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class BuscaCamposPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public BuscaCamposPanel() {
 		initComponents();
 	}
@@ -24,18 +26,27 @@ public class BuscaCamposPanel extends JPanel {
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
+		setName("this");
 		setLayout(new FormLayout(
 			"40dlu, $lcgap, default:grow",
 			"default, $lgap, default"));
 
 		//---- label2 ----
 		label2.setText("Registro:");
+		label2.setName("label2");
 		add(label2, cc.xy(1, 1));
+
+		//---- textField1 ----
+		textField1.setName("textField1");
 		add(textField1, cc.xy(3, 1));
 
 		//---- label1 ----
 		label1.setText("Nome:");
+		label1.setName("label1");
 		add(label1, cc.xy(1, 3));
+
+		//---- textField2 ----
+		textField2.setName("textField2");
 		add(textField2, cc.xy(3, 3));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}

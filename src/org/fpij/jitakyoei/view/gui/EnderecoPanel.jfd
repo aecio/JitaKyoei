@@ -61,7 +61,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField1</string>
+         <string>rua</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -99,7 +99,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField8</string>
+         <string>numero</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -137,7 +137,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField2</string>
+         <string>bairro</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -179,7 +179,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField7</string>
+         <string>cidade</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -221,7 +221,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField5</string>
+         <string>estado</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -263,7 +263,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField6</string>
+         <string>cep</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -296,7 +296,7 @@
        <string>size</string>
        <object class="java.awt.Dimension">
         <int>705</int>
-        <int>140</int>
+        <int>130</int>
        </object>
       </void>
      </object>

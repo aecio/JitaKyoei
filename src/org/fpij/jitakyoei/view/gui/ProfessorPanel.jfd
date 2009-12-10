@@ -6,6 +6,10 @@
   </void>
   <void property="root">
    <object class="com.jformdesigner.model.FormRoot">
+    <void method="setProperty">
+     <string>$setComponentNames</string>
+     <boolean>true</boolean>
+    </void>
     <void method="add">
      <object class="com.jformdesigner.model.FormContainer">
       <string>javax.swing.JPanel</string>

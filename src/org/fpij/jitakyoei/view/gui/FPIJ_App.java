@@ -4,26 +4,31 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import com.jgoodies.forms.layout.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import javax.swing.WindowConstants;
+
+import org.fpij.jitakyoei.view.AlunoViewImpl;
 
 /**
  * @author wansoul
  */
 public class FPIJ_App extends JFrame {
-
+		
 	private static final long serialVersionUID = 1L;
 	public FPIJ_App() {
 		initComponents();
+		panel1.add(new AlunoViewImpl().getGui(),BorderLayout.CENTER);
 	}
-
-	private void thisWindowClosed(WindowEvent e) {
-		
-	}
-	
-	
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -50,19 +55,12 @@ public class FPIJ_App extends JFrame {
 		toolBar1 = new JToolBar();
 		button1 = new JButton();
 		panel1 = new JPanel();
-		alunoAtualizarPanel1 = new AlunoAtualizarPanel();
-		CellConstraints cc = new CellConstraints();
+		alunoCadastrarPanel1 = new AlunoCadastrarPanel();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon("C:\\Documents and Settings\\User\\Meus documentos\\[ADS-IV]\\AOO\\Trabalho Final\\icon-logo.png").getImage());
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosed(WindowEvent e) {
-				thisWindowClosed(e);
-			}
-		});
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 
@@ -169,10 +167,8 @@ public class FPIJ_App extends JFrame {
 
 		//======== panel1 ========
 		{
-			panel1.setLayout(new FormLayout(
-				"$lcgap, default:grow, $lcgap",
-				"default"));
-			panel1.add(alunoAtualizarPanel1, cc.xy(2, 1));
+			panel1.setLayout(new BorderLayout());
+			panel1.add(alunoCadastrarPanel1, BorderLayout.CENTER);
 		}
 		contentPane.add(panel1, BorderLayout.CENTER);
 		setSize(705, 575);
@@ -204,6 +200,6 @@ public class FPIJ_App extends JFrame {
 	private JToolBar toolBar1;
 	private JButton button1;
 	private JPanel panel1;
-	private AlunoAtualizarPanel alunoAtualizarPanel1;
+	private AlunoCadastrarPanel alunoCadastrarPanel1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

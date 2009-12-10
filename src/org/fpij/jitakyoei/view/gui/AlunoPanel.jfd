@@ -6,6 +6,10 @@
   </void>
   <void property="root">
    <object class="com.jformdesigner.model.FormRoot">
+    <void method="setProperty">
+     <string>$setComponentNames</string>
+     <boolean>true</boolean>
+    </void>
     <void method="add">
      <object class="com.jformdesigner.model.FormContainer">
       <string>javax.swing.JPanel</string>
@@ -20,14 +24,26 @@
         <string>default, linegap, default</string>
        </void>
       </object>
+      <void method="auxiliary">
+       <void method="setProperty">
+        <string>JavaCodeGenerator.variableGetter</string>
+        <boolean>true</boolean>
+       </void>
+      </void>
       <void property="name">
        <string>this</string>
       </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormComponent">
-        <string>org.fpij.jitakyoei.view.FiliadoPanel</string>
+        <string>org.fpij.jitakyoei.view.gui.FiliadoPanel</string>
         <void property="name">
-         <string>filiadoPanel1</string>
+         <string>filiadoPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -37,8 +53,8 @@
          <int>2</int>
         </void>
         <void method="setProperty">
-         <string>hAlign</string>
-         <object class="com.jgoodies.forms.layout.CellConstraints" field="FILL"/>
+         <string>gridY</string>
+         <int>1</int>
         </void>
        </object>
       </void>
@@ -57,7 +73,7 @@
          </void>
         </object>
         <void property="name">
-         <string>panel1</string>
+         <string>panel</string>
         </void>
         <void method="add">
          <object class="com.jformdesigner.model.FormComponent">
@@ -86,7 +102,7 @@
          <object class="com.jformdesigner.model.FormComponent">
           <string>javax.swing.JComboBox</string>
           <void property="name">
-           <string>comboBox1</string>
+           <string>professor</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -132,7 +148,7 @@
          <object class="com.jformdesigner.model.FormComponent">
           <string>javax.swing.JComboBox</string>
           <void property="name">
-           <string>comboBox2</string>
+           <string>entidade</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -182,7 +198,7 @@
        <string>size</string>
        <object class="java.awt.Dimension">
         <int>795</int>
-        <int>445</int>
+        <int>400</int>
        </object>
       </void>
      </object>

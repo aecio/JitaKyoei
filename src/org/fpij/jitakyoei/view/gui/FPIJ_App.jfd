@@ -35,14 +35,6 @@
         <string>C:\Documents and Settings\User\Meus documentos\[ADS-IV]\AOO\Trabalho Final\icon-logo.png</string>
        </object>
       </void>
-      <void method="addEvent">
-       <object class="com.jformdesigner.model.FormEvent">
-        <string>java.awt.event.WindowListener</string>
-        <string>windowClosed</string>
-        <string>thisWindowClosed</string>
-        <boolean>true</boolean>
-       </object>
-      </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormContainer">
         <string>javax.swing.JToolBar</string>
@@ -84,35 +76,23 @@
        <object class="com.jformdesigner.model.FormContainer">
         <string>javax.swing.JPanel</string>
         <object class="com.jformdesigner.model.FormLayoutManager">
-         <class>com.jgoodies.forms.layout.FormLayout</class>
-         <void method="setProperty">
-          <string>$columnSpecs</string>
-          <string>labelcompgap, default:grow, labelcompgap</string>
-         </void>
-         <void method="setProperty">
-          <string>$rowSpecs</string>
-          <string>default</string>
-         </void>
+         <class>java.awt.BorderLayout</class>
         </object>
         <void property="name">
          <string>panel1</string>
         </void>
         <void method="add">
          <object class="com.jformdesigner.model.FormComponent">
-          <string>org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel</string>
+          <string>org.fpij.jitakyoei.view.gui.AlunoCadastrarPanel</string>
           <void property="name">
-           <string>alunoAtualizarPanel1</string>
+           <string>alunoCadastrarPanel1</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
-          <class>com.jgoodies.forms.layout.CellConstraints</class>
+          <class>java.lang.String</class>
           <void method="setProperty">
-           <string>gridX</string>
-           <int>2</int>
-          </void>
-          <void method="setProperty">
-           <string>gridY</string>
-           <int>1</int>
+           <string>value</string>
+           <string>Center</string>
           </void>
          </object>
         </void>

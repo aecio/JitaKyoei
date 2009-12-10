@@ -30,6 +30,7 @@ public class ProfessorCadastrarPanel extends JPanel {
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
+		setName("this");
 		setLayout(new FormLayout(
 			"default",
 			"2*(default, $lgap), default"));
@@ -37,21 +38,28 @@ public class ProfessorCadastrarPanel extends JPanel {
 		//---- label1 ----
 		label1.setText("Cadastrar Professor");
 		label1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
+
+		//---- professorPanel1 ----
+		professorPanel1.setName("professorPanel1");
 		add(professorPanel1, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
+			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
 				"40dlu, 2*($lcgap, default)",
 				"default"));
 
 			//---- button1 ----
 			button1.setText("Cadastrar");
+			button1.setName("button1");
 			panel1.add(button1, cc.xy(3, 1));
 
 			//---- button2 ----
 			button2.setText("Cancelar");
+			button2.setName("button2");
 			panel1.add(button2, cc.xy(5, 1));
 		}
 		add(panel1, cc.xy(1, 5));

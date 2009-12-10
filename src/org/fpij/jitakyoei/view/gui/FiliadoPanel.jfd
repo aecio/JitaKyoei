@@ -6,6 +6,10 @@
   </void>
   <void property="root">
    <object class="com.jformdesigner.model.FormRoot">
+    <void method="setProperty">
+     <string>$setComponentNames</string>
+     <boolean>true</boolean>
+    </void>
     <void method="add">
      <object class="com.jformdesigner.model.FormContainer">
       <string>javax.swing.JPanel</string>
@@ -17,7 +21,7 @@
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
-        <string>linegap, default, linegap, default, linegap, default, linegap, fill:61dlu, linegap, default, linegap, 61dlu</string>
+        <string>linegap, default, linegap, default, linegap, default, linegap, fill:61dlu, linegap, default, linegap, 55dlu</string>
        </void>
       </object>
       <void property="name">
@@ -50,7 +54,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField1</string>
+         <string>nome</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -96,7 +100,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField2</string>
+         <string>cpf</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -138,7 +142,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField12</string>
+         <string>dataNascimento</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -180,7 +184,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField3</string>
+         <string>rg</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -222,7 +226,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField4</string>
+         <string>orgaoExpedidor</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -239,9 +243,15 @@
       </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormComponent">
-        <string>org.fpij.jitakyoei.view.EnderecoPanel</string>
+        <string>org.fpij.jitakyoei.view.gui.EnderecoPanel</string>
         <void property="name">
-         <string>enderecoPanel1</string>
+         <string>enderecoPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -283,7 +293,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField10</string>
+         <string>telefone1</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -325,7 +335,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField11</string>
+         <string>telefone2</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -380,7 +390,7 @@
            <boolean>true</boolean>
           </void>
           <void property="name">
-           <string>textArea1</string>
+           <string>observacoes</string>
           </void>
          </object>
         </void>
@@ -414,8 +424,8 @@
       <void method="setProperty">
        <string>size</string>
        <object class="java.awt.Dimension">
-        <int>655</int>
-        <int>325</int>
+        <int>675</int>
+        <int>300</int>
        </object>
       </void>
      </object>

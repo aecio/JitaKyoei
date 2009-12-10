@@ -27,6 +27,7 @@ public class AlunoBuscarPanel extends JPanel {
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
+		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
 			"3*(default, $lgap), default"));
@@ -34,21 +35,31 @@ public class AlunoBuscarPanel extends JPanel {
 		//---- label1 ----
 		label1.setText("Buscar Aluno");
 		label1.setFont(new Font("Dialog", Font.BOLD, 18));
+		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
+
+		//---- buscaCamposPanel1 ----
+		buscaCamposPanel1.setName("buscaCamposPanel1");
 		add(buscaCamposPanel1, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
+			panel1.setName("panel1");
 			panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
 			//---- button1 ----
 			button1.setText("Buscar");
+			button1.setName("button1");
 			panel1.add(button1);
 		}
 		add(panel1, cc.xy(1, 5));
 
 		//======== scrollPane1 ========
 		{
+			scrollPane1.setName("scrollPane1");
+
+			//---- table1 ----
+			table1.setName("table1");
 			scrollPane1.setViewportView(table1);
 		}
 		add(scrollPane1, cc.xy(1, 7));

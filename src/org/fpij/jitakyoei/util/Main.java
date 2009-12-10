@@ -1,20 +1,19 @@
 package org.fpij.jitakyoei.util;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.Locale;
 
-import javax.swing.UIManager;
+import net.java.dev.genesis.helpers.StartupHelper;
 
-import org.fpij.jitakyoei.view.gui.*;
-
-import com.pagosoft.plaf.PlafOptions;
+import org.fpij.jitakyoei.view.gui.FPIJ_App;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		//PlafOptions.setAsLookAndFeel();
+//		new StartupHelper().initialize();
+		
 		FPIJ_App app = new FPIJ_App();
+		
 		app.setVisible(true);
 	}
-
 }

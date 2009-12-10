@@ -26,20 +26,29 @@ public class ProfessorPanel extends JPanel {
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
+		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
 			"2*(default, $lgap), default"));
+
+		//---- filiadoPanel1 ----
+		filiadoPanel1.setName("filiadoPanel1");
 		add(filiadoPanel1, cc.xy(1, 1));
 
 		//======== panel1 ========
 		{
+			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
 				"42dlu, $lcgap, 134dlu:grow, $lcgap",
 				"default"));
 
 			//---- label1 ----
 			label1.setText("Entidade:");
+			label1.setName("label1");
 			panel1.add(label1, cc.xy(1, 1));
+
+			//---- comboBox1 ----
+			comboBox1.setName("comboBox1");
 			panel1.add(comboBox1, cc.xy(3, 1));
 		}
 		add(panel1, cc.xy(1, 3));

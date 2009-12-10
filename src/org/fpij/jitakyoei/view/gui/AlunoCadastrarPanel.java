@@ -6,28 +6,41 @@ package org.fpij.jitakyoei.view.gui;
 
 import java.awt.*;
 import javax.swing.*;
+
+import org.fpij.jitakyoei.view.forms.AlunoCadastrarForm;
+
+import net.java.dev.genesis.annotation.ViewHandler;
+import net.java.dev.genesis.ui.swing.SwingBinder;
+
 import com.jgoodies.forms.layout.*;
 
 /**
  * @author wansoul
  */
+@ViewHandler
 public class AlunoCadastrarPanel extends JPanel {
+	private SwingBinder binder;
 
 	private static final long serialVersionUID = 1L;
 	public AlunoCadastrarPanel() {
 		initComponents();
 	}
 
+	public AlunoPanel getAlunoPanel() {
+		return alunoPanel;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
-		filiadoPanel1 = new FiliadoPanel();
+		alunoPanel = new AlunoPanel();
 		panel1 = new JPanel();
-		button1 = new JButton();
-		button2 = new JButton();
+		cadastrar = new JButton();
+		cancelar = new JButton();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
+		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
 			"2*(default, $lgap), default"));
@@ -35,22 +48,29 @@ public class AlunoCadastrarPanel extends JPanel {
 		//---- label1 ----
 		label1.setText("Cadastro de Aluno:");
 		label1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
-		add(filiadoPanel1, cc.xy(1, 3));
+
+		//---- alunoPanel ----
+		alunoPanel.setName("alunoPanel");
+		add(alunoPanel, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
+			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
 				"46dlu, 2*($lcgap, default)",
 				"default"));
 
-			//---- button1 ----
-			button1.setText("Cadastrar");
-			panel1.add(button1, cc.xy(3, 1));
+			//---- cadastrar ----
+			cadastrar.setText("Cadastrar");
+			cadastrar.setName("cadastrar");
+			panel1.add(cadastrar, cc.xy(3, 1));
 
-			//---- button2 ----
-			button2.setText("Cancelar");
-			panel1.add(button2, cc.xy(5, 1));
+			//---- cancelar ----
+			cancelar.setText("Cancelar");
+			cancelar.setName("cancelar");
+			panel1.add(cancelar, cc.xy(5, 1));
 		}
 		add(panel1, cc.xy(1, 5));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -58,9 +78,9 @@ public class AlunoCadastrarPanel extends JPanel {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel label1;
-	private FiliadoPanel filiadoPanel1;
+	private AlunoPanel alunoPanel;
 	private JPanel panel1;
-	private JButton button1;
-	private JButton button2;
+	private JButton cadastrar;
+	private JButton cancelar;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

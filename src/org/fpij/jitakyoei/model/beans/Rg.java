@@ -4,6 +4,11 @@ public class Rg {
 	String numero;
 	String orgaoExpedidor;
 	
+	public Rg(String numero, String orgaoExpedidor) {
+		this.numero = numero;
+		this.orgaoExpedidor = orgaoExpedidor;
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
