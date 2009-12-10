@@ -20,7 +20,6 @@ import com.jgoodies.forms.layout.*;
  */
 @ViewHandler
 public class AlunoCadastrarPanel extends JPanel {
-	private SwingBinder binder;
 
 	private static final long serialVersionUID = 1L;
 	public AlunoCadastrarPanel() {

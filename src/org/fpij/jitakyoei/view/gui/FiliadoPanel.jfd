@@ -17,11 +17,11 @@
        <class>com.jgoodies.forms.layout.FormLayout</class>
        <void method="setProperty">
         <string>$columnSpecs</string>
-        <string>labelcompgap, pref, labelcompgap, 109dlu, labelcompgap, 69dlu, labelcompgap, 99dlu:grow, labelcompgap</string>
+        <string>labelcompgap, pref, labelcompgap, 109dlu:grow, labelcompgap, 69dlu, labelcompgap, 99dlu:grow, labelcompgap</string>
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
-        <string>linegap, default, linegap, default, linegap, default, linegap, default, linegap, fill:61dlu, linegap, default, linegap, 55dlu</string>
+        <string>linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, fill:61dlu, linegap, fill:55dlu</string>
        </void>
       </object>
       <void property="name">
@@ -327,31 +327,6 @@
       </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormComponent">
-        <string>org.fpij.jitakyoei.view.gui.EnderecoPanel</string>
-        <void property="name">
-         <string>enderecoPanel</string>
-        </void>
-        <void method="auxiliary">
-         <void method="setProperty">
-          <string>JavaCodeGenerator.variableGetter</string>
-          <boolean>true</boolean>
-         </void>
-        </void>
-       </object>
-       <object class="com.jformdesigner.model.FormLayoutConstraints">
-        <class>com.jgoodies.forms.layout.CellConstraints</class>
-        <void method="setProperty">
-         <string>gridY</string>
-         <int>10</int>
-        </void>
-        <void method="setProperty">
-         <string>gridWidth</string>
-         <int>9</int>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JLabel</string>
         <void method="setProperty">
          <string>text</string>
@@ -369,7 +344,7 @@
         </void>
         <void method="setProperty">
          <string>gridY</string>
-         <int>12</int>
+         <int>10</int>
         </void>
        </object>
       </void>
@@ -388,7 +363,7 @@
         </void>
         <void method="setProperty">
          <string>gridY</string>
-         <int>12</int>
+         <int>10</int>
         </void>
        </object>
       </void>
@@ -411,7 +386,7 @@
         </void>
         <void method="setProperty">
          <string>gridY</string>
-         <int>12</int>
+         <int>10</int>
         </void>
        </object>
       </void>
@@ -430,7 +405,32 @@
         </void>
         <void method="setProperty">
          <string>gridY</string>
+         <int>10</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>org.fpij.jitakyoei.view.gui.EnderecoPanel</string>
+        <void property="name">
+         <string>enderecoPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
+        </void>
+       </object>
+       <object class="com.jformdesigner.model.FormLayoutConstraints">
+        <class>com.jgoodies.forms.layout.CellConstraints</class>
+        <void method="setProperty">
+         <string>gridY</string>
          <int>12</int>
+        </void>
+        <void method="setProperty">
+         <string>gridWidth</string>
+         <int>9</int>
         </void>
        </object>
       </void>

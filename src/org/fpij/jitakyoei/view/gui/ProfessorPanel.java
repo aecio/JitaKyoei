@@ -17,12 +17,17 @@ public class ProfessorPanel extends JPanel {
 		initComponents();
 	}
 
+	public FiliadoPanel getFiliadoPanel() {
+		return filiadoPanel;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		filiadoPanel1 = new FiliadoPanel();
+		filiadoPanel = new FiliadoPanel();
 		panel1 = new JPanel();
 		label1 = new JLabel();
-		comboBox1 = new JComboBox();
+		scrollPane1 = new JScrollPane();
+		entidades = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -31,34 +36,41 @@ public class ProfessorPanel extends JPanel {
 			"default:grow",
 			"2*(default, $lgap), default"));
 
-		//---- filiadoPanel1 ----
-		filiadoPanel1.setName("filiadoPanel1");
-		add(filiadoPanel1, cc.xy(1, 1));
+		//---- filiadoPanel ----
+		filiadoPanel.setName("filiadoPanel");
+		add(filiadoPanel, cc.xy(1, 1));
 
 		//======== panel1 ========
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
 				"42dlu, $lcgap, 134dlu:grow, $lcgap",
-				"default"));
+				"49dlu"));
 
 			//---- label1 ----
-			label1.setText("Entidade:");
+			label1.setText("Entidades:");
 			label1.setName("label1");
 			panel1.add(label1, cc.xy(1, 1));
 
-			//---- comboBox1 ----
-			comboBox1.setName("comboBox1");
-			panel1.add(comboBox1, cc.xy(3, 1));
+			//======== scrollPane1 ========
+			{
+				scrollPane1.setName("scrollPane1");
+
+				//---- entidades ----
+				entidades.setName("entidades");
+				scrollPane1.setViewportView(entidades);
+			}
+			panel1.add(scrollPane1, cc.xy(3, 1));
 		}
 		add(panel1, cc.xy(1, 3));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	private FiliadoPanel filiadoPanel1;
+	private FiliadoPanel filiadoPanel;
 	private JPanel panel1;
 	private JLabel label1;
-	private JComboBox comboBox1;
+	private JScrollPane scrollPane1;
+	private JTable entidades;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

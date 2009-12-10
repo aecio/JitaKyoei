@@ -62,7 +62,13 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>org.fpij.jitakyoei.view.gui.BuscaCamposPanel</string>
         <void property="name">
-         <string>buscaCamposPanel1</string>
+         <string>buscaCamposPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -102,7 +108,7 @@
            <string>Buscar</string>
           </void>
           <void property="name">
-           <string>button1</string>
+           <string>buscar</string>
           </void>
          </object>
         </void>
@@ -132,7 +138,13 @@
          <object class="com.jformdesigner.model.FormComponent">
           <string>javax.swing.JTable</string>
           <void property="name">
-           <string>table1</string>
+           <string>professores</string>
+          </void>
+          <void method="auxiliary">
+           <void method="setProperty">
+            <string>JavaCodeGenerator.variableGetter</string>
+            <boolean>true</boolean>
+           </void>
           </void>
          </object>
         </void>

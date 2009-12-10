@@ -62,7 +62,13 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>org.fpij.jitakyoei.view.gui.ProfessorPanel</string>
         <void property="name">
-         <string>professorPanel1</string>
+         <string>professorPanel</string>
+        </void>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -102,7 +108,7 @@
            <string>Cadastrar</string>
           </void>
           <void property="name">
-           <string>button1</string>
+           <string>cadastrar</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -125,7 +131,7 @@
            <string>Cancelar</string>
           </void>
           <void property="name">
-           <string>button2</string>
+           <string>cancelar</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">

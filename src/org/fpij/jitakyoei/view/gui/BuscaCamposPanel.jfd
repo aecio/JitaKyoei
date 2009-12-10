@@ -32,7 +32,7 @@
         <string>javax.swing.JLabel</string>
         <void method="setProperty">
          <string>text</string>
-         <string>Registro:</string>
+         <string>Registro FPIJ:</string>
         </void>
         <void property="name">
          <string>label2</string>
@@ -46,7 +46,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField1</string>
+         <string>registroFpij</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -80,7 +80,7 @@
        <object class="com.jformdesigner.model.FormComponent">
         <string>javax.swing.JTextField</string>
         <void property="name">
-         <string>textField2</string>
+         <string>nome</string>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">

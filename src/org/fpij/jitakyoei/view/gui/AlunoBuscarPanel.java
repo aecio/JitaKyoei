@@ -6,6 +6,7 @@ package org.fpij.jitakyoei.view.gui;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.*;
 import com.jgoodies.forms.layout.*;
 
 /**
@@ -16,14 +17,22 @@ public class AlunoBuscarPanel extends JPanel {
 		initComponents();
 	}
 
+	public BuscaCamposPanel getBuscaCamposPanel() {
+		return buscaCamposPanel;
+	}
+
+	public JTable getAlunos() {
+		return alunos;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
-		buscaCamposPanel1 = new BuscaCamposPanel();
+		buscaCamposPanel = new BuscaCamposPanel();
 		panel1 = new JPanel();
-		button1 = new JButton();
+		buscar = new JButton();
 		scrollPane1 = new JScrollPane();
-		table1 = new JTable();
+		alunos = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -38,19 +47,19 @@ public class AlunoBuscarPanel extends JPanel {
 		label1.setName("label1");
 		add(label1, cc.xy(1, 1));
 
-		//---- buscaCamposPanel1 ----
-		buscaCamposPanel1.setName("buscaCamposPanel1");
-		add(buscaCamposPanel1, cc.xy(1, 3));
+		//---- buscaCamposPanel ----
+		buscaCamposPanel.setName("buscaCamposPanel");
+		add(buscaCamposPanel, cc.xy(1, 3));
 
 		//======== panel1 ========
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
-			//---- button1 ----
-			button1.setText("Buscar");
-			button1.setName("button1");
-			panel1.add(button1);
+			//---- buscar ----
+			buscar.setText("Buscar");
+			buscar.setName("buscar");
+			panel1.add(buscar);
 		}
 		add(panel1, cc.xy(1, 5));
 
@@ -58,9 +67,18 @@ public class AlunoBuscarPanel extends JPanel {
 		{
 			scrollPane1.setName("scrollPane1");
 
-			//---- table1 ----
-			table1.setName("table1");
-			scrollPane1.setViewportView(table1);
+			//---- alunos ----
+			alunos.setModel(new DefaultTableModel(
+				new Object[][] {
+					{null, null},
+					{null, null},
+				},
+				new String[] {
+					"RegistroFPIJ", "Nome"
+				}
+			));
+			alunos.setName("alunos");
+			scrollPane1.setViewportView(alunos);
 		}
 		add(scrollPane1, cc.xy(1, 7));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -68,10 +86,10 @@ public class AlunoBuscarPanel extends JPanel {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel label1;
-	private BuscaCamposPanel buscaCamposPanel1;
+	private BuscaCamposPanel buscaCamposPanel;
 	private JPanel panel1;
-	private JButton button1;
+	private JButton buscar;
 	private JScrollPane scrollPane1;
-	private JTable table1;
+	public JTable alunos;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
