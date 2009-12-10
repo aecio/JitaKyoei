@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/db4o-7.4.106.13438-java5.jar"/>
 	<classpathentry kind="lib" path="lib/forms-javadoc.zip"/>
 	<classpathentry kind="lib" path="lib/forms-src.zip"/>
@@ -30,25 +30,6 @@
 	<classpathentry kind="lib" path="lib/genesis/dist/genesis-client-swt-3.2.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/dist/genesis-client-thinlet-3.2.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/dist/genesis-server-3.2.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/ant-1.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/asm-1.5.4-snapshot.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/asm-attrs-1.5.4-snapshot.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/asm-util-1.5.4-snapshot.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/aspectwerkz-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/aspectwerkz-core-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/aspectwerkz-extensions-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/aspectwerkz-jdk14-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/aspectwerkz-jdk5-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/concurrent-1.3.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/dom4j-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/jarjar-0.3.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/jrexx-1.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/junit-3.8.1.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/junitperf.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/managementapi-jrockit81.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/piccolo-1.03.jar.java13"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/qdox-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/genesis/lib/aspectwerkz/trove-1.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/lib/script/bsf-2.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/lib/script/bsh-2.0b4.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/lib/script/commons-el-1.0.jar"/>
