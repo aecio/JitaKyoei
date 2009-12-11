@@ -16,6 +16,7 @@ public class Filiado {
 	Rg rg;
 	String cpf;
 	Date ultimaAnuidade;
+	String observacoes;
 	Set<Faixa> faixas;
 	
 	public String toString(){
@@ -120,5 +121,13 @@ public class Filiado {
 	}
 	public void setFaixas(Set<Faixa> faixas) {
 		this.faixas = faixas;
+	}
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 }

@@ -51,6 +51,7 @@ public class FiliadoForm {
 		f.setTelefone1(telefone1);
 		f.setTelefone2(telefone2);
 		f.setUltimaAnuidade(ultimaAnuidade);
+		f.setObservacoes(observacoes);
 		
 		return f;
 	}

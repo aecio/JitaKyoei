@@ -10,9 +10,11 @@ import javax.swing.table.*;
 import com.jgoodies.forms.layout.*;
 
 /**
- * @author Brainrain
+ * @author wansoul
  */
 public class AlunoBuscarPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public AlunoBuscarPanel() {
 		initComponents();
 	}

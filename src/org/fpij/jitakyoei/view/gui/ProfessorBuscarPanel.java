@@ -11,10 +11,10 @@ import com.jgoodies.forms.layout.*;
 /**
  * @author wansoul
  */
-public class ProfessorBuscaPanel extends JPanel {
+public class ProfessorBuscarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	public ProfessorBuscaPanel() {
+	public ProfessorBuscarPanel() {
 		initComponents();
 	}
 

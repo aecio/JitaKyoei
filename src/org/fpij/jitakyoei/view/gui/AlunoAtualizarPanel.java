@@ -38,7 +38,7 @@ public class AlunoAtualizarPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"default, $lcgap, default",
+			"default:grow, $lcgap, default",
 			"2*(default, $lgap), default"));
 
 		//---- label1 ----

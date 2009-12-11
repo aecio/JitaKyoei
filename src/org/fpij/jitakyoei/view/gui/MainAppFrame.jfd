@@ -41,9 +41,226 @@
       </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormContainer">
+        <string>javax.swing.JToolBar</string>
+        <object class="com.jformdesigner.model.FormLayoutManager">
+         <class>javax.swing.JToolBar</class>
+        </object>
+        <void method="setProperty">
+         <string>floatable</string>
+         <boolean>false</boolean>
+        </void>
+        <void property="name">
+         <string>mainToolBar</string>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/aluno_add.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Novo Aluno</string>
+          </void>
+          <void property="name">
+           <string>cadastrarAlunoIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/aluno_edit.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Editar Aluno</string>
+          </void>
+          <void property="name">
+           <string>alterarAlunoIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Buscar Aluno</string>
+          </void>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/aluno_search.png</string>
+           </object>
+          </void>
+          <void property="name">
+           <string>buscarAlunoIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JToolBar$Separator</string>
+          <void property="name">
+           <string>separator1</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/teacher_add.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Novo Professor</string>
+          </void>
+          <void property="name">
+           <string>cadastrarProfessorIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/teacher_edit.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Editar Professor</string>
+          </void>
+          <void property="name">
+           <string>alterarProfessorIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/teacher_search.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Buscar Professor</string>
+          </void>
+          <void property="name">
+           <string>buscarProfessorIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JToolBar$Separator</string>
+          <void property="name">
+           <string>separator2</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/entidade_add.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Nova Entidade</string>
+          </void>
+          <void property="name">
+           <string>cadastrarEntidadeIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/entidade_edit.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Editar Entidade</string>
+          </void>
+          <void property="name">
+           <string>alterarEntidadeIcon</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormComponent">
+          <string>javax.swing.JButton</string>
+          <void method="setProperty">
+           <string>icon</string>
+           <object class="com.jformdesigner.model.SwingIcon">
+            <int>0</int>
+            <string>/entidade_search.png</string>
+           </object>
+          </void>
+          <void method="setProperty">
+           <string>toolTipText</string>
+           <string>Buscar Entidade</string>
+          </void>
+          <void property="name">
+           <string>buscarEntidadeIcon</string>
+          </void>
+         </object>
+        </void>
+       </object>
+       <object class="com.jformdesigner.model.FormLayoutConstraints">
+        <class>java.lang.String</class>
+        <void method="setProperty">
+         <string>value</string>
+         <string>North</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormContainer">
         <string>javax.swing.JPanel</string>
         <object class="com.jformdesigner.model.FormLayoutManager">
          <class>java.awt.BorderLayout</class>
+         <void method="setProperty">
+          <string>hgap</string>
+          <int>5</int>
+         </void>
+         <void method="setProperty">
+          <string>vgap</string>
+          <int>5</int>
+         </void>
         </object>
         <void method="auxiliary">
          <void method="setProperty">
@@ -92,6 +309,13 @@
              <string>text</string>
              <string>Aluno</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/aluno_add-16.png</string>
+             </object>
+            </void>
             <void property="name">
              <string>cadastrarAlunoMenuItem</string>
             </void>
@@ -104,8 +328,15 @@
              <string>text</string>
              <string>Professor</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/teacher_add-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem10</string>
+             <string>cadastrarProfessorMenuItem</string>
             </void>
            </object>
           </void>
@@ -116,8 +347,15 @@
              <string>text</string>
              <string>Entidade</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/entidade_add-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem15</string>
+             <string>cadastrarEntidadeMenuItem</string>
             </void>
            </object>
           </void>
@@ -143,8 +381,15 @@
              <string>text</string>
              <string>Aluno</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/aluno_search-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem4</string>
+             <string>buscarAlunoMenuItem</string>
             </void>
            </object>
           </void>
@@ -155,8 +400,15 @@
              <string>text</string>
              <string>Professor</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/teacher_search-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem11</string>
+             <string>buscarProfessorMenuItem</string>
             </void>
            </object>
           </void>
@@ -167,8 +419,15 @@
              <string>text</string>
              <string>Entidade</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/entidade_search-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem16</string>
+             <string>buscarEntidadeMenuItem</string>
             </void>
            </object>
           </void>
@@ -194,8 +453,15 @@
              <string>text</string>
              <string>Aluno</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/aluno_edit-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem9</string>
+             <string>alterarAlunoMenuItem</string>
             </void>
            </object>
           </void>
@@ -206,8 +472,15 @@
              <string>text</string>
              <string>Professor</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/teacher_edit-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem12</string>
+             <string>alterarProfessorMenuItem</string>
             </void>
            </object>
           </void>
@@ -218,8 +491,15 @@
              <string>text</string>
              <string>Entidade</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/entidade_edit-16.png</string>
+             </object>
+            </void>
             <void property="name">
-             <string>menuItem17</string>
+             <string>alterarEntidadeMenuItem</string>
             </void>
            </object>
           </void>
@@ -245,6 +525,13 @@
              <string>text</string>
              <string>Aniversariantes do Mês</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/calendario.png</string>
+             </object>
+            </void>
             <void property="name">
              <string>menuItem6</string>
             </void>
@@ -256,6 +543,13 @@
             <void method="setProperty">
              <string>text</string>
              <string>Relatório de Alunos</string>
+            </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/relatorio-16.png</string>
+             </object>
             </void>
             <void property="name">
              <string>menuItem5</string>
@@ -269,6 +563,13 @@
              <string>text</string>
              <string>Relatório de Professores</string>
             </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/relatorio-16.png</string>
+             </object>
+            </void>
             <void property="name">
              <string>menuItem7</string>
             </void>
@@ -280,6 +581,13 @@
             <void method="setProperty">
              <string>text</string>
              <string>Relatório de Instituições</string>
+            </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/relatorio-16.png</string>
+             </object>
             </void>
             <void property="name">
              <string>menuItem8</string>
@@ -307,6 +615,13 @@
             <void method="setProperty">
              <string>text</string>
              <string>Sobre</string>
+            </void>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/info.png</string>
+             </object>
             </void>
             <void property="name">
              <string>menuItem1</string>

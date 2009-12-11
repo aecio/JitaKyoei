@@ -148,7 +148,7 @@
          <object class="com.jformdesigner.model.FormComponent">
           <string>javax.swing.JComboBox</string>
           <void property="name">
-           <string>entidade</string>
+           <string>entidades</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">

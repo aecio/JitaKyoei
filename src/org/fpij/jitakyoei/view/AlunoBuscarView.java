@@ -7,9 +7,7 @@ import javax.swing.JPanel;
 import org.fpij.jitakyoei.controller.AlunoController;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.forms.AlunoBuscarForm;
-import org.fpij.jitakyoei.view.forms.AlunoCadastrarForm;
 import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
-import org.fpij.jitakyoei.view.gui.AlunoCadastrarPanel;
 
 public class AlunoBuscarView implements AlunoView {
 	AlunoController controller;

@@ -17,8 +17,11 @@ public class MainAppView {
 	}
 	
 	public void display(AlunoView alunoView){
+		frame.getMainPanel().removeAll();
 		frame.getMainPanel().add(alunoView.getGui(), BorderLayout.CENTER);
-		frame.validate();
+//		frame.pack();
+//		frame.validate();
+		frame.setVisible(true);
 		System.out.println("MainAppView.display()");
 	}
 	

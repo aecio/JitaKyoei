@@ -40,7 +40,7 @@ public class AlunoPanel extends JPanel {
 		label1 = new JLabel();
 		professor = new JComboBox();
 		label2 = new JLabel();
-		entidade = new JComboBox();
+		entidades = new JComboBox();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -74,9 +74,9 @@ public class AlunoPanel extends JPanel {
 			label2.setName("label2");
 			panel.add(label2, cc.xy(1, 3));
 
-			//---- entidade ----
-			entidade.setName("entidade");
-			panel.add(entidade, cc.xywh(3, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
+			//---- entidades ----
+			entidades.setName("entidades");
+			panel.add(entidades, cc.xywh(3, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
 		}
 		add(panel, cc.xywh(2, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -88,6 +88,6 @@ public class AlunoPanel extends JPanel {
 	private JLabel label1;
 	private JComboBox professor;
 	private JLabel label2;
-	private JComboBox entidade;
+	private JComboBox entidades;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

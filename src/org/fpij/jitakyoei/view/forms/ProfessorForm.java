@@ -2,9 +2,7 @@ package org.fpij.jitakyoei.view.forms;
 
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
-import org.fpij.jitakyoei.view.gui.AlunoPanel;
 import org.fpij.jitakyoei.view.gui.ProfessorPanel;
-
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
@@ -15,7 +13,7 @@ public class ProfessorForm {
 	private SwingBinder binder;
 	
 	
-	public void ProfessorForm(ProfessorPanel professorPanel) {
+	public ProfessorForm(ProfessorPanel professorPanel) {
 		binder = new SwingBinder(professorPanel, this);
 		binder.bind();
 		filiadoForm = new FiliadoForm(professorPanel.getFiliadoPanel());

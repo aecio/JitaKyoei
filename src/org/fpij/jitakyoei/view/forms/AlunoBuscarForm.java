@@ -30,11 +30,14 @@ public class AlunoBuscarForm {
 	/*TODO
 	 * Criar DataProvider
 	 */
-	@DataProvider(objectField="alunos",widgetName="alunos")
-	public List<Aluno> buscar(){
-		return getAlunos();
+	
+	@Action
+	public void buscar(){
+		System.out.println("AlunoBuscarForm.buscar()");
+		System.out.println(camposBuscaForm.getNome());
+		System.out.println(camposBuscaForm.getRegistroFpij());
 	}
-
+	
 	public List<Aluno> getAlunos() {
 		return this.alunos;
 	}
