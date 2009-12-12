@@ -40,14 +40,15 @@ public class AlunoPanel extends JPanel {
 		label1 = new JLabel();
 		professor = new JComboBox();
 		label2 = new JLabel();
-		entidades = new JComboBox();
+		entidade = new JComboBox();
+		teste = new JButton();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
 			"$lcgap, default:grow",
-			"default, $lgap, default"));
+			"2*(default, $lgap), default"));
 
 		//---- filiadoPanel ----
 		filiadoPanel.setName("filiadoPanel");
@@ -74,11 +75,16 @@ public class AlunoPanel extends JPanel {
 			label2.setName("label2");
 			panel.add(label2, cc.xy(1, 3));
 
-			//---- entidades ----
-			entidades.setName("entidades");
-			panel.add(entidades, cc.xywh(3, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
+			//---- entidade ----
+			entidade.setName("entidade");
+			panel.add(entidade, cc.xywh(3, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
 		}
 		add(panel, cc.xywh(2, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
+
+		//---- teste ----
+		teste.setText("Teste");
+		teste.setName("teste");
+		add(teste, cc.xy(2, 5));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -88,6 +94,7 @@ public class AlunoPanel extends JPanel {
 	private JLabel label1;
 	private JComboBox professor;
 	private JLabel label2;
-	private JComboBox entidades;
+	private JComboBox entidade;
+	private JButton teste;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

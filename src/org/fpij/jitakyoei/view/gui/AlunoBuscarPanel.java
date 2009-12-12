@@ -23,8 +23,16 @@ public class AlunoBuscarPanel extends JPanel {
 		return buscaCamposPanel;
 	}
 
-	public JTable getAlunos() {
-		return alunos;
+	public JTable getAlunoTable() {
+		return alunoTable;
+	}
+
+	public JComboBox getAluno() {
+		return aluno;
+	}
+
+	public JScrollPane getScrollPane1() {
+		return scrollPane1;
 	}
 
 	private void initComponents() {
@@ -34,14 +42,15 @@ public class AlunoBuscarPanel extends JPanel {
 		panel1 = new JPanel();
 		buscar = new JButton();
 		scrollPane1 = new JScrollPane();
-		alunos = new JTable();
+		alunoTable = new JTable();
+		aluno = new JComboBox();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
-			"3*(default, $lgap), default"));
+			"3*(default, $lgap), top:default:grow, $lgap, default"));
 
 		//---- label1 ----
 		label1.setText("Buscar Aluno");
@@ -69,20 +78,30 @@ public class AlunoBuscarPanel extends JPanel {
 		{
 			scrollPane1.setName("scrollPane1");
 
-			//---- alunos ----
-			alunos.setModel(new DefaultTableModel(
+			//---- alunoTable ----
+			alunoTable.setModel(new DefaultTableModel(
 				new Object[][] {
-					{null, null},
-					{null, null},
 				},
 				new String[] {
-					"RegistroFPIJ", "Nome"
+					null
 				}
-			));
-			alunos.setName("alunos");
-			scrollPane1.setViewportView(alunos);
+			) {
+				boolean[] columnEditable = new boolean[] {
+					false
+				};
+				@Override
+				public boolean isCellEditable(int rowIndex, int columnIndex) {
+					return columnEditable[columnIndex];
+				}
+			});
+			alunoTable.setName("alunoTable");
+			scrollPane1.setViewportView(alunoTable);
 		}
 		add(scrollPane1, cc.xy(1, 7));
+
+		//---- aluno ----
+		aluno.setName("aluno");
+		add(aluno, cc.xy(1, 9));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -92,6 +111,7 @@ public class AlunoBuscarPanel extends JPanel {
 	private JPanel panel1;
 	private JButton buscar;
 	private JScrollPane scrollPane1;
-	public JTable alunos;
+	public JTable alunoTable;
+	private JComboBox aluno;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

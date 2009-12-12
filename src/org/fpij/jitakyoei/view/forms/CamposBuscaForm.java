@@ -1,7 +1,12 @@
 package org.fpij.jitakyoei.view.forms;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.gui.BuscaCamposPanel;
 
+import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
@@ -32,7 +37,4 @@ public class CamposBuscaForm {
 		this.registroFpij = registroFpij;
 	}
 	
-	
-	
-
 }

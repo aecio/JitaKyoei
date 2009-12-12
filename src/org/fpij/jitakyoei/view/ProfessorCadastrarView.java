@@ -16,13 +16,12 @@ public class ProfessorCadastrarView implements ProfessorView {
 	
 	public ProfessorCadastrarView(){
 		gui = new ProfessorCadastrarPanel();
-//		form = new ProfessorCadastrarForm(gui);
+		form = new ProfessorCadastrarForm(gui);
 	}
 
 	@Override
 	public JPanel getGui() {
-		// TODO Auto-generated method stub
-		return null;
+		return gui;
 	}
 	
 	@Override

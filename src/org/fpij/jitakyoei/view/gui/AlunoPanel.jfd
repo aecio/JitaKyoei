@@ -21,7 +21,7 @@
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
-        <string>default, linegap, default</string>
+        <string>default, linegap, default, linegap, default</string>
        </void>
       </object>
       <void method="auxiliary">
@@ -148,7 +148,7 @@
          <object class="com.jformdesigner.model.FormComponent">
           <string>javax.swing.JComboBox</string>
           <void property="name">
-           <string>entidades</string>
+           <string>entidade</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -184,6 +184,29 @@
         </void>
        </object>
       </void>
+      <void method="add">
+       <object class="com.jformdesigner.model.FormComponent">
+        <string>javax.swing.JButton</string>
+        <void method="setProperty">
+         <string>text</string>
+         <string>Teste</string>
+        </void>
+        <void property="name">
+         <string>teste</string>
+        </void>
+       </object>
+       <object class="com.jformdesigner.model.FormLayoutConstraints">
+        <class>com.jgoodies.forms.layout.CellConstraints</class>
+        <void method="setProperty">
+         <string>gridX</string>
+         <int>2</int>
+        </void>
+        <void method="setProperty">
+         <string>gridY</string>
+         <int>5</int>
+        </void>
+       </object>
+      </void>
      </object>
      <object class="com.jformdesigner.model.FormLayoutConstraints">
       <null/>
@@ -198,7 +221,7 @@
        <string>size</string>
        <object class="java.awt.Dimension">
         <int>795</int>
-        <int>400</int>
+        <int>430</int>
        </object>
       </void>
      </object>

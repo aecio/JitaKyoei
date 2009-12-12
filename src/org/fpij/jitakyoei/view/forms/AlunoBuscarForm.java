@@ -3,6 +3,8 @@ package org.fpij.jitakyoei.view.forms;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
+
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
@@ -16,36 +18,53 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 @Form
 public class AlunoBuscarForm {
 	private SwingBinder binder;
-	private CamposBuscaForm camposBuscaForm;
-	private List<Aluno> alunos;
+//	private CamposBuscaForm camposBuscaForm;
+	private Aluno aluno;
+	private AlunoBuscarPanel alunoBPanel;
 
 	
 	public AlunoBuscarForm(AlunoBuscarPanel alunoBuscarPanel) {
-		binder = new SwingBinder(alunoBuscarPanel, this);
-		binder.bind();
-		this.camposBuscaForm = new CamposBuscaForm(alunoBuscarPanel.getBuscaCamposPanel());
+		this.alunoBPanel = alunoBuscarPanel;
+		try{
+			binder = new SwingBinder(alunoBPanel, this);
+			binder.bind();
+		} catch(Exception e){
+			System.out.println("\nErrroooooo");
+			e.printStackTrace();
+			System.out.println("\nErrroooooo\n");
+		}
 		
+//		this.camposBuscaForm = new CamposBuscaForm(alunoBuscarPanel.getBuscaCamposPanel());
 	}
 
 	/*TODO
 	 * Criar DataProvider
 	 */
+	@DataProvider(objectField = "aluno")
+	public List populaAluno(){
+		List a = new ArrayList();
+		
+		a.add(new Aluno());
+		
+		return a;
+	}
 	
 	@Action
 	public void buscar(){
 		System.out.println("AlunoBuscarForm.buscar()");
-		System.out.println(camposBuscaForm.getNome());
-		System.out.println(camposBuscaForm.getRegistroFpij());
-	}
-	
-	public List<Aluno> getAlunos() {
-		return this.alunos;
+//		System.out.println(camposBuscaForm.getNome());
+//		System.out.println(camposBuscaForm.getRegistroFpij());
+		alunoBPanel.add(new JButton("Botão01"));
 	}
 
-	public void setAlunos(List<Aluno> alunos) {
-		Aluno a = new Aluno();
-		System.out.println("AlunoBuscarForm.setEndereco()");
-		this.alunos.add(a);
+	public Aluno getAluno() {
+		return aluno;
 	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	
+	
 
 }

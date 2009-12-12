@@ -1,8 +1,12 @@
 package org.fpij.jitakyoei.view.forms;
 
+import genesisTeste.Estado;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
@@ -17,29 +21,28 @@ import org.fpij.jitakyoei.view.gui.AlunoPanel;
 public class AlunoForm {
 	private FiliadoForm filiadoForm;
 	private Professor professor;
-	private Entidade entidade;
-	private SwingBinder binder;
-	List<Entidade> entidades;
-	
+//	private Entidade entidade;
+//	private SwingBinder binder;
 	
 	public AlunoForm(AlunoPanel alunoPanel) {
-		binder = new SwingBinder(alunoPanel, this);
+		SwingBinder binder = new SwingBinder(alunoPanel, this);
 		binder.bind();
 		filiadoForm = new FiliadoForm(alunoPanel.getFiliadoPanel());
 	}
 	
-
-	public Aluno pegarBean() {
-		System.out.println("AlunoForm.getBean()");		
-
-		Aluno a = new Aluno();
-		a.setFiliado(filiadoForm.pegarBean());
-		System.out.println("AlunoForm.getBean() depois do getBean filiadoForm");
-//		a.setProfessor(professor);
-		a.setEntidade(entidade);
-		return a;
+	@Action
+	public void teste(){
+		System.out.println(filiadoForm.getNome());
 	}
 	
+//	@DataProvider(widgetName="professor")
+//	public List populaProfessor() {
+//		List professores = new ArrayList();
+//		professores.add(new Professor());
+//		
+//		return professores;
+//	}
+
 	public Professor getProfessor() {
 		return professor;
 	}
@@ -48,29 +51,15 @@ public class AlunoForm {
 		this.professor = professor;
 	}
 	
-//	@DataProvider(objectField="entidades")
-//	public List<Entidade> entidades(){
-//		entidades = new ArrayList<Entidade>();
-//		Endereco end = new Endereco();
-//		end.setBairro("PP");
-//		end.setCep("64025");
-//		
-//		Entidade e = new Entidade();
-//		e.setEndereco(end);
-//		e.setNome("Nome");
-//		e.setTelefone1("3232");
-//		e.setTelefone2("323232");
-//		
-//		entidades.add(e);
-//		
-//		return entidades;
-//	}
-	
-	public Entidade getEntidade() {
-		return entidade;
+	public Aluno pegarBean() {
+		System.out.println("AlunoForm.getBean()");		
+
+		Aluno a = new Aluno();
+		a.setFiliado(filiadoForm.pegarBean());
+		System.out.println("AlunoForm.getBean() depois do getBean filiadoForm");
+		a.setProfessor(professor);
+//		a.setEntidade(entidade);
+		return a;
 	}
 	
-	public void setEntidade(Entidade entidade) {
-		this.entidade = entidade;
-	}
 }
