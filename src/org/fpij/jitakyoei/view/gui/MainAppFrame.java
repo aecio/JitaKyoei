@@ -269,7 +269,7 @@ public class MainAppFrame extends JFrame {
 			mainPanel.setLayout(new BorderLayout(5, 5));
 		}
 		contentPane.add(mainPanel, BorderLayout.CENTER);
-		setSize(705, 575);
+		setSize(825, 650);
 		setLocationRelativeTo(null);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}

@@ -21,7 +21,6 @@ public class AlunoBuscarForm {
 //	private CamposBuscaForm camposBuscaForm;
 	private Aluno aluno;
 	private AlunoBuscarPanel alunoBPanel;
-
 	
 	public AlunoBuscarForm(AlunoBuscarPanel alunoBuscarPanel) {
 		this.alunoBPanel = alunoBuscarPanel;
@@ -40,21 +39,18 @@ public class AlunoBuscarForm {
 	/*TODO
 	 * Criar DataProvider
 	 */
-	@DataProvider(objectField = "aluno")
-	public List populaAluno(){
-		List a = new ArrayList();
-		
-		a.add(new Aluno());
-		
-		return a;
-	}
+//	@DataProvider(objectField = "aluno")
+//	public List<Aluno> populaAluno(){
+//		List<Aluno> a = new ArrayList<Aluno>();
+//		
+//		a.add(new Aluno());
+//		
+//		return a;
+//	}
 	
 	@Action
 	public void buscar(){
 		System.out.println("AlunoBuscarForm.buscar()");
-//		System.out.println(camposBuscaForm.getNome());
-//		System.out.println(camposBuscaForm.getRegistroFpij());
-		alunoBPanel.add(new JButton("Botão01"));
 	}
 
 	public Aluno getAluno() {
@@ -63,8 +59,6 @@ public class AlunoBuscarForm {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
-	}
-	
-	
+	}	
 
 }

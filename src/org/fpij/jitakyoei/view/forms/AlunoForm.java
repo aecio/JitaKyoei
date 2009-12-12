@@ -1,7 +1,5 @@
 package org.fpij.jitakyoei.view.forms;
 
-import genesisTeste.Estado;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
