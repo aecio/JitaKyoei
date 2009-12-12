@@ -17,7 +17,7 @@ import org.junit.Test;
 
 public class AlunoDaoTest {
 	
-	private static DAOImpl<Aluno> alunoDao;
+	private static DAO<Aluno> alunoDao;
 	private static Aluno aluno;
 	private static Entidade entidade;
 	private static Endereco endereco;
@@ -66,7 +66,7 @@ public class AlunoDaoTest {
 		alunoDao = new DAOImpl<Aluno>(Aluno.class);
 	}
 
-	public void clearDatabase(){
+	public static void clearDatabase(){
 		List<Aluno> all = alunoDao.list();
 		for (Aluno each : all) {
 			alunoDao.delete(each);
@@ -147,6 +147,7 @@ public class AlunoDaoTest {
 	
 	@AfterClass
 	public static void closeDatabase(){
+		clearDatabase();
 		DatabaseManager.close();
 	}
 	
