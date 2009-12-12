@@ -11,7 +11,7 @@ public interface DAO<E> {
 	throws IllegalArgumentException;
 
 	public abstract List<E> list()
-	throws Exception;
+	throws IllegalArgumentException;
 
 	public abstract E get(E object)
 	throws IllegalArgumentException;

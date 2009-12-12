@@ -2,8 +2,6 @@ package org.fpij.jitakyoei.controller;
 
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.view.ProfessorView;
-import org.fpij.jitakyoei.view.forms.ProfessorCadastrarForm;
-import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
 
 public class ProfessorControllerImpl implements ProfessorController {
 //	private ProfessorModel model;
