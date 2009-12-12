@@ -1,19 +1,12 @@
 package org.fpij.jitakyoei.view.forms;
 
-import genesisTeste.Estado;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+//import genesisTeste.Estado;
 
 import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
+
 import org.fpij.jitakyoei.model.beans.Aluno;
-import org.fpij.jitakyoei.model.beans.Endereco;
-import org.fpij.jitakyoei.model.beans.Entidade;
-import org.fpij.jitakyoei.model.beans.Filiado;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.view.gui.AlunoPanel;
 

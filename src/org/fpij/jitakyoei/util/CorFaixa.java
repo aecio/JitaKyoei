@@ -1,4 +1,4 @@
-package org.fpij.jitakyoei.enums;
+package org.fpij.jitakyoei.util;
 
 public enum CorFaixa {
 	BRANCA,
