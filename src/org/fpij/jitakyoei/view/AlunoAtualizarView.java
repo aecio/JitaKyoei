@@ -3,29 +3,35 @@ package org.fpij.jitakyoei.view;
 import java.util.List;
 
 import javax.swing.JPanel;
-import org.fpij.jitakyoei.controller.AlunoController;
-import org.fpij.jitakyoei.model.beans.Aluno;
-import org.fpij.jitakyoei.view.forms.*;
-import org.fpij.jitakyoei.view.gui.*;
 
-public class AlunoAtualizarView implements AlunoView {
-	AlunoController controller;
+import net.java.dev.genesis.annotation.Action;
+import net.java.dev.genesis.annotation.Form;
+import net.java.dev.genesis.ui.swing.SwingBinder;
+
+import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.view.forms.AlunoForm;
+import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
+@Form
+public class AlunoAtualizarView implements AlunoView, ViewComponent{
 	AlunoAtualizarPanel gui;
-	AlunoAtualizarForm form;
+	private AlunoForm alunoForm;
 	
 	public AlunoAtualizarView(){
 		gui = new AlunoAtualizarPanel();
-		form = new AlunoAtualizarForm(gui);
+		new SwingBinder(gui , this).bind();		
+		alunoForm = new AlunoForm(gui.getAlunoPanel());
+		gui.setVisible(true);
+	}
+	
+	@Action
+	public void atualizar(){
+		Aluno aluno = alunoForm.pegarBean();
+		System.out.println(aluno.toString());		
 	}
 	
 	@Override
 	public JPanel getGui(){
 		return gui;
-	}
-	@Override
-	public void displayException(String message) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -36,12 +42,6 @@ public class AlunoAtualizarView implements AlunoView {
 
 	@Override
 	public void displayResult(List<Aluno> searchResult) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void registerController(AlunoController c) {
 		// TODO Auto-generated method stub
 
 	}

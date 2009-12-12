@@ -4,8 +4,10 @@
 
 package org.fpij.jitakyoei.view.gui;
 
+import java.awt.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.*;
 import javax.swing.*;
 
 import javax.swing.ImageIcon;
@@ -15,6 +17,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import javax.swing.border.*;
+import com.jgoodies.forms.layout.*;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 
@@ -32,7 +36,11 @@ public class MainAppFrame extends JFrame {
 	public JPanel getMainPanel() {
 		return mainPanel;
 	}
-	
+
+	private void thisWindowOpened(WindowEvent e) {
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		mainMenuBar = new JMenuBar();
@@ -65,13 +73,21 @@ public class MainAppFrame extends JFrame {
 		cadastrarEntidadeIcon = new JButton();
 		alterarEntidadeIcon = new JButton();
 		buscarEntidadeIcon = new JButton();
+		panel = new JPanel();
 		mainPanel = new JPanel();
+		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon("C:\\Documents and Settings\\User\\Meus documentos\\[ADS-IV]\\AOO\\Trabalho Final\\icon-logo.png").getImage());
 		setName("this");
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				thisWindowOpened(e);
+			}
+		});
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 
@@ -263,14 +279,22 @@ public class MainAppFrame extends JFrame {
 		}
 		contentPane.add(mainToolBar, BorderLayout.NORTH);
 
-		//======== mainPanel ========
+		//======== panel ========
 		{
-			mainPanel.setName("mainPanel");
-			mainPanel.setLayout(new BorderLayout(5, 5));
+			panel.setName("panel");
+			panel.setLayout(new FormLayout(
+				"$lcgap, default:grow, $lcgap",
+				"$lgap, top:default:grow, $lgap"));
+
+			//======== mainPanel ========
+			{
+				mainPanel.setName("mainPanel");
+				mainPanel.setLayout(new BorderLayout());
+			}
+			panel.add(mainPanel, cc.xy(2, 2));
 		}
-		contentPane.add(mainPanel, BorderLayout.CENTER);
+		contentPane.add(panel, BorderLayout.CENTER);
 		setSize(825, 650);
-		setLocationRelativeTo(null);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -305,6 +329,7 @@ public class MainAppFrame extends JFrame {
 	private JButton cadastrarEntidadeIcon;
 	private JButton alterarEntidadeIcon;
 	private JButton buscarEntidadeIcon;
+	private JPanel panel;
 	private JPanel mainPanel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

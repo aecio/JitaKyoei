@@ -63,25 +63,6 @@
           </void>
          </object>
         </void>
-        <void method="add">
-         <object class="com.jformdesigner.model.FormComponent">
-          <string>javax.swing.JButton</string>
-          <void method="setProperty">
-           <string>text</string>
-           <string>Buscar Filiado</string>
-          </void>
-          <void property="name">
-           <string>buscarFiliado</string>
-          </void>
-         </object>
-         <object class="com.jformdesigner.model.FormLayoutConstraints">
-          <class>java.lang.String</class>
-          <void method="setProperty">
-           <string>value</string>
-           <string>East</string>
-          </void>
-         </object>
-        </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
         <class>com.jgoodies.forms.layout.CellConstraints</class>
