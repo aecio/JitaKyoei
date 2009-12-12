@@ -5,6 +5,7 @@
 package org.fpij.jitakyoei.view.gui;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
 import com.jgoodies.forms.layout.*;
@@ -23,16 +24,16 @@ public class AlunoBuscarPanel extends JPanel {
 		return buscaCamposPanel;
 	}
 
-	public JTable getAlunoTable() {
-		return alunoTable;
-	}
-
-	public JComboBox getAluno() {
+	public JTable getAluno() {
 		return aluno;
 	}
 
 	public JScrollPane getScrollPane1() {
 		return scrollPane1;
+	}
+
+	private void alunoMouseClicked(MouseEvent e) {
+		System.out.println("AlunoBuscarPanel.alunoMouseClicked()");
 	}
 
 	private void initComponents() {
@@ -42,15 +43,14 @@ public class AlunoBuscarPanel extends JPanel {
 		panel1 = new JPanel();
 		buscar = new JButton();
 		scrollPane1 = new JScrollPane();
-		alunoTable = new JTable();
-		aluno = new JComboBox();
+		aluno = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
-			"3*(default, $lgap), top:default:grow, $lgap, default"));
+			"3*(default, $lgap), top:default:grow"));
 
 		//---- label1 ----
 		label1.setText("Buscar Aluno");
@@ -78,8 +78,8 @@ public class AlunoBuscarPanel extends JPanel {
 		{
 			scrollPane1.setName("scrollPane1");
 
-			//---- alunoTable ----
-			alunoTable.setModel(new DefaultTableModel(
+			//---- aluno ----
+			aluno.setModel(new DefaultTableModel(
 				new Object[][] {
 					{null},
 					{null},
@@ -91,14 +91,17 @@ public class AlunoBuscarPanel extends JPanel {
 					null
 				}
 			));
-			alunoTable.setName("alunoTable");
-			scrollPane1.setViewportView(alunoTable);
+			aluno.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			aluno.setName("aluno");
+			aluno.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					alunoMouseClicked(e);
+				}
+			});
+			scrollPane1.setViewportView(aluno);
 		}
 		add(scrollPane1, cc.xy(1, 7));
-
-		//---- aluno ----
-		aluno.setName("aluno");
-		add(aluno, cc.xy(1, 9));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -108,7 +111,6 @@ public class AlunoBuscarPanel extends JPanel {
 	private JPanel panel1;
 	private JButton buscar;
 	private JScrollPane scrollPane1;
-	public JTable alunoTable;
-	private JComboBox aluno;
+	public JTable aluno;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -21,7 +21,7 @@
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
-        <string>default, linegap, default, linegap, default, linegap, top:default:grow, linegap, default</string>
+        <string>default, linegap, default, linegap, default, linegap, top:default:grow</string>
        </void>
       </object>
       <void property="name">
@@ -205,8 +205,12 @@
             </object>
            </object>
           </void>
+          <void method="setProperty">
+           <string>selectionMode</string>
+           <int>0</int>
+          </void>
           <void property="name">
-           <string>alunoTable</string>
+           <string>aluno</string>
           </void>
           <void method="auxiliary">
            <void method="setProperty">
@@ -218,6 +222,14 @@
             <boolean>true</boolean>
            </void>
           </void>
+          <void method="addEvent">
+           <object class="com.jformdesigner.model.FormEvent">
+            <string>java.awt.event.MouseListener</string>
+            <string>mouseClicked</string>
+            <string>alunoMouseClicked</string>
+            <boolean>true</boolean>
+           </object>
+          </void>
          </object>
         </void>
        </object>
@@ -226,31 +238,6 @@
         <void method="setProperty">
          <string>gridY</string>
          <int>7</int>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="com.jformdesigner.model.FormComponent">
-        <string>javax.swing.JComboBox</string>
-        <void property="name">
-         <string>aluno</string>
-        </void>
-        <void method="auxiliary">
-         <void method="setProperty">
-          <string>JavaCodeGenerator.variableGetter</string>
-          <boolean>true</boolean>
-         </void>
-        </void>
-       </object>
-       <object class="com.jformdesigner.model.FormLayoutConstraints">
-        <class>com.jgoodies.forms.layout.CellConstraints</class>
-        <void method="setProperty">
-         <string>gridX</string>
-         <int>1</int>
-        </void>
-        <void method="setProperty">
-         <string>gridY</string>
-         <int>9</int>
         </void>
        </object>
       </void>
