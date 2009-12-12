@@ -9,7 +9,7 @@ import org.fpij.jitakyoei.util.DatabaseManager;
 import com.db4o.ObjectSet;
 import com.db4o.ext.ExtObjectContainer;
 
-public class DAOImpl<E> {
+public class DAOImpl<E> implements DAO<E> {
 
 	private ExtObjectContainer db = DatabaseManager.getConnection();
 	private Class<E> clazz;
@@ -18,7 +18,6 @@ public class DAOImpl<E> {
 	public DAOImpl(Class<E> clazz, Validator<E> validator){
 		this.validator = validator;
 		this.clazz = clazz;
-		db.configure().objectClass(this.getClass()).cascadeOnUpdate(true);
 	}
 	
 	public DAOImpl(Class<E> clazz){
@@ -26,6 +25,7 @@ public class DAOImpl<E> {
 		this.clazz = clazz;
 	}
 	
+	@Override
 	public boolean save(E object) {
 		if(validator.validate(object)){
 			db.store(object);
@@ -36,10 +36,12 @@ public class DAOImpl<E> {
 		}
 	}
 	
+	@Override
 	public void delete(E object) {
 		db.delete(object);
 	}
 	
+	@Override
 	public List<E> list() {
 		List<E> objects = new ArrayList<E>();
 		ObjectSet<E> result = db.queryByExample(clazz);
@@ -49,17 +51,19 @@ public class DAOImpl<E> {
 		return objects;
 	}
 	
-	public E get(E object) throws Exception {
+	@Override
+	public E get(E object) throws IllegalArgumentException{
 		List<E> objectList = db.queryByExample(clazz);
 		int index = objectList.indexOf(object);
 		if(index < 0){
-			throw new Exception("Nenhum objeto encontrado!");
+			throw new IllegalArgumentException("Nenhum objeto encontrado!");
 		}
 		else{
 			return objectList.get(index);
 		}
 	}
-	
+
+	@Override
 	public List<E> search(E object) {
 		List<E> objects = new ArrayList<E>();
 		ObjectSet<E> result = db.queryByExample(object);
