@@ -81,19 +81,16 @@ public class AlunoBuscarPanel extends JPanel {
 			//---- alunoTable ----
 			alunoTable.setModel(new DefaultTableModel(
 				new Object[][] {
+					{null},
+					{null},
+					{null},
+					{null},
+					{null},
 				},
 				new String[] {
 					null
 				}
-			) {
-				boolean[] columnEditable = new boolean[] {
-					false
-				};
-				@Override
-				public boolean isCellEditable(int rowIndex, int columnIndex) {
-					return columnEditable[columnIndex];
-				}
-			});
+			));
 			alunoTable.setName("alunoTable");
 			scrollPane1.setViewportView(alunoTable);
 		}

@@ -1,7 +1,5 @@
 package org.fpij.jitakyoei.view.forms;
 
-//import genesisTeste.Estado;
-
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
