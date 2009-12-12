@@ -28,7 +28,6 @@ public class ProfessorCadastrarPanel extends JPanel {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		panel2 = new JPanel();
 		label1 = new JLabel();
-		buscarFiliado = new JButton();
 		professorPanel = new ProfessorPanel();
 		panel1 = new JPanel();
 		cadastrar = new JButton();
@@ -51,11 +50,6 @@ public class ProfessorCadastrarPanel extends JPanel {
 			label1.setFont(new Font("Tahoma", Font.BOLD, 18));
 			label1.setName("label1");
 			panel2.add(label1, BorderLayout.WEST);
-
-			//---- buscarFiliado ----
-			buscarFiliado.setText("Buscar Filiado");
-			buscarFiliado.setName("buscarFiliado");
-			panel2.add(buscarFiliado, BorderLayout.EAST);
 		}
 		add(panel2, cc.xy(1, 1));
 
@@ -87,7 +81,6 @@ public class ProfessorCadastrarPanel extends JPanel {
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JPanel panel2;
 	private JLabel label1;
-	private JButton buscarFiliado;
 	private ProfessorPanel professorPanel;
 	private JPanel panel1;
 	private JButton cadastrar;

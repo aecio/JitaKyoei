@@ -4,19 +4,25 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import org.fpij.jitakyoei.controller.AlunoController;
-import org.fpij.jitakyoei.model.beans.Aluno;
-import org.fpij.jitakyoei.view.forms.AlunoBuscarForm;
-import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
+import net.java.dev.genesis.annotation.Action;
+import net.java.dev.genesis.annotation.Form;
+import net.java.dev.genesis.ui.swing.SwingBinder;
 
-public class AlunoBuscarView implements AlunoView {
-	AlunoController controller;
+import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
+@Form
+public class AlunoBuscarView implements AlunoView, ViewComponent {
 	AlunoBuscarPanel gui;
-	AlunoBuscarForm form;
 	
 	public AlunoBuscarView(){
 		gui = new AlunoBuscarPanel();
-		form = new AlunoBuscarForm(gui);
+		new SwingBinder(gui, this).bind();
+
+	}
+	
+	@Action
+	public void buscar(){
+		System.out.println("AlunoBuscarForm.buscar()");
 	}
 	
 	@Override
@@ -24,12 +30,6 @@ public class AlunoBuscarView implements AlunoView {
 		return gui;
 	}
 	
-	@Override
-	public void displayException(String message) {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void displayResult(Aluno aluno) {
 		// TODO Auto-generated method stub
@@ -39,14 +39,6 @@ public class AlunoBuscarView implements AlunoView {
 	@Override
 	public void displayResult(List<Aluno> searchResult) {
 		// TODO Auto-generated method stub
-	}
-
-	
-
-	@Override
-	public void registerController(AlunoController c) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

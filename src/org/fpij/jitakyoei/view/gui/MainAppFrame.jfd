@@ -18,7 +18,7 @@
       </object>
       <void method="setProperty">
        <string>$locationPolicy</string>
-       <int>1</int>
+       <int>2</int>
       </void>
       <void method="setProperty">
        <string>$sizePolicy</string>
@@ -37,6 +37,14 @@
        <object class="com.jformdesigner.model.SwingIcon">
         <int>1</int>
         <string>C:\Documents and Settings\User\Meus documentos\[ADS-IV]\AOO\Trabalho Final\icon-logo.png</string>
+       </object>
+      </void>
+      <void method="addEvent">
+       <object class="com.jformdesigner.model.FormEvent">
+        <string>java.awt.event.WindowListener</string>
+        <string>windowOpened</string>
+        <string>thisWindowOpened</string>
+        <boolean>true</boolean>
        </object>
       </void>
       <void method="add">
@@ -252,24 +260,46 @@
        <object class="com.jformdesigner.model.FormContainer">
         <string>javax.swing.JPanel</string>
         <object class="com.jformdesigner.model.FormLayoutManager">
-         <class>java.awt.BorderLayout</class>
+         <class>com.jgoodies.forms.layout.FormLayout</class>
          <void method="setProperty">
-          <string>hgap</string>
-          <int>5</int>
+          <string>$columnSpecs</string>
+          <string>labelcompgap, default:grow, labelcompgap</string>
          </void>
          <void method="setProperty">
-          <string>vgap</string>
-          <int>5</int>
+          <string>$rowSpecs</string>
+          <string>linegap, top:default:grow, linegap</string>
          </void>
         </object>
-        <void method="auxiliary">
-         <void method="setProperty">
-          <string>JavaCodeGenerator.variableGetter</string>
-          <boolean>true</boolean>
-         </void>
-        </void>
         <void property="name">
-         <string>mainPanel</string>
+         <string>panel</string>
+        </void>
+        <void method="add">
+         <object class="com.jformdesigner.model.FormContainer">
+          <string>javax.swing.JPanel</string>
+          <object class="com.jformdesigner.model.FormLayoutManager">
+           <class>java.awt.BorderLayout</class>
+          </object>
+          <void method="auxiliary">
+           <void method="setProperty">
+            <string>JavaCodeGenerator.variableGetter</string>
+            <boolean>true</boolean>
+           </void>
+          </void>
+          <void property="name">
+           <string>mainPanel</string>
+          </void>
+         </object>
+         <object class="com.jformdesigner.model.FormLayoutConstraints">
+          <class>com.jgoodies.forms.layout.CellConstraints</class>
+          <void method="setProperty">
+           <string>gridX</string>
+           <int>2</int>
+          </void>
+          <void method="setProperty">
+           <string>gridY</string>
+           <int>2</int>
+          </void>
+         </object>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">

@@ -6,7 +6,7 @@ import com.pagosoft.plaf.PlafOptions;
 public class Main {
 	
 	public static void main(String[] args) {
-		PlafOptions.setAsLookAndFeel();
+//		PlafOptions.setAsLookAndFeel();
 		new MainAppView();
 	}
 }

@@ -4,16 +4,16 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Font;
 
-import org.fpij.jitakyoei.view.forms.AlunoCadastrarForm;
-import org.fpij.jitakyoei.view.forms.AlunoForm;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import net.java.dev.genesis.annotation.ViewHandler;
-import net.java.dev.genesis.ui.swing.SwingBinder;
 
-import com.jgoodies.forms.layout.*;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
@@ -59,7 +59,7 @@ public class AlunoCadastrarPanel extends JPanel {
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
-				"46dlu, 2*($lcgap, default)",
+				"42dlu, 2*($lcgap, default)",
 				"default"));
 
 			//---- cadastrar ----

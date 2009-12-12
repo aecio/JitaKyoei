@@ -120,7 +120,7 @@ public class FiliadoPanel extends JPanel {
 		add(rg, cc.xy(4, 8));
 
 		//---- label4 ----
-		label4.setText("\u00d3rg\u00e3o Exp.:");
+		label4.setText("\u00d3rg\u00e3o Expedidor:");
 		label4.setName("label4");
 		add(label4, cc.xy(6, 8));
 

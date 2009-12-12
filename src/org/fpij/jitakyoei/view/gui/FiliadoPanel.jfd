@@ -288,7 +288,7 @@
         <string>javax.swing.JLabel</string>
         <void method="setProperty">
          <string>text</string>
-         <string>Órgão Exp.:</string>
+         <string>Órgão Expedidor:</string>
         </void>
         <void property="name">
          <string>label4</string>

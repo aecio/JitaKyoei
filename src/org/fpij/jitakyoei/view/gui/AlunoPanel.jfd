@@ -17,11 +17,11 @@
        <class>com.jgoodies.forms.layout.FormLayout</class>
        <void method="setProperty">
         <string>$columnSpecs</string>
-        <string>labelcompgap, default:grow</string>
+        <string>default:grow</string>
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
-        <string>default, linegap, default, linegap, default</string>
+        <string>default, linegap, default</string>
        </void>
       </object>
       <void method="auxiliary">
@@ -48,10 +48,6 @@
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
         <class>com.jgoodies.forms.layout.CellConstraints</class>
-        <void method="setProperty">
-         <string>gridX</string>
-         <int>2</int>
-        </void>
         <void method="setProperty">
          <string>gridY</string>
          <int>1</int>
@@ -171,39 +167,12 @@
        <object class="com.jformdesigner.model.FormLayoutConstraints">
         <class>com.jgoodies.forms.layout.CellConstraints</class>
         <void method="setProperty">
-         <string>gridX</string>
-         <int>2</int>
-        </void>
-        <void method="setProperty">
          <string>gridY</string>
          <int>3</int>
         </void>
         <void method="setProperty">
          <string>hAlign</string>
          <object class="com.jgoodies.forms.layout.CellConstraints" field="FILL"/>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="com.jformdesigner.model.FormComponent">
-        <string>javax.swing.JButton</string>
-        <void method="setProperty">
-         <string>text</string>
-         <string>Teste</string>
-        </void>
-        <void property="name">
-         <string>teste</string>
-        </void>
-       </object>
-       <object class="com.jformdesigner.model.FormLayoutConstraints">
-        <class>com.jgoodies.forms.layout.CellConstraints</class>
-        <void method="setProperty">
-         <string>gridX</string>
-         <int>2</int>
-        </void>
-        <void method="setProperty">
-         <string>gridY</string>
-         <int>5</int>
         </void>
        </object>
       </void>

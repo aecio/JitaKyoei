@@ -1,6 +1,7 @@
 package org.fpij.jitakyoei.view;
 
 import java.awt.BorderLayout;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
@@ -19,25 +20,31 @@ public class MainAppView {
 		frame.setVisible(true);
 	}
 	
-	public void displayFrame(AlunoView alunoView, String titulo){
-		JFrame jf = new JFrame(titulo);
-		jf.getContentPane().add(alunoView.getGui());
-		jf.setSize(600, 350);
-		jf.setAlwaysOnTop(true);
-		jf.setVisible(true);
-		jf.setLocationRelativeTo(frame);
+	public void handleModelChange(){
+		
 	}
 	
-	public void displayPanel(AlunoView alunoView){
+	public void displayFrame(ViewComponent alunoView, String titulo){
+		JFrame f = new JFrame(titulo);
+		f.getContentPane().add(alunoView.getGui());
+		f.setSize(600, 350);
+		f.setLocationRelativeTo(frame);
+		f.setAlwaysOnTop(true);
+		f.setVisible(true);
+	}
+	
+	public void displayPanel(ViewComponent viewComponent){
 		frame.getMainPanel().removeAll();
-		frame.getMainPanel().add(alunoView.getGui(), BorderLayout.CENTER);
+		frame.getMainPanel().add(viewComponent.getGui(), BorderLayout.CENTER);
+		frame.repaint();
 		frame.setVisible(true);
+		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
 
 //	Ações de Aluno
 	@Action
-	public void cadastrarAlunoMenuItem(){
+	private void cadastrarAlunoMenuItem(){
 		displayPanel(new AlunoCadastrarView());
 	}
 	
@@ -71,6 +78,7 @@ public class MainAppView {
 	@Action
 	public void cadastrarProfessorMenuItem(){
 		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
+		displayPanel(new ProfessorCadastrarView());
 	}
 	@Action
 	public void cadastrarProfessorIcon(){

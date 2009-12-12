@@ -1,22 +1,29 @@
 package org.fpij.jitakyoei.view;
 
 import java.util.List;
+
 import javax.swing.JPanel;
-import org.fpij.jitakyoei.controller.AlunoController;
-import org.fpij.jitakyoei.controller.ProfessorController;
+
+import net.java.dev.genesis.annotation.Action;
+import net.java.dev.genesis.ui.swing.SwingBinder;
+
 import org.fpij.jitakyoei.model.beans.Professor;
-import org.fpij.jitakyoei.view.forms.ProfessorCadastrarForm;
+import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
 
-public class ProfessorCadastrarView implements ProfessorView {
-	
-	ProfessorController controller;
+public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	ProfessorCadastrarPanel gui;
-	ProfessorCadastrarForm form;
+	private ProfessorForm professorForm;
 	
 	public ProfessorCadastrarView(){
 		gui = new ProfessorCadastrarPanel();
-		form = new ProfessorCadastrarForm(gui);
+		new SwingBinder(gui, this).bind();
+	}
+	
+	@Action
+	public void cadastrar() {
+		Professor professor = professorForm.pegarBean();
+		System.out.println(professor.toString());
 	}
 
 	@Override
@@ -38,12 +45,6 @@ public class ProfessorCadastrarView implements ProfessorView {
 
 	@Override
 	public void displayResult(List<Professor> searchResult) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void registerController(AlunoController c) {
 		// TODO Auto-generated method stub
 
 	}
