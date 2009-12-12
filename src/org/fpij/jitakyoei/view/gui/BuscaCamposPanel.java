@@ -28,7 +28,7 @@ public class BuscaCamposPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"40dlu, $lcgap, default:grow",
+			"48dlu, $lcgap, default:grow",
 			"default, $lgap, default"));
 
 		//---- label2 ----

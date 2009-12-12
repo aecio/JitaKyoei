@@ -17,7 +17,7 @@
        <class>com.jgoodies.forms.layout.FormLayout</class>
        <void method="setProperty">
         <string>$columnSpecs</string>
-        <string>40dlu, labelcompgap, default:grow</string>
+        <string>48dlu, labelcompgap, default:grow</string>
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
@@ -108,7 +108,7 @@
       <void method="setProperty">
        <string>size</string>
        <object class="java.awt.Dimension">
-        <int>370</int>
+        <int>455</int>
         <int>115</int>
        </object>
       </void>
