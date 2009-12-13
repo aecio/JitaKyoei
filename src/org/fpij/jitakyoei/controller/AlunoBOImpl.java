@@ -21,6 +21,7 @@ public class AlunoBOImpl implements AlunoBO {
 
 	@Override
 	public void createAluno(Aluno aluno) throws Exception {
+		System.out.println("AlunoBOImpl.createAluno()");
 		try {
 			dao.save(aluno);
 			fireModelChangeEvent(aluno);

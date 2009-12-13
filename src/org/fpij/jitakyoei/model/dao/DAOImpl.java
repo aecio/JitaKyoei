@@ -27,6 +27,7 @@ public class DAOImpl<E> implements DAO<E> {
 	
 	@Override
 	public boolean save(E object) {
+		System.out.println("DAOImpl.save()");
 		if(validator.validate(object)){
 			db.store(object);
 			return true;

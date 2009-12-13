@@ -3,15 +3,18 @@ package org.fpij.jitakyoei.util;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import org.fpij.jitakyoei.facade.AppFacade;
+import org.fpij.jitakyoei.facade.AppFacadeImpl;
+import org.fpij.jitakyoei.view.AppView;
 import org.fpij.jitakyoei.view.MainAppView;
 
 public class Main {
 	
 	public static void main(String[] args) {
+//		new StartupHelper().initialize();
 //		PlafOptions.setAsLookAndFeel();
 		try {
 		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-		    	System.out.println(info.getName());
 		        if ("Nimbus".equals(info.getName())) {
 		            UIManager.setLookAndFeel(info.getClassName());
 		            break;
@@ -20,6 +23,8 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		new MainAppView();
+		AppView view = new MainAppView();
+		AppFacade facade = new AppFacadeImpl(view);
+		view.registerFacade(facade);
 	}
 }

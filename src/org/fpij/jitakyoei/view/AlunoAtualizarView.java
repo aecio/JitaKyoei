@@ -8,6 +8,7 @@ import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
+import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.forms.AlunoForm;
 import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
@@ -15,6 +16,7 @@ import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
 public class AlunoAtualizarView implements AlunoView, ViewComponent{
 	AlunoAtualizarPanel gui;
 	private AlunoForm alunoForm;
+	private AppFacade facade;
 	
 	public AlunoAtualizarView(){
 		gui = new AlunoAtualizarPanel();
@@ -45,5 +47,9 @@ public class AlunoAtualizarView implements AlunoView, ViewComponent{
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	@Override
+	public void registerFacade(AppFacade fac) {
+		this.facade = fac;		
+	}
 }

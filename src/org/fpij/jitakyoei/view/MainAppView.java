@@ -3,16 +3,19 @@ package org.fpij.jitakyoei.view;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
+import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
 @Form
-public class MainAppView {
+public class MainAppView implements AppView {
 	MainAppFrame frame;
+	private AppFacade facade;
 	
 	public MainAppView() {
 		frame = new MainAppFrame();
@@ -20,11 +23,16 @@ public class MainAppView {
 		frame.setVisible(true);
 	}
 	
-	public void handleModelChange(){
-		
+	@Override
+	public void handleModelChange(Object obj){
+		//Atualizar os panels
 	}
 	
-	public void displayFrame(ViewComponent alunoView, String titulo){
+	public void displayException(Exception e){
+		JOptionPane.showMessageDialog(frame, e.getMessage());
+	}
+	
+	private void displayFrame(ViewComponent alunoView, String titulo){
 		JFrame f = new JFrame(titulo);
 		f.getContentPane().add(alunoView.getGui());
 		f.setSize(600, 350);
@@ -33,7 +41,7 @@ public class MainAppView {
 		f.setVisible(true);
 	}
 	
-	public void displayPanel(ViewComponent viewComponent){
+	private void displayPanel(ViewComponent viewComponent){
 		frame.getMainPanel().removeAll();
 		frame.getMainPanel().add(viewComponent.getGui(), BorderLayout.CENTER);
 		frame.repaint();
@@ -42,18 +50,20 @@ public class MainAppView {
 		System.out.println("MainAppView.display()");
 	}
 	
-	public void displayTabPanel(ViewComponent viewComponent, String titulo){
+	private void displayTabPanel(ViewComponent viewComponent, String titulo){
+		viewComponent.registerFacade(this.facade);
 		frame.getMainPanel().removeAll();
-		frame.getTabbedPane().addTab(" "+titulo, new CloseTabIcon(), viewComponent.getGui(), titulo);
+		frame.getTabbedPane().addTab(" "+titulo+"  ", new CloseTabIcon(), viewComponent.getGui(), titulo);
+		frame.getTabbedPane().setSelectedComponent(viewComponent.getGui());
 		frame.repaint();
 		frame.setVisible(true);
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
 
-//	Ações de Aluno
+//	AÃ§Ãµes de Aluno
 	@Action
-	private void cadastrarAlunoMenuItem(){
+	public void cadastrarAlunoMenuItem(){
 		displayTabPanel(new AlunoCadastrarView(), "Cadastrar Aluno");
 	}
 	
@@ -83,7 +93,7 @@ public class MainAppView {
 		buscarAlunoMenuItem();
 	}
 	
-//	Ações de Professor
+//	AÃ§Ãµes de Professor
 	@Action
 	public void cadastrarProfessorMenuItem(){
 		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
@@ -111,7 +121,7 @@ public class MainAppView {
 	public void buscarProfessorIcon(){
 		buscarProfessorMenuItem();
 	}
-//	Ações de Entidade
+//	AÃ§Ãµes de Entidade
 	@Action
 	public void cadastrarEntidadeMenuItem(){
 		System.out.println("MainAppForm.cadastrarEntidadeMenuItem()");
@@ -137,5 +147,10 @@ public class MainAppView {
 	@Action
 	public void buscarEntidadeIcon(){
 		buscarEntidadeMenuItem();
+	}
+
+	@Override
+	public void registerFacade(AppFacade facade) {
+		this.facade = facade;
 	}
 }

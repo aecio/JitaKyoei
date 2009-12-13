@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
+import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
@@ -14,6 +15,7 @@ import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
 public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	ProfessorCadastrarPanel gui;
 	private ProfessorForm professorForm;
+	private AppFacade facade;
 	
 	public ProfessorCadastrarView(){
 		gui = new ProfessorCadastrarPanel();
@@ -22,6 +24,10 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	
 	@Action
 	public void cadastrar() {
+		/**
+		 * facade...
+		 */
+		
 		Professor professor = professorForm.pegarBean();
 		System.out.println(professor.toString());
 	}
@@ -47,6 +53,11 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	public void displayResult(List<Professor> searchResult) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void registerFacade(AppFacade fac) {
+		this.facade = fac;
 	}
 
 }
