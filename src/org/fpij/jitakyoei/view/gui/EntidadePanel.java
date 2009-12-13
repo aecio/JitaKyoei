@@ -4,11 +4,14 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 
-import com.jgoodies.forms.layout.*;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul

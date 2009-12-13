@@ -55,8 +55,8 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 		p.setFiliado(filiado);
 		aluno.setProfessor(p);
 		aluno.setFiliado(filiado);
-		List<Aluno> aList = new ArrayList<Aluno>();//facade.searchAluno(aluno);
-		aList.add(aluno);
+		List<Aluno> aList = facade.searchAluno(aluno);//new ArrayList<Aluno>();
+//		aList.add(aluno);
 		System.out.println("antes de Object[][] data = new Object[aList.");
 		Object[][] data = new Object[aList.size()][3];
 		for (int i = 0; i < aList.size(); i++) {

@@ -4,8 +4,14 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import javax.swing.*;
-import com.jgoodies.forms.layout.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul

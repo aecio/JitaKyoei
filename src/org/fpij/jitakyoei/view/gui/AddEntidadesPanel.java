@@ -4,10 +4,20 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import com.jgoodies.forms.layout.*;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul

@@ -3,7 +3,6 @@ package org.fpij.jitakyoei.view.forms;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 import net.java.dev.genesis.annotation.Action;

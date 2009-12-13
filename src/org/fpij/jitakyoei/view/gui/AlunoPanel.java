@@ -4,13 +4,9 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.event.*;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.fpij.jitakyoei.view.forms.FiliadoForm;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 import net.java.dev.genesis.ui.swing.SwingBinder;

@@ -10,7 +10,6 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.util.CloseTabIcon;
-import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
 import org.fpij.jitakyoei.view.gui.ProfessorBuscarPanel;
 import org.fpij.jitakyoei.view.gui.SobrePanel;

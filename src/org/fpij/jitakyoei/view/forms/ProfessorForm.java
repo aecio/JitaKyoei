@@ -2,10 +2,13 @@ package org.fpij.jitakyoei.view.forms;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
+
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
+
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.view.gui.ProfessorPanel;
