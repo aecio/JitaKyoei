@@ -1,4 +1,4 @@
-package org.fpij.jitakyoei.controller;
+package org.fpij.jitakyoei.business;
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public class AlunoBOImpl implements AlunoBO {
 				+ " Verifique se todos os dados foram preenchidos corretamente!");
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("Desculpe, ocorreu um erro desconhecido ao salvar o aluno.");
+			throw new Exception("Desculpe, ocorreu um erro desconhecido ao buscar os aluno.");
 		}
 		return result;
 	}
@@ -75,7 +75,7 @@ public class AlunoBOImpl implements AlunoBO {
 				+ " Verifique se todos os dados foram preenchidos corretamente!");
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("Desculpe, ocorreu um erro desconhecido ao salvar o aluno.");
+			throw new Exception("Desculpe, ocorreu um erro desconhecido o obter a lista de alunos.");
 		}
 		return result;
 	}
