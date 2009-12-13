@@ -50,7 +50,7 @@ public class ProfessorPanel extends JPanel {
 		setName("this");
 		setLayout(new FormLayout(
 			"default:grow",
-			"2*(default, $lgap), default"));
+			"3*(default, $lgap), top:58dlu"));
 
 		//---- filiadoPanel ----
 		filiadoPanel.setName("filiadoPanel");
@@ -60,39 +60,39 @@ public class ProfessorPanel extends JPanel {
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
-				"45dlu, $lcgap, 134dlu:grow, $lcgap",
-				"49dlu"));
+				"45dlu, 2*($lcgap), 59dlu, 134dlu:grow, $lcgap",
+				"default"));
 
 			//======== panel2 ========
 			{
 				panel2.setName("panel2");
 				panel2.setLayout(new FormLayout(
 					"45dlu:grow",
-					"fill:default:grow, $lgap, fill:default"));
+					"fill:default:grow"));
 
 				//---- label1 ----
 				label1.setText("Entidades:");
 				label1.setName("label1");
 				panel2.add(label1, cc.xy(1, 1));
-
-				//---- adicionarEntidade ----
-				adicionarEntidade.setText("Adicionar");
-				adicionarEntidade.setName("adicionarEntidade");
-				panel2.add(adicionarEntidade, cc.xy(1, 3));
 			}
 			panel1.add(panel2, cc.xy(1, 1));
 
-			//======== scrollPane1 ========
-			{
-				scrollPane1.setName("scrollPane1");
-
-				//---- entidadesTable ----
-				entidadesTable.setName("entidadesTable");
-				scrollPane1.setViewportView(entidadesTable);
-			}
-			panel1.add(scrollPane1, cc.xy(3, 1));
+			//---- adicionarEntidade ----
+			adicionarEntidade.setText("Adicionar");
+			adicionarEntidade.setName("adicionarEntidade");
+			panel1.add(adicionarEntidade, cc.xy(4, 1));
 		}
 		add(panel1, cc.xy(1, 3));
+
+		//======== scrollPane1 ========
+		{
+			scrollPane1.setName("scrollPane1");
+
+			//---- entidadesTable ----
+			entidadesTable.setName("entidadesTable");
+			scrollPane1.setViewportView(entidadesTable);
+		}
+		add(scrollPane1, cc.xywh(1, 5, 1, 3));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 

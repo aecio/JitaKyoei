@@ -4,6 +4,7 @@
 
 package org.fpij.jitakyoei.view.gui;
 import java.awt.BorderLayout;
+import javax.swing.*;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -71,6 +72,7 @@ public class FiliadoPanel extends JPanel {
 		telefone1 = new JTextField();
 		label11 = new JLabel();
 		telefone2 = new JTextField();
+		tabbedPane1 = new JTabbedPane();
 		enderecoPanel = new EnderecoPanel();
 		panel1 = new JPanel();
 		label7 = new JLabel();
@@ -81,7 +83,6 @@ public class FiliadoPanel extends JPanel {
 		scrollPane2 = new JScrollPane();
 		faixasTable = new JTable();
 		panel2 = new JPanel();
-		label13 = new JLabel();
 		scrollPane1 = new JScrollPane();
 		observacoes = new JTextArea();
 		CellConstraints cc = new CellConstraints();
@@ -89,8 +90,8 @@ public class FiliadoPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap",
-			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:95dlu"));
+			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap, default",
+			"5*($lgap, default), $lgap, 107dlu:grow"));
 
 		//---- label1 ----
 		label1.setText("Nome:");
@@ -173,101 +174,106 @@ public class FiliadoPanel extends JPanel {
 		telefone2.setName("telefone2");
 		add(telefone2, cc.xywh(8, 10, 3, 1));
 
-		//---- enderecoPanel ----
-		enderecoPanel.setName("enderecoPanel");
-		add(enderecoPanel, cc.xywh(1, 12, 11, 1));
-
-		//======== panel1 ========
+		//======== tabbedPane1 ========
 		{
-			panel1.setBorder(new TitledBorder(null, "Faixas", TitledBorder.LEADING, TitledBorder.TOP));
-			panel1.setName("panel1");
-			panel1.setLayout(new FormLayout(
-				"39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu",
-				"default, $lgap, fill:60dlu"));
+			tabbedPane1.setName("tabbedPane1");
 
-			//---- label7 ----
-			label7.setText("Cor:");
-			label7.setName("label7");
-			panel1.add(label7, cc.xy(1, 1));
+			//---- enderecoPanel ----
+			enderecoPanel.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP));
+			enderecoPanel.setName("enderecoPanel");
+			tabbedPane1.addTab("Endere\u00e7o", enderecoPanel);
 
-			//---- corFaixa ----
-			corFaixa.setName("corFaixa");
-			panel1.add(corFaixa, cc.xy(3, 1));
 
-			//---- label8 ----
-			label8.setText("Data de Entrega:");
-			label8.setName("label8");
-			panel1.add(label8, cc.xy(5, 1));
-
-			//---- dataEntregaDataChooser ----
-			dataEntregaDataChooser.setName("dataEntregaDataChooser");
-			panel1.add(dataEntregaDataChooser, cc.xy(7, 1));
-
-			//---- adicionarFaixa ----
-			adicionarFaixa.setText("Adicionar");
-			adicionarFaixa.setName("adicionarFaixa");
-			panel1.add(adicionarFaixa, cc.xy(9, 1));
-
-			//======== scrollPane2 ========
+			//======== panel1 ========
 			{
-				scrollPane2.setName("scrollPane2");
+				panel1.setBorder(new TitledBorder(""));
+				panel1.setName("panel1");
+				panel1.setLayout(new FormLayout(
+					"39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu",
+					"default, $lgap, fill:48dlu:grow"));
 
-				//---- faixasTable ----
-				faixasTable.setModel(new DefaultTableModel(
-					new Object[][] {
-					},
-					new String[] {
-						"Faixa", "Data de Entrega"
-					}
-				) {
-					Class[] columnTypes = new Class[] {
-						Object.class, Object.class
-					};
-					boolean[] columnEditable = new boolean[] {
-						false, true
-					};
-					@Override
-					public Class<?> getColumnClass(int columnIndex) {
-						return columnTypes[columnIndex];
-					}
-					@Override
-					public boolean isCellEditable(int rowIndex, int columnIndex) {
-						return columnEditable[columnIndex];
-					}
-				});
+				//---- label7 ----
+				label7.setText("Cor:");
+				label7.setName("label7");
+				panel1.add(label7, cc.xy(1, 1));
+
+				//---- corFaixa ----
+				corFaixa.setName("corFaixa");
+				panel1.add(corFaixa, cc.xy(3, 1));
+
+				//---- label8 ----
+				label8.setText("Data de Entrega:");
+				label8.setName("label8");
+				panel1.add(label8, cc.xy(5, 1));
+
+				//---- dataEntregaDataChooser ----
+				dataEntregaDataChooser.setName("dataEntregaDataChooser");
+				panel1.add(dataEntregaDataChooser, cc.xy(7, 1));
+
+				//---- adicionarFaixa ----
+				adicionarFaixa.setText("Adicionar");
+				adicionarFaixa.setName("adicionarFaixa");
+				panel1.add(adicionarFaixa, cc.xy(9, 1));
+
+				//======== scrollPane2 ========
 				{
-					TableColumnModel cm = faixasTable.getColumnModel();
-					cm.getColumn(0).setResizable(false);
+					scrollPane2.setName("scrollPane2");
+
+					//---- faixasTable ----
+					faixasTable.setModel(new DefaultTableModel(
+						new Object[][] {
+						},
+						new String[] {
+							"Faixa", "Data de Entrega"
+						}
+					) {
+						Class[] columnTypes = new Class[] {
+							Object.class, Object.class
+						};
+						boolean[] columnEditable = new boolean[] {
+							false, true
+						};
+						@Override
+						public Class<?> getColumnClass(int columnIndex) {
+							return columnTypes[columnIndex];
+						}
+						@Override
+						public boolean isCellEditable(int rowIndex, int columnIndex) {
+							return columnEditable[columnIndex];
+						}
+					});
+					{
+						TableColumnModel cm = faixasTable.getColumnModel();
+						cm.getColumn(0).setResizable(false);
+					}
+					faixasTable.setName("faixasTable");
+					scrollPane2.setViewportView(faixasTable);
 				}
-				faixasTable.setName("faixasTable");
-				scrollPane2.setViewportView(faixasTable);
+				panel1.add(scrollPane2, cc.xywh(1, 3, 9, 1));
 			}
-			panel1.add(scrollPane2, cc.xywh(1, 3, 9, 1));
-		}
-		add(panel1, cc.xywh(1, 14, 6, 1));
+			tabbedPane1.addTab("Faixas", panel1);
 
-		//======== panel2 ========
-		{
-			panel2.setName("panel2");
-			panel2.setLayout(new BorderLayout());
 
-			//---- label13 ----
-			label13.setText("Observa\u00e7\u00f5es:");
-			label13.setName("label13");
-			panel2.add(label13, BorderLayout.NORTH);
-
-			//======== scrollPane1 ========
+			//======== panel2 ========
 			{
-				scrollPane1.setName("scrollPane1");
+				panel2.setName("panel2");
+				panel2.setLayout(new BorderLayout());
 
-				//---- observacoes ----
-				observacoes.setLineWrap(true);
-				observacoes.setName("observacoes");
-				scrollPane1.setViewportView(observacoes);
+				//======== scrollPane1 ========
+				{
+					scrollPane1.setName("scrollPane1");
+
+					//---- observacoes ----
+					observacoes.setLineWrap(true);
+					observacoes.setName("observacoes");
+					scrollPane1.setViewportView(observacoes);
+				}
+				panel2.add(scrollPane1, BorderLayout.CENTER);
 			}
-			panel2.add(scrollPane1, BorderLayout.CENTER);
+			tabbedPane1.addTab("observa\u00e7\u00f5es", panel2);
+
 		}
-		add(panel2, cc.xywh(8, 14, 3, 1));
+		add(tabbedPane1, cc.xywh(2, 12, 11, 1, CellConstraints.DEFAULT, CellConstraints.FILL));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -290,6 +296,7 @@ public class FiliadoPanel extends JPanel {
 	private JTextField telefone1;
 	private JLabel label11;
 	private JTextField telefone2;
+	private JTabbedPane tabbedPane1;
 	private EnderecoPanel enderecoPanel;
 	private JPanel panel1;
 	private JLabel label7;
@@ -300,7 +307,6 @@ public class FiliadoPanel extends JPanel {
 	private JScrollPane scrollPane2;
 	private JTable faixasTable;
 	private JPanel panel2;
-	private JLabel label13;
 	private JScrollPane scrollPane1;
 	private JTextArea observacoes;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
