@@ -39,5 +39,6 @@
 	<classpathentry kind="lib" path="lib/genesis/lib/script/jakarta-taglibs-standard-1.1.2.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/lib/script/js-1.6R5.jar"/>
 	<classpathentry kind="lib" path="lib/genesis/lib/script/jsp-api.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendar-1.3.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

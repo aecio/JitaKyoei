@@ -43,15 +43,16 @@ public class MainAppView {
 	}
 	
 	public void displayTabPanel(ViewComponent viewComponent, String titulo){
-		frame.getMainPanel().removeAll();
+//		frame.getMainPanel().removeAll();
 		frame.getTabbedPane().addTab(" "+titulo, new CloseTabIcon(), viewComponent.getGui(), titulo);
+		frame.getTabbedPane().setSelectedComponent(viewComponent.getGui());
 		frame.repaint();
 		frame.setVisible(true);
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
 
-//	Ações de Aluno
+//	Aï¿½ï¿½es de Aluno
 	@Action
 	private void cadastrarAlunoMenuItem(){
 		displayTabPanel(new AlunoCadastrarView(), "Cadastrar Aluno");
@@ -66,7 +67,7 @@ public class MainAppView {
 	public void alterarAlunoMenuItem(){
 		System.out.println("MainAppForm.alterarAlunoMenuItem()");
 		displayFrame(new AlunoBuscarView(), "Buscar Aluno");
-//		displayPanel(new AlunoAtualizarView());
+		displayTabPanel(new AlunoAtualizarView(), "Alterar Aluno");
 	}
 	@Action
 	public void alterarAlunoIcon(){
@@ -83,7 +84,7 @@ public class MainAppView {
 		buscarAlunoMenuItem();
 	}
 	
-//	Ações de Professor
+//	Aï¿½ï¿½es de Professor
 	@Action
 	public void cadastrarProfessorMenuItem(){
 		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
@@ -111,7 +112,7 @@ public class MainAppView {
 	public void buscarProfessorIcon(){
 		buscarProfessorMenuItem();
 	}
-//	Ações de Entidade
+//	Aï¿½ï¿½es de Entidade
 	@Action
 	public void cadastrarEntidadeMenuItem(){
 		System.out.println("MainAppForm.cadastrarEntidadeMenuItem()");

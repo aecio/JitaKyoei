@@ -47,9 +47,9 @@ public class EnderecoForm {
 //	public void addDados(){
 //		setRua("Rua dos Problemas");
 //		setNumero("321");
-//		setBairro("Confusão");
+//		setBairro("Confusï¿½o");
 //		setCidade("Teresina");
-//		setEstado("Piauí");
+//		setEstado("Piauï¿½");
 //		setCep("64025-100");
 //	}
 	
