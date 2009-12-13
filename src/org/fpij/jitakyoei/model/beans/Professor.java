@@ -25,4 +25,8 @@ public class Professor {
 	public void setFiliado(Filiado filiado) {
 		this.filiado = filiado;
 	}
+	
+	public String toString(){
+		return this.filiado.getNome();
+	}
 }

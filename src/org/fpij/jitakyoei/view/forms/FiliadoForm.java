@@ -26,7 +26,7 @@ public class FiliadoForm {
 	private Filiado filiado;
 	private String nome;
 	private String cpf;
-	private String dataNascimento;
+	private JDateChooser dataNascimento;
 	private String rg;
 	private String orgaoExpedidor;
 	private String observacoes;
@@ -41,6 +41,7 @@ public class FiliadoForm {
 	private CorFaixa corFaixa;
 	private JDateChooser dataEntregaDataChooser;
 	private DefaultTableModel faixasModel;
+	private SimpleDateFormat dataFormater;
 
 
 	public FiliadoForm(FiliadoPanel filiadoPanel) {
@@ -48,24 +49,24 @@ public class FiliadoForm {
 		binder.bind();
 		this.enderecoForm = new EnderecoForm(filiadoPanel.getEnderecoPanel());
 		dataEntregaDataChooser = filiadoPanel.getDataEntregaDataChooser();
+		dataNascimento = filiadoPanel.getDataNascimentoDataChooser();
 		faixasModel = (DefaultTableModel) filiadoPanel.getFaixasTable().getModel();
 		faixasList = new ArrayList<Faixa>();
+		dataFormater = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
 	@Action
 	public void adicionarFaixa(){
 		System.out.println("FiliadoForm.adicionarFaixa()");
-			faixa = new Faixa(corFaixa, dataEntregaDataChooser.getDate());
-			faixasList.add(faixa);
-			
-			SimpleDateFormat dataFormater = new SimpleDateFormat("dd/MM/yyyy");  
+		faixa = new Faixa(corFaixa, dataEntregaDataChooser.getDate());
+		faixasList.add(faixa);  
 
-			Object[][] data = new Object[faixasList.size()][2];
-			for (int i = 0; i < faixasList.size(); i++) {
-				data[i][0] = faixasList.get(i).getCor();
-				data[i][1] = dataFormater.format(faixasList.get(i).getDataEntrega());
-			}
-			faixasModel.setDataVector( data, new String[]{"Faixa","Data de Entrega"});
+		Object[][] data = new Object[faixasList.size()][2];
+		for (int i = 0; i < faixasList.size(); i++) {
+			data[i][0] = faixasList.get(i).getCor();
+			data[i][1] = dataFormater.format(faixasList.get(i).getDataEntrega());
+		}
+		faixasModel.setDataVector( data, new String[]{"Faixa","Data de Entrega"});
 	}
 	
 	@DataProvider(objectField = "corFaixa")
@@ -87,10 +88,7 @@ public class FiliadoForm {
 		System.out.println("FiliadoForm.pegarBean()");
 
 		Filiado f = new Filiado();
-		/**
-		 * FIXME: Converter para data
-		 */
-//		f.setDataNascimento(new DateFormat.);
+		f.setDataNascimento(dataNascimento.getDate());
 		f.setEmail(email);
 		f.setFaixas(faixasList);
 		f.setEndereco(enderecoForm.pegarBean());
@@ -146,15 +144,6 @@ public class FiliadoForm {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
 	public String getRg() {
 		return rg;
 	}

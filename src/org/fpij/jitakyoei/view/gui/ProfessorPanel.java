@@ -21,13 +21,23 @@ public class ProfessorPanel extends JPanel {
 		return filiadoPanel;
 	}
 
+	public JTable getEntidadesTable() {
+		return entidadesTable;
+	}
+
+	public JButton getAdicionarEntidade() {
+		return adicionarEntidade;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		filiadoPanel = new FiliadoPanel();
 		panel1 = new JPanel();
+		panel2 = new JPanel();
 		label1 = new JLabel();
+		adicionarEntidade = new JButton();
 		scrollPane1 = new JScrollPane();
-		entidades = new JTable();
+		entidadesTable = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -44,21 +54,35 @@ public class ProfessorPanel extends JPanel {
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
-				"42dlu, $lcgap, 134dlu:grow, $lcgap",
+				"45dlu, $lcgap, 134dlu:grow, $lcgap",
 				"49dlu"));
 
-			//---- label1 ----
-			label1.setText("Entidades:");
-			label1.setName("label1");
-			panel1.add(label1, cc.xy(1, 1));
+			//======== panel2 ========
+			{
+				panel2.setName("panel2");
+				panel2.setLayout(new FormLayout(
+					"45dlu:grow",
+					"fill:default:grow, $lgap, fill:default"));
+
+				//---- label1 ----
+				label1.setText("Entidades:");
+				label1.setName("label1");
+				panel2.add(label1, cc.xy(1, 1));
+
+				//---- adicionarEntidade ----
+				adicionarEntidade.setText("Adicionar");
+				adicionarEntidade.setName("adicionarEntidade");
+				panel2.add(adicionarEntidade, cc.xy(1, 3));
+			}
+			panel1.add(panel2, cc.xy(1, 1));
 
 			//======== scrollPane1 ========
 			{
 				scrollPane1.setName("scrollPane1");
 
-				//---- entidades ----
-				entidades.setName("entidades");
-				scrollPane1.setViewportView(entidades);
+				//---- entidadesTable ----
+				entidadesTable.setName("entidadesTable");
+				scrollPane1.setViewportView(entidadesTable);
 			}
 			panel1.add(scrollPane1, cc.xy(3, 1));
 		}
@@ -69,8 +93,10 @@ public class ProfessorPanel extends JPanel {
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private FiliadoPanel filiadoPanel;
 	private JPanel panel1;
+	private JPanel panel2;
 	private JLabel label1;
+	private JButton adicionarEntidade;
 	private JScrollPane scrollPane1;
-	private JTable entidades;
+	private JTable entidadesTable;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

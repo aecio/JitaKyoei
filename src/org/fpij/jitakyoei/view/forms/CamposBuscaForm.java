@@ -1,12 +1,9 @@
 package org.fpij.jitakyoei.view.forms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.model.beans.Filiado;
 import org.fpij.jitakyoei.view.gui.BuscaCamposPanel;
 
-import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
@@ -14,11 +11,24 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 public class CamposBuscaForm {
 	private String nome;
 	private String registroFpij;
-	private SwingBinder binder;
+	private Aluno aluno;
 	
 	public CamposBuscaForm(BuscaCamposPanel buscaCamposPanel) {
-		binder = new SwingBinder(buscaCamposPanel, this);
-		binder.bind();
+		new SwingBinder(buscaCamposPanel, this).bind();
+	}
+	
+	public Aluno pegarBean(){
+		/*TODO
+		 * Instanciar direito esse Aluno - Tah dando pau aqui
+		 */
+		aluno = new Aluno();
+		aluno.setEntidade(null);
+		aluno.setProfessor(null);
+		Filiado filiado = new Filiado();
+		filiado.setNome(nome);
+		filiado.setId(Long.parseLong(registroFpij));
+		aluno.setFiliado(filiado);
+		return aluno;
 	}
 
 	public String getNome() {

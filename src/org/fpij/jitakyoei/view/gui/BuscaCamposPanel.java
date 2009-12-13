@@ -5,16 +5,29 @@
 package org.fpij.jitakyoei.view.gui;
 
 import javax.swing.*;
+
+import net.java.dev.genesis.annotation.Form;
+import net.java.dev.genesis.annotation.ViewHandler;
+
 import com.jgoodies.forms.layout.*;
 
 /**
  * @author wansoul
  */
+@ViewHandler
 public class BuscaCamposPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	public BuscaCamposPanel() {
 		initComponents();
+	}
+
+	public JTextField getRegistroFpij() {
+		return registroFpij;
+	}
+
+	public JTextField getNome() {
+		return nome;
 	}
 
 	private void initComponents() {

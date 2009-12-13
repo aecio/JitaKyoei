@@ -10,21 +10,30 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.view.forms.CamposBuscaForm;
 import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
 @Form
 public class AlunoBuscarView implements AlunoView, ViewComponent {
 	AlunoBuscarPanel gui;
 	private AppFacade facade;
+	private CamposBuscaForm campoBusca;
 	
 	public AlunoBuscarView(){
 		gui = new AlunoBuscarPanel();
 		new SwingBinder(gui, this).bind();
-
+		campoBusca = new CamposBuscaForm(gui.getBuscaCamposPanel());
 	}
 	
 	@Action
 	public void buscar(){
 		System.out.println("AlunoBuscarForm.buscar()");
+		try{
+			System.out.println(campoBusca.pegarBean());
+		}catch (Exception e) {
+			System.out.println("errrrrrrrrrooo");
+			e.printStackTrace();
+			System.out.println("errrrrrrrrrooo");
+		}
 	}
 	
 	@Override
