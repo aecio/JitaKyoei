@@ -1,5 +1,7 @@
 package org.fpij.jitakyoei.facade;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import org.fpij.jitakyoei.business.AlunoBO;
@@ -125,12 +127,14 @@ public class AppFacadeImpl implements AppFacade {
 	}
 
 	@Override
-	public void searchEntidade(Entidade entidade) {
+	public List<Entidade> searchEntidade(Entidade entidade) {
+		List<Entidade> result = null;
 		try{
-			entidadeBO.searchEntidade(entidade);
+			result = entidadeBO.searchEntidade(entidade);
 		}catch (Exception e) {
 			reportException(e);
 		}
+		return result;
 	}
 
 	@Override

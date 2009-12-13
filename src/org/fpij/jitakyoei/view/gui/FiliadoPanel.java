@@ -3,25 +3,26 @@
  */
 
 package org.fpij.jitakyoei.view.gui;
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.*;
-import javax.swing.table.*;
-import com.toedter.calendar.*;
-
-import org.fpij.jitakyoei.view.forms.EnderecoForm;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import com.toedter.calendar.JDateChooser;
 
 /**
  * @author wansoul
@@ -178,7 +179,7 @@ public class FiliadoPanel extends JPanel {
 
 		//======== panel1 ========
 		{
-			panel1.setBorder(new TitledBorder("Faixas"));
+			panel1.setBorder(new TitledBorder(null, "Faixas", TitledBorder.LEADING, TitledBorder.TOP));
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
 				"39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu",

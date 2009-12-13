@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,14 +15,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
-import net.java.dev.genesis.annotation.ViewHandler;
+import org.fpij.jitakyoei.util.DatabaseManager;
 
-import com.jgoodies.forms.layout.CellConstraints;
-import com.jgoodies.forms.layout.FormLayout;
+import net.java.dev.genesis.annotation.ViewHandler;
 
 /**
  * @author wansoul
@@ -48,8 +48,9 @@ public class MainAppFrame extends JFrame {
 		return tabbedPane;
 	}
 
-	public JButton getBotaoSphash() {
-		return botaoSphash;
+	private void thisWindowClosed(WindowEvent e) {
+		JOptionPane.showMessageDialog(this, "Fechando o banco de dados... ;)");
+		DatabaseManager.close();
 	}
 
 	private void initComponents() {
@@ -73,7 +74,7 @@ public class MainAppFrame extends JFrame {
 		menuItem7 = new JMenuItem();
 		menuItem8 = new JMenuItem();
 		menu2 = new JMenu();
-		sobreMenuItem = new JMenuItem();
+		menuItem1 = new JMenuItem();
 		mainToolBar = new JToolBar();
 		cadastrarAlunoIcon = new JButton();
 		alterarAlunoIcon = new JButton();
@@ -86,7 +87,7 @@ public class MainAppFrame extends JFrame {
 		buscarEntidadeIcon = new JButton();
 		tabbedPane = new JTabbedPane();
 		mainPanel = new JPanel();
-		botaoSphash = new JButton();
+		button1 = new JButton();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
@@ -94,6 +95,10 @@ public class MainAppFrame extends JFrame {
 		setIconImage(new ImageIcon("C:\\Documents and Settings\\User\\Meus documentos\\[ADS-IV]\\AOO\\Trabalho Final\\icon-logo.png").getImage());
 		setName("this");
 		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent e) {
+				thisWindowClosed(e);
+			}
 			@Override
 			public void windowOpened(WindowEvent e) {
 				thisWindowOpened(e);
@@ -217,11 +222,11 @@ public class MainAppFrame extends JFrame {
 				menu2.setText("Ajuda");
 				menu2.setName("menu2");
 
-				//---- sobreMenuItem ----
-				sobreMenuItem.setText("Sobre");
-				sobreMenuItem.setIcon(new ImageIcon(getClass().getResource("/info.png")));
-				sobreMenuItem.setName("sobreMenuItem");
-				menu2.add(sobreMenuItem);
+				//---- menuItem1 ----
+				menuItem1.setText("Sobre");
+				menuItem1.setIcon(new ImageIcon(getClass().getResource("/info.png")));
+				menuItem1.setName("menuItem1");
+				menu2.add(menuItem1);
 			}
 			mainMenuBar.add(menu2);
 		}
@@ -299,16 +304,16 @@ public class MainAppFrame extends JFrame {
 				mainPanel.setName("mainPanel");
 				mainPanel.setLayout(new BorderLayout());
 
-				//---- botaoSphash ----
-				botaoSphash.setIcon(new ImageIcon(getClass().getResource("/FPIJ-splash.png")));
-				botaoSphash.setName("botaoSphash");
-				mainPanel.add(botaoSphash, BorderLayout.CENTER);
+				//---- button1 ----
+				button1.setIcon(new ImageIcon(getClass().getResource("/FPIJ-splash.png")));
+				button1.setName("button1");
+				mainPanel.add(button1, BorderLayout.CENTER);
 			}
 			tabbedPane.addTab("JitaKyoei", mainPanel);
 
 		}
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
-		setSize(825, 650);
+		setSize(825, 720);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -332,7 +337,7 @@ public class MainAppFrame extends JFrame {
 	private JMenuItem menuItem7;
 	private JMenuItem menuItem8;
 	private JMenu menu2;
-	private JMenuItem sobreMenuItem;
+	private JMenuItem menuItem1;
 	private JToolBar mainToolBar;
 	private JButton cadastrarAlunoIcon;
 	private JButton alterarAlunoIcon;
@@ -345,6 +350,6 @@ public class MainAppFrame extends JFrame {
 	private JButton buscarEntidadeIcon;
 	private JTabbedPane tabbedPane;
 	private JPanel mainPanel;
-	private JButton botaoSphash;
+	private JButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

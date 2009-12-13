@@ -8,12 +8,11 @@ import org.fpij.jitakyoei.view.gui.EnderecoPanel;
 
 @Form
 public class EnderecoForm {
-	private SwingBinder binder;
 	private Endereco endereco;
 	
 	public EnderecoForm(EnderecoPanel enderecoPanel) {
 		this.endereco = new Endereco();
-		this.binder = new SwingBinder(enderecoPanel, this.endereco);
+		SwingBinder binder = new SwingBinder(enderecoPanel, this.endereco);
 		binder.bind();
 	}
 	
@@ -25,5 +24,4 @@ public class EnderecoForm {
 	public void limpar(){
 		this.endereco = null;
 	}
-
 }

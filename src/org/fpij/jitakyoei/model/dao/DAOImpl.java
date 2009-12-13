@@ -11,7 +11,7 @@ import com.db4o.ext.ExtObjectContainer;
 
 public class DAOImpl<E> implements DAO<E> {
 
-	private ExtObjectContainer db = DatabaseManager.getConnection();
+	private static ExtObjectContainer db = DatabaseManager.getConnection();
 	private Class<E> clazz;
 	private Validator<E> validator;
 	
@@ -26,10 +26,10 @@ public class DAOImpl<E> implements DAO<E> {
 	}
 	
 	@Override
-	public boolean save(E object) {
-		System.out.println("DAOImpl.save()");
+	public synchronized boolean save(E object) {
 		if(validator.validate(object)){
 			db.store(object);
+			db.commit();
 			return true;
 		}
 		else{
@@ -38,8 +38,9 @@ public class DAOImpl<E> implements DAO<E> {
 	}
 	
 	@Override
-	public void delete(E object) {
+	public synchronized void delete(E object) {
 		db.delete(object);
+		db.commit();
 	}
 	
 	@Override
