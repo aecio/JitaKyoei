@@ -1,5 +1,7 @@
 package org.fpij.jitakyoei.facade;
 
+import java.util.List;
+
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
@@ -18,6 +20,6 @@ public interface AppFacade {
 
 	public abstract void createEntidade(Entidade entidade);
 	public abstract void updateEntidade(Entidade entidade);
-	public abstract void searchEntidade(Entidade entidade);
+	public abstract List<Entidade> searchEntidade(Entidade entidade);
 	public abstract void listEntidade();
 }

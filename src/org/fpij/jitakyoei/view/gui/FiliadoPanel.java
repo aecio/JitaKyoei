@@ -3,24 +3,24 @@
  */
 
 package org.fpij.jitakyoei.view.gui;
-import javax.swing.*;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.*;
-import javax.swing.table.*;
-import com.toedter.calendar.*;
-
-import org.fpij.jitakyoei.view.forms.EnderecoForm;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import com.toedter.calendar.JDateChooser;
 
 /**
  * @author wansoul

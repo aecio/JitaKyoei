@@ -27,9 +27,9 @@ public class DAOImpl<E> implements DAO<E> {
 	
 	@Override
 	public boolean save(E object) {
-		System.out.println("DAOImpl.save()");
 		if(validator.validate(object)){
 			db.store(object);
+			db.commit();
 			return true;
 		}
 		else{
@@ -40,6 +40,7 @@ public class DAOImpl<E> implements DAO<E> {
 	@Override
 	public void delete(E object) {
 		db.delete(object);
+		db.commit();
 	}
 	
 	@Override

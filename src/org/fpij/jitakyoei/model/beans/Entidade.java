@@ -47,4 +47,11 @@ public class Entidade {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	public String getCnpj() {
+		return cnpj;
+	}
+	
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 }

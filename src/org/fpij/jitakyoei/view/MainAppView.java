@@ -116,6 +116,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void cadastrarEntidadeMenuItem(){
 		System.out.println("MainAppForm.cadastrarEntidadeMenuItem()");
+		displayTabPanel(new EntidadeCadastrarView(), "Cadastrar Entidade");
 	}
 	@Action
 	public void cadastrarEntidadeIcon(){
@@ -125,15 +126,19 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarEntidadeMenuItem(){
 		System.out.println("MainAppForm.alterarEntidadeMenuItem()");
+		displayTabPanel(new EntidadeAtualizarView	(), "Alterar Entidade");
 	}
+	
 	@Action
 	public void alterarEntidadeIcon(){
+		System.out.println("MainAppView.alterarEntidadeIcon()");
 		alterarEntidadeMenuItem();
 	}
 	
 	@Action
 	public void buscarEntidadeMenuItem(){
 		System.out.println("MainAppForm.buscarEntidadeMenuItem()");
+		displayTabPanel(new EntidadeBuscarView(), "Busca de Entidade");
 	}
 	@Action
 	public void buscarEntidadeIcon(){

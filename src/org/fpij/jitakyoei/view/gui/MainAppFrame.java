@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,13 +16,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
 import net.java.dev.genesis.annotation.ViewHandler;
-
-import com.jgoodies.forms.layout.CellConstraints;
-import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
@@ -304,7 +301,7 @@ public class MainAppFrame extends JFrame {
 
 		}
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
-		setSize(825, 650);
+		setSize(825, 720);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
