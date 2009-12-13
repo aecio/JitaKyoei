@@ -2,6 +2,7 @@ package org.fpij.jitakyoei.view;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
@@ -9,7 +10,10 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.util.CloseTabIcon;
+import org.fpij.jitakyoei.view.gui.AlunoAtualizarPanel;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
+import org.fpij.jitakyoei.view.gui.ProfessorBuscarPanel;
+import org.fpij.jitakyoei.view.gui.SobrePanel;
 
 @Form
 public class MainAppView implements AppView {
@@ -49,7 +53,14 @@ public class MainAppView implements AppView {
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
-
+	private void displayPanel(JPanel panel, String titulo){
+		frame.getTabbedPane().addTab(" "+titulo+"  ", new CloseTabIcon(), panel, titulo);
+		frame.getTabbedPane().setSelectedComponent(panel);
+		frame.repaint();
+		frame.setVisible(true);
+		frame.validate();
+		System.out.println("MainAppView.display()");
+	}
 
 //	Ações de Aluno
 	@Action
@@ -65,8 +76,9 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarAlunoMenuItem(){
 		System.out.println("MainAppForm.alterarAlunoMenuItem()");
-		displayFrame(new AlunoBuscarView(), "Buscar Aluno");
-		displayTabPanel(new AlunoAtualizarView(), "Alterar Aluno");
+		AlunoAtualizarView alunoAtualizarView = new AlunoAtualizarView();
+		displayFrame(new AlunoBuscarView(alunoAtualizarView), "Buscar Aluno");
+		displayTabPanel(alunoAtualizarView, "Alterar Aluno");
 	}
 	@Action
 	public void alterarAlunoIcon(){
@@ -97,6 +109,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarProfessorMenuItem(){
 		System.out.println("MainAppForm.alterarProfessorMenuItem()");
+		displayTabPanel(new ProfessorAtualizarView(), "Alterar Professor");
 	}
 	@Action
 	public void alterarProfessorIcon(){
@@ -106,6 +119,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void buscarProfessorMenuItem(){
 		System.out.println("MainAppForm.buscarProfessorMenuItem()");
+		displayPanel(new ProfessorBuscarPanel(), "Buscar Professor");
 	}
 	@Action
 	public void buscarProfessorIcon(){
@@ -149,4 +163,14 @@ public class MainAppView implements AppView {
 	public void registerFacade(AppFacade facade) {
 		this.facade = facade;
 	}
+	
+	@Action
+	public void sobreMenuItem(){
+		displayPanel(new SobrePanel(), "Desenvolvedores");
+	}
+	@Action
+	public void botaoSphash(){
+		sobreMenuItem();
+	}
+	
 }

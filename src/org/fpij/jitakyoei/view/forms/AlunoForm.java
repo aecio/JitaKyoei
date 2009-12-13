@@ -30,7 +30,7 @@ public class AlunoForm {
 		binder.bind();
 		filiadoForm = new FiliadoForm(alunoPanel.getFiliadoPanel());
 		professorCombo = alunoPanel.getProfessor();
-		entidadeCombo = new AlunoPanel().getEntidade();
+		entidadeCombo = alunoPanel.getEntidade();
 	}
 	
 	@Action

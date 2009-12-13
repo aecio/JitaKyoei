@@ -48,12 +48,6 @@
         <void property="name">
          <string>registroFpij</string>
         </void>
-        <void method="auxiliary">
-         <void method="setProperty">
-          <string>JavaCodeGenerator.variableGetter</string>
-          <boolean>true</boolean>
-         </void>
-        </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
         <class>com.jgoodies.forms.layout.CellConstraints</class>
@@ -87,12 +81,6 @@
         <string>javax.swing.JTextField</string>
         <void property="name">
          <string>nome</string>
-        </void>
-        <void method="auxiliary">
-         <void method="setProperty">
-          <string>JavaCodeGenerator.variableGetter</string>
-          <boolean>true</boolean>
-         </void>
         </void>
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">

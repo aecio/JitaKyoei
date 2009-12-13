@@ -28,16 +28,12 @@ public class AlunoBuscarPanel extends JPanel {
 		return buscaCamposPanel;
 	}
 
-	public JTable getAlunoTable() {
-		return alunoTable;
-	}
-
 	public JScrollPane getScrollPane1() {
 		return scrollPane1;
 	}
 
-	private void alunoMouseClicked(MouseEvent e) {
-		System.out.println("AlunoBuscarPanel.alunoMouseClicked()");
+	public JTable getAlunoTable() {
+		return alunoTable;
 	}
 
 	private void initComponents() {
@@ -85,6 +81,7 @@ public class AlunoBuscarPanel extends JPanel {
 			//---- alunoTable ----
 			alunoTable.setModel(new DefaultTableModel(
 				new Object[][] {
+					{"1", null, null, null},
 				},
 				new String[] {
 					"Regisro", "Nome", "Professor", "Entidade"
@@ -97,12 +94,6 @@ public class AlunoBuscarPanel extends JPanel {
 			}
 			alunoTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			alunoTable.setName("alunoTable");
-			alunoTable.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					alunoMouseClicked(e);
-				}
-			});
 			scrollPane1.setViewportView(alunoTable);
 		}
 		add(scrollPane1, cc.xy(1, 7));

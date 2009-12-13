@@ -1,5 +1,7 @@
 package org.fpij.jitakyoei.facade;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -54,12 +56,14 @@ public class AppFacadeImpl implements AppFacade {
 	}
 
 	@Override
-	public void searchAluno(Aluno aluno) {
+	public List<Aluno> searchAluno(Aluno aluno) {
+		List<Aluno> result = new ArrayList<Aluno>();
 		try{
-			alunoBO.createAluno(aluno);
+			result = alunoBO.searchAluno(aluno);
 		}catch (Exception e) {
 			reportException(e);
 		}
+		return result;
 	}
 
 	@Override
