@@ -258,20 +258,18 @@
       </void>
       <void method="add">
        <object class="com.jformdesigner.model.FormContainer">
-        <string>javax.swing.JPanel</string>
+        <string>javax.swing.JTabbedPane</string>
         <object class="com.jformdesigner.model.FormLayoutManager">
-         <class>com.jgoodies.forms.layout.FormLayout</class>
-         <void method="setProperty">
-          <string>$columnSpecs</string>
-          <string>labelcompgap, default:grow, labelcompgap</string>
-         </void>
-         <void method="setProperty">
-          <string>$rowSpecs</string>
-          <string>linegap, top:default:grow, linegap</string>
-         </void>
+         <class>javax.swing.JTabbedPane</class>
         </object>
+        <void method="auxiliary">
+         <void method="setProperty">
+          <string>JavaCodeGenerator.variableGetter</string>
+          <boolean>true</boolean>
+         </void>
+        </void>
         <void property="name">
-         <string>panel</string>
+         <string>tabbedPane</string>
         </void>
         <void method="add">
          <object class="com.jformdesigner.model.FormContainer">
@@ -290,14 +288,10 @@
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
-          <class>com.jgoodies.forms.layout.CellConstraints</class>
+          <null/>
           <void method="setProperty">
-           <string>gridX</string>
-           <int>2</int>
-          </void>
-          <void method="setProperty">
-           <string>gridY</string>
-           <int>2</int>
+           <string>title</string>
+           <string>JitaKyoei</string>
           </void>
          </object>
         </void>

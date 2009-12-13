@@ -3,6 +3,7 @@
  */
 
 package org.fpij.jitakyoei.view.gui;
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -54,6 +55,11 @@ public class FiliadoPanel extends JPanel {
 		label11 = new JLabel();
 		telefone2 = new JTextField();
 		enderecoPanel = new EnderecoPanel();
+		label7 = new JLabel();
+		comboBox1 = new JComboBox();
+		label8 = new JLabel();
+		dataEntrega = new JTextField();
+		adicionar = new JButton();
 		label13 = new JLabel();
 		scrollPane1 = new JScrollPane();
 		observacoes = new JTextArea();
@@ -62,8 +68,8 @@ public class FiliadoPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 69dlu, $lcgap, 99dlu:grow, $lcgap",
-			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:55dlu"));
+			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap",
+			"5*($lgap, default), $lgap, fill:61dlu, $lgap, default, $lgap, fill:55dlu"));
 
 		//---- label1 ----
 		label1.setText("Nome:");
@@ -72,7 +78,7 @@ public class FiliadoPanel extends JPanel {
 
 		//---- nome ----
 		nome.setName("nome");
-		add(nome, cc.xywh(4, 2, 5, 1));
+		add(nome, cc.xywh(4, 2, 7, 1));
 
 		//---- label5 ----
 		label5.setText("Registro CBJ:");
@@ -90,7 +96,7 @@ public class FiliadoPanel extends JPanel {
 
 		//---- cpf ----
 		cpf.setName("cpf");
-		add(cpf, cc.xy(8, 4));
+		add(cpf, cc.xywh(8, 4, 3, 1));
 
 		//---- label6 ----
 		label6.setText("E-mail");
@@ -108,7 +114,7 @@ public class FiliadoPanel extends JPanel {
 
 		//---- dataNascimento ----
 		dataNascimento.setName("dataNascimento");
-		add(dataNascimento, cc.xy(8, 6));
+		add(dataNascimento, cc.xywh(8, 6, 3, 1));
 
 		//---- label3 ----
 		label3.setText("RG:");
@@ -126,7 +132,7 @@ public class FiliadoPanel extends JPanel {
 
 		//---- orgaoExpedidor ----
 		orgaoExpedidor.setName("orgaoExpedidor");
-		add(orgaoExpedidor, cc.xy(8, 8));
+		add(orgaoExpedidor, cc.xywh(8, 8, 3, 1));
 
 		//---- label10 ----
 		label10.setText("Fone 1:");
@@ -144,16 +150,39 @@ public class FiliadoPanel extends JPanel {
 
 		//---- telefone2 ----
 		telefone2.setName("telefone2");
-		add(telefone2, cc.xy(8, 10));
+		add(telefone2, cc.xywh(8, 10, 3, 1));
 
 		//---- enderecoPanel ----
 		enderecoPanel.setName("enderecoPanel");
-		add(enderecoPanel, cc.xywh(1, 12, 9, 1));
+		add(enderecoPanel, cc.xywh(1, 12, 11, 1));
+
+		//---- label7 ----
+		label7.setText("Faixa");
+		label7.setName("label7");
+		add(label7, cc.xy(2, 14));
+
+		//---- comboBox1 ----
+		comboBox1.setName("comboBox1");
+		add(comboBox1, cc.xy(4, 14));
+
+		//---- label8 ----
+		label8.setText("Data de Entrega:");
+		label8.setName("label8");
+		add(label8, cc.xy(6, 14));
+
+		//---- dataEntrega ----
+		dataEntrega.setName("dataEntrega");
+		add(dataEntrega, cc.xy(8, 14));
+
+		//---- adicionar ----
+		adicionar.setText("Adicionar");
+		adicionar.setName("adicionar");
+		add(adicionar, cc.xy(10, 14));
 
 		//---- label13 ----
 		label13.setText("Observa\u00e7\u00f5es:");
 		label13.setName("label13");
-		add(label13, cc.xy(2, 14));
+		add(label13, cc.xy(2, 16));
 
 		//======== scrollPane1 ========
 		{
@@ -164,7 +193,7 @@ public class FiliadoPanel extends JPanel {
 			observacoes.setName("observacoes");
 			scrollPane1.setViewportView(observacoes);
 		}
-		add(scrollPane1, cc.xywh(4, 14, 5, 1));
+		add(scrollPane1, cc.xywh(4, 16, 7, 1));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -188,6 +217,11 @@ public class FiliadoPanel extends JPanel {
 	private JLabel label11;
 	private JTextField telefone2;
 	private EnderecoPanel enderecoPanel;
+	private JLabel label7;
+	private JComboBox comboBox1;
+	private JLabel label8;
+	private JTextField dataEntrega;
+	private JButton adicionar;
 	private JLabel label13;
 	private JScrollPane scrollPane1;
 	private JTextArea observacoes;

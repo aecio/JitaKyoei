@@ -4,23 +4,26 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
-import javax.swing.border.*;
-import com.jgoodies.forms.layout.*;
 
 import net.java.dev.genesis.annotation.ViewHandler;
+
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
@@ -39,6 +42,10 @@ public class MainAppFrame extends JFrame {
 
 	private void thisWindowOpened(WindowEvent e) {
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+
+	public JTabbedPane getTabbedPane() {
+		return tabbedPane;
 	}
 
 	private void initComponents() {
@@ -73,9 +80,8 @@ public class MainAppFrame extends JFrame {
 		cadastrarEntidadeIcon = new JButton();
 		alterarEntidadeIcon = new JButton();
 		buscarEntidadeIcon = new JButton();
-		panel = new JPanel();
+		tabbedPane = new JTabbedPane();
 		mainPanel = new JPanel();
-		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
@@ -279,21 +285,19 @@ public class MainAppFrame extends JFrame {
 		}
 		contentPane.add(mainToolBar, BorderLayout.NORTH);
 
-		//======== panel ========
+		//======== tabbedPane ========
 		{
-			panel.setName("panel");
-			panel.setLayout(new FormLayout(
-				"$lcgap, default:grow, $lcgap",
-				"$lgap, top:default:grow, $lgap"));
+			tabbedPane.setName("tabbedPane");
 
 			//======== mainPanel ========
 			{
 				mainPanel.setName("mainPanel");
 				mainPanel.setLayout(new BorderLayout());
 			}
-			panel.add(mainPanel, cc.xy(2, 2));
+			tabbedPane.addTab("JitaKyoei", mainPanel);
+
 		}
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		setSize(825, 650);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
@@ -329,7 +333,7 @@ public class MainAppFrame extends JFrame {
 	private JButton cadastrarEntidadeIcon;
 	private JButton alterarEntidadeIcon;
 	private JButton buscarEntidadeIcon;
-	private JPanel panel;
+	private JTabbedPane tabbedPane;
 	private JPanel mainPanel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
