@@ -33,6 +33,14 @@ public class AlunoPanel extends JPanel {
 		return filiadoPanel;
 	}
 
+	public JComboBox getProfessor() {
+		return professor;
+	}
+
+	public JComboBox getEntidade() {
+		return entidade;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		filiadoPanel = new FiliadoPanel();

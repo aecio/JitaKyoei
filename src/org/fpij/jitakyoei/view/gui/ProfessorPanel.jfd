@@ -42,14 +42,6 @@
        </object>
        <object class="com.jformdesigner.model.FormLayoutConstraints">
         <class>com.jgoodies.forms.layout.CellConstraints</class>
-        <void method="setProperty">
-         <string>gridX</string>
-         <int>1</int>
-        </void>
-        <void method="setProperty">
-         <string>gridY</string>
-         <int>1</int>
-        </void>
        </object>
       </void>
       <void method="add">
@@ -59,7 +51,7 @@
          <class>com.jgoodies.forms.layout.FormLayout</class>
          <void method="setProperty">
           <string>$columnSpecs</string>
-          <string>42dlu, labelcompgap, 134dlu:grow, labelcompgap</string>
+          <string>45dlu, labelcompgap, 134dlu:grow, labelcompgap</string>
          </void>
          <void method="setProperty">
           <string>$rowSpecs</string>
@@ -70,14 +62,73 @@
          <string>panel1</string>
         </void>
         <void method="add">
-         <object class="com.jformdesigner.model.FormComponent">
-          <string>javax.swing.JLabel</string>
-          <void method="setProperty">
-           <string>text</string>
-           <string>Entidades:</string>
-          </void>
+         <object class="com.jformdesigner.model.FormContainer">
+          <string>javax.swing.JPanel</string>
+          <object class="com.jformdesigner.model.FormLayoutManager">
+           <class>com.jgoodies.forms.layout.FormLayout</class>
+           <void method="setProperty">
+            <string>$columnSpecs</string>
+            <string>45dlu:grow</string>
+           </void>
+           <void method="setProperty">
+            <string>$rowSpecs</string>
+            <string>fill:default:grow, linegap, fill:default</string>
+           </void>
+          </object>
           <void property="name">
-           <string>label1</string>
+           <string>panel2</string>
+          </void>
+          <void method="add">
+           <object class="com.jformdesigner.model.FormComponent">
+            <string>javax.swing.JLabel</string>
+            <void method="setProperty">
+             <string>text</string>
+             <string>Entidades:</string>
+            </void>
+            <void property="name">
+             <string>label1</string>
+            </void>
+           </object>
+           <object class="com.jformdesigner.model.FormLayoutConstraints">
+            <class>com.jgoodies.forms.layout.CellConstraints</class>
+            <void method="setProperty">
+             <string>gridX</string>
+             <int>1</int>
+            </void>
+            <void method="setProperty">
+             <string>gridY</string>
+             <int>1</int>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <object class="com.jformdesigner.model.FormComponent">
+            <string>javax.swing.JButton</string>
+            <void method="setProperty">
+             <string>text</string>
+             <string>Adicionar</string>
+            </void>
+            <void property="name">
+             <string>adicionarEntidade</string>
+            </void>
+            <void method="auxiliary">
+             <void method="setProperty">
+              <string>JavaCodeGenerator.variableGetter</string>
+              <boolean>true</boolean>
+             </void>
+            </void>
+           </object>
+           <object class="com.jformdesigner.model.FormLayoutConstraints">
+            <class>com.jgoodies.forms.layout.CellConstraints</class>
+            <void method="setProperty">
+             <string>gridX</string>
+             <int>1</int>
+            </void>
+            <void method="setProperty">
+             <string>gridY</string>
+             <int>3</int>
+            </void>
+           </object>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -105,7 +156,13 @@
            <object class="com.jformdesigner.model.FormComponent">
             <string>javax.swing.JTable</string>
             <void property="name">
-             <string>entidades</string>
+             <string>entidadesTable</string>
+            </void>
+            <void method="auxiliary">
+             <void method="setProperty">
+              <string>JavaCodeGenerator.variableGetter</string>
+              <boolean>true</boolean>
+             </void>
             </void>
            </object>
           </void>
@@ -148,8 +205,8 @@
       <void method="setProperty">
        <string>size</string>
        <object class="java.awt.Dimension">
-        <int>650</int>
-        <int>420</int>
+        <int>770</int>
+        <int>610</int>
        </object>
       </void>
      </object>

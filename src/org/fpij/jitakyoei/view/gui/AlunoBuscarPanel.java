@@ -8,11 +8,15 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
+
+import net.java.dev.genesis.annotation.ViewHandler;
+
 import com.jgoodies.forms.layout.*;
 
 /**
  * @author wansoul
  */
+@ViewHandler
 public class AlunoBuscarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -24,8 +28,8 @@ public class AlunoBuscarPanel extends JPanel {
 		return buscaCamposPanel;
 	}
 
-	public JTable getAluno() {
-		return aluno;
+	public JTable getAlunoTable() {
+		return alunoTable;
 	}
 
 	public JScrollPane getScrollPane1() {
@@ -43,7 +47,7 @@ public class AlunoBuscarPanel extends JPanel {
 		panel1 = new JPanel();
 		buscar = new JButton();
 		scrollPane1 = new JScrollPane();
-		aluno = new JTable();
+		alunoTable = new JTable();
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
@@ -78,8 +82,8 @@ public class AlunoBuscarPanel extends JPanel {
 		{
 			scrollPane1.setName("scrollPane1");
 
-			//---- aluno ----
-			aluno.setModel(new DefaultTableModel(
+			//---- alunoTable ----
+			alunoTable.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
@@ -87,19 +91,19 @@ public class AlunoBuscarPanel extends JPanel {
 				}
 			));
 			{
-				TableColumnModel cm = aluno.getColumnModel();
+				TableColumnModel cm = alunoTable.getColumnModel();
 				cm.getColumn(0).setMaxWidth(70);
 				cm.getColumn(0).setPreferredWidth(70);
 			}
-			aluno.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			aluno.setName("aluno");
-			aluno.addMouseListener(new MouseAdapter() {
+			alunoTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			alunoTable.setName("alunoTable");
+			alunoTable.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					alunoMouseClicked(e);
 				}
 			});
-			scrollPane1.setViewportView(aluno);
+			scrollPane1.setViewportView(alunoTable);
 		}
 		add(scrollPane1, cc.xy(1, 7));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -111,6 +115,6 @@ public class AlunoBuscarPanel extends JPanel {
 	private JPanel panel1;
 	private JButton buscar;
 	private JScrollPane scrollPane1;
-	public JTable aluno;
+	public JTable alunoTable;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

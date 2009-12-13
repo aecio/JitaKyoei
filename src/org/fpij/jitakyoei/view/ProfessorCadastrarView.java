@@ -9,6 +9,7 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Professor;
+import org.fpij.jitakyoei.view.forms.AlunoForm;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
 
@@ -20,7 +21,11 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	public ProfessorCadastrarView(){
 		gui = new ProfessorCadastrarPanel();
 		new SwingBinder(gui, this).bind();
+		gui.setVisible(true);
+		professorForm = new ProfessorForm(gui.getProfessorPanel());
 	}
+	
+	
 	
 	@Action
 	public void cadastrar() {

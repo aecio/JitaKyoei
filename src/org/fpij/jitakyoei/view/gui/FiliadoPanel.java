@@ -3,6 +3,7 @@
  */
 
 package org.fpij.jitakyoei.view.gui;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -45,6 +46,10 @@ public class FiliadoPanel extends JPanel {
 	public JDateChooser getDataEntregaDataChooser() {
 		return dataEntregaDataChooser;
 	}
+
+	public JDateChooser getDataNascimentoDataChooser() {
+		return dataNascimentoDataChooser;
+	}
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
@@ -74,6 +79,7 @@ public class FiliadoPanel extends JPanel {
 		adicionarFaixa = new JButton();
 		scrollPane2 = new JScrollPane();
 		faixasTable = new JTable();
+		panel2 = new JPanel();
 		label13 = new JLabel();
 		scrollPane1 = new JScrollPane();
 		observacoes = new JTextArea();
@@ -83,7 +89,7 @@ public class FiliadoPanel extends JPanel {
 		setName("this");
 		setLayout(new FormLayout(
 			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap",
-			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:95dlu, $lgap, fill:44dlu"));
+			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:95dlu"));
 
 		//---- label1 ----
 		label1.setText("Nome:");
@@ -175,7 +181,7 @@ public class FiliadoPanel extends JPanel {
 			panel1.setBorder(new TitledBorder("Faixas"));
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
-				"39dlu, $lcgap, 140dlu:grow, $lcgap, 63dlu, $lcgap, 56dlu:grow, $lcgap, 50dlu, $lcgap, default",
+				"39dlu, $lcgap, 65dlu:grow, $lcgap, 53dlu, $lcgap, 52dlu:grow, $lcgap, 52dlu",
 				"default, $lgap, fill:60dlu"));
 
 			//---- label7 ----
@@ -235,25 +241,32 @@ public class FiliadoPanel extends JPanel {
 				faixasTable.setName("faixasTable");
 				scrollPane2.setViewportView(faixasTable);
 			}
-			panel1.add(scrollPane2, cc.xywh(1, 3, 11, 1));
+			panel1.add(scrollPane2, cc.xywh(1, 3, 9, 1));
 		}
-		add(panel1, cc.xywh(1, 14, 11, 1));
+		add(panel1, cc.xywh(1, 14, 6, 1));
 
-		//---- label13 ----
-		label13.setText("Observa\u00e7\u00f5es:");
-		label13.setName("label13");
-		add(label13, cc.xy(2, 16));
-
-		//======== scrollPane1 ========
+		//======== panel2 ========
 		{
-			scrollPane1.setName("scrollPane1");
+			panel2.setName("panel2");
+			panel2.setLayout(new BorderLayout());
 
-			//---- observacoes ----
-			observacoes.setLineWrap(true);
-			observacoes.setName("observacoes");
-			scrollPane1.setViewportView(observacoes);
+			//---- label13 ----
+			label13.setText("Observa\u00e7\u00f5es:");
+			label13.setName("label13");
+			panel2.add(label13, BorderLayout.NORTH);
+
+			//======== scrollPane1 ========
+			{
+				scrollPane1.setName("scrollPane1");
+
+				//---- observacoes ----
+				observacoes.setLineWrap(true);
+				observacoes.setName("observacoes");
+				scrollPane1.setViewportView(observacoes);
+			}
+			panel2.add(scrollPane1, BorderLayout.CENTER);
 		}
-		add(scrollPane1, cc.xywh(4, 16, 7, 1));
+		add(panel2, cc.xywh(8, 14, 3, 1));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -285,6 +298,7 @@ public class FiliadoPanel extends JPanel {
 	private JButton adicionarFaixa;
 	private JScrollPane scrollPane2;
 	private JTable faixasTable;
+	private JPanel panel2;
 	private JLabel label13;
 	private JScrollPane scrollPane1;
 	private JTextArea observacoes;
