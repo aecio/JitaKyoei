@@ -45,7 +45,7 @@ public class EnderecoPanel extends JPanel {
 		setBorder(new TitledBorder("Endere\u00e7o:"));
 		setName("this");
 		setLayout(new FormLayout(
-			"40dlu, $lcgap, 109dlu:grow, $lcgap, 33dlu, $lcgap, 41dlu, $lcgap, 96dlu:grow",
+			"40dlu, $lcgap, 129dlu:grow, $lcgap, 23dlu, $lcgap, 31dlu:grow, $lcgap, 29dlu, $lcgap, 96dlu:grow",
 			"2*(default, $lgap), default"));
 
 		//---- label1 ----
@@ -55,16 +55,16 @@ public class EnderecoPanel extends JPanel {
 
 		//---- rua ----
 		rua.setName("rua");
-		add(rua, cc.xywh(3, 1, 3, 1));
+		add(rua, cc.xywh(3, 1, 5, 1));
 
 		//---- label2 ----
 		label2.setText("N\u00famero:");
 		label2.setName("label2");
-		add(label2, cc.xy(7, 1));
+		add(label2, cc.xy(9, 1));
 
 		//---- numero ----
 		numero.setName("numero");
-		add(numero, cc.xy(9, 1));
+		add(numero, cc.xy(11, 1));
 
 		//---- label3 ----
 		label3.setText("Bairro:");
@@ -82,7 +82,7 @@ public class EnderecoPanel extends JPanel {
 
 		//---- cidade ----
 		cidade.setName("cidade");
-		add(cidade, cc.xywh(7, 3, 3, 1));
+		add(cidade, cc.xywh(7, 3, 5, 1));
 
 		//---- label5 ----
 		label5.setText("Estado:");
@@ -100,7 +100,7 @@ public class EnderecoPanel extends JPanel {
 
 		//---- cep ----
 		cep.setName("cep");
-		add(cep, cc.xywh(7, 5, 3, 1));
+		add(cep, cc.xywh(7, 5, 5, 1));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
