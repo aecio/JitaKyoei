@@ -4,13 +4,25 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.*;
-import javax.swing.*;
-import com.jgoodies.forms.layout.*;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.*;
+
+import net.java.dev.genesis.annotation.ViewHandler;
+
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
  */
+@ViewHandler
 public class ProfessorBuscarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -69,6 +81,15 @@ public class ProfessorBuscarPanel extends JPanel {
 			scrollPane1.setName("scrollPane1");
 
 			//---- professores ----
+			professores.setModel(new DefaultTableModel(
+				new Object[][] {
+					{null, null},
+					{null, null},
+				},
+				new String[] {
+					"Registro", "Nome"
+				}
+			));
 			professores.setName("professores");
 			scrollPane1.setViewportView(professores);
 		}

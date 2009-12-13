@@ -13,8 +13,7 @@ public class EnderecoForm {
 	
 	public EnderecoForm(EnderecoPanel enderecoPanel) {
 		this.endereco = new Endereco();
-		this.binder = new SwingBinder(enderecoPanel, this.endereco);
-		binder.bind();
+		new SwingBinder(enderecoPanel, this.endereco).bind();
 	}
 	
 	public Endereco pegarBean(){

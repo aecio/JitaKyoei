@@ -105,10 +105,10 @@
           <string>javax.swing.JButton</string>
           <void method="setProperty">
            <string>text</string>
-           <string>Cadastrar</string>
+           <string>Atualizar</string>
           </void>
           <void property="name">
-           <string>cadastrar</string>
+           <string>atualizar</string>
           </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
@@ -169,7 +169,7 @@
        <string>size</string>
        <object class="java.awt.Dimension">
         <int>675</int>
-        <int>430</int>
+        <int>545</int>
        </object>
       </void>
      </object>

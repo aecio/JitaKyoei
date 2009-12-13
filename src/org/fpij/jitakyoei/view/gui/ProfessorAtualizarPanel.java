@@ -27,7 +27,7 @@ public class ProfessorAtualizarPanel extends JPanel {
 		label1 = new JLabel();
 		professorPanel = new ProfessorPanel();
 		panel1 = new JPanel();
-		cadastrar = new JButton();
+		atualizar = new JButton();
 		cancelar = new JButton();
 		CellConstraints cc = new CellConstraints();
 
@@ -54,10 +54,10 @@ public class ProfessorAtualizarPanel extends JPanel {
 				"43dlu, 2*($lcgap, default)",
 				"default"));
 
-			//---- cadastrar ----
-			cadastrar.setText("Cadastrar");
-			cadastrar.setName("cadastrar");
-			panel1.add(cadastrar, cc.xy(3, 1));
+			//---- atualizar ----
+			atualizar.setText("Atualizar");
+			atualizar.setName("atualizar");
+			panel1.add(atualizar, cc.xy(3, 1));
 
 			//---- cancelar ----
 			cancelar.setText("Cancelar");
@@ -72,7 +72,7 @@ public class ProfessorAtualizarPanel extends JPanel {
 	private JLabel label1;
 	private ProfessorPanel professorPanel;
 	private JPanel panel1;
-	private JButton cadastrar;
+	private JButton atualizar;
 	private JButton cancelar;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
