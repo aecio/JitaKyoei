@@ -1,6 +1,5 @@
 package org.fpij.jitakyoei.view;
 
-import java.awt.JobAttributes;
 import java.util.List;
 
 import javax.swing.JOptionPane;

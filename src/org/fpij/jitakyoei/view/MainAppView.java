@@ -1,7 +1,5 @@
 package org.fpij.jitakyoei.view;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -12,6 +10,7 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
+
 @Form
 public class MainAppView implements AppView {
 	MainAppFrame frame;
@@ -41,18 +40,8 @@ public class MainAppView implements AppView {
 		f.setVisible(true);
 	}
 	
-	private void displayPanel(ViewComponent viewComponent){
-		frame.getMainPanel().removeAll();
-		frame.getMainPanel().add(viewComponent.getGui(), BorderLayout.CENTER);
-		frame.repaint();
-		frame.setVisible(true);
-		frame.validate();
-		System.out.println("MainAppView.display()");
-	}
-	
 	private void displayTabPanel(ViewComponent viewComponent, String titulo){
 		viewComponent.registerFacade(this.facade);
-		frame.getMainPanel().removeAll();
 		frame.getTabbedPane().addTab(" "+titulo+"  ", new CloseTabIcon(), viewComponent.getGui(), titulo);
 		frame.getTabbedPane().setSelectedComponent(viewComponent.getGui());
 		frame.repaint();
@@ -60,6 +49,7 @@ public class MainAppView implements AppView {
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
+
 
 //	Ações de Aluno
 	@Action
@@ -76,7 +66,7 @@ public class MainAppView implements AppView {
 	public void alterarAlunoMenuItem(){
 		System.out.println("MainAppForm.alterarAlunoMenuItem()");
 		displayFrame(new AlunoBuscarView(), "Buscar Aluno");
-//		displayPanel(new AlunoAtualizarView());
+		displayTabPanel(new AlunoAtualizarView(), "Alterar Aluno");
 	}
 	@Action
 	public void alterarAlunoIcon(){
@@ -121,6 +111,7 @@ public class MainAppView implements AppView {
 	public void buscarProfessorIcon(){
 		buscarProfessorMenuItem();
 	}
+
 //	Ações de Entidade
 	@Action
 	public void cadastrarEntidadeMenuItem(){

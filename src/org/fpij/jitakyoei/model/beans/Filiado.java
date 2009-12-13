@@ -1,7 +1,7 @@
 package org.fpij.jitakyoei.model.beans;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 public class Filiado {
 	Long id;
@@ -17,7 +17,7 @@ public class Filiado {
 	String cpf;
 	Date ultimaAnuidade;
 	String observacoes;
-	Set<Faixa> faixas;
+	List<Faixa> faixas;
 	
 	public String toString(){
 		String filiado = "Nome: "+nome+
@@ -116,10 +116,10 @@ public class Filiado {
 	public void setUltimaAnuidade(Date ultimaAnuidade) {
 		this.ultimaAnuidade = ultimaAnuidade;
 	}
-	public Set<Faixa> getFaixas() {
+	public List<Faixa> getFaixas() {
 		return faixas;
 	}
-	public void setFaixas(Set<Faixa> faixas) {
+	public void setFaixas(List<Faixa> faixas) {
 		this.faixas = faixas;
 	}
 

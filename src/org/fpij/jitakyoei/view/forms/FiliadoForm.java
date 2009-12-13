@@ -1,13 +1,24 @@
 package org.fpij.jitakyoei.view.forms;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.swing.table.DefaultTableModel;
+
+import net.java.dev.genesis.annotation.Action;
+import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
+import org.fpij.jitakyoei.model.beans.Faixa;
 import org.fpij.jitakyoei.model.beans.Filiado;
 import org.fpij.jitakyoei.model.beans.Rg;
+import org.fpij.jitakyoei.util.CorFaixa;
 import org.fpij.jitakyoei.view.gui.FiliadoPanel;
+
+import com.toedter.calendar.JDateChooser;
 
 @Form
 public class FiliadoForm {
@@ -25,11 +36,51 @@ public class FiliadoForm {
 	private String telefone2;
 	private Date ultimaAnuidade;
 	private String email;
-	
+	private Faixa faixa;
+	private List<Faixa> faixasList;
+	private CorFaixa corFaixa;
+	private JDateChooser dataEntregaDataChooser;
+	private DefaultTableModel faixasModel;
+
+
 	public FiliadoForm(FiliadoPanel filiadoPanel) {
 		this.binder = new SwingBinder(filiadoPanel, this);
 		binder.bind();
 		this.enderecoForm = new EnderecoForm(filiadoPanel.getEnderecoPanel());
+		dataEntregaDataChooser = filiadoPanel.getDataEntregaDataChooser();
+		faixasModel = (DefaultTableModel) filiadoPanel.getFaixasTable().getModel();
+		faixasList = new ArrayList<Faixa>();
+	}
+
+	@Action
+	public void adicionarFaixa(){
+		System.out.println("FiliadoForm.adicionarFaixa()");
+			faixa = new Faixa(corFaixa, dataEntregaDataChooser.getDate());
+			faixasList.add(faixa);
+			
+			SimpleDateFormat dataFormater = new SimpleDateFormat("dd/MM/yyyy");  
+
+			Object[][] data = new Object[faixasList.size()][2];
+			for (int i = 0; i < faixasList.size(); i++) {
+				data[i][0] = faixasList.get(i).getCor();
+				data[i][1] = dataFormater.format(faixasList.get(i).getDataEntrega());
+			}
+			faixasModel.setDataVector( data, new String[]{"Faixa","Data de Entrega"});
+	}
+	
+	@DataProvider(objectField = "corFaixa")
+	public List<CorFaixa> populaFaixa(){
+		List<CorFaixa> cores = new ArrayList<CorFaixa>();
+		cores = CorFaixa.getCoresFaixa();
+		return cores;
+	}
+
+	public CorFaixa getCorFaixa() {
+		return corFaixa;
+	}
+	
+	public void setCorFaixa(CorFaixa corFaixa) {
+		this.corFaixa = corFaixa;
 	}
 	
 	public Filiado pegarBean(){
@@ -41,7 +92,7 @@ public class FiliadoForm {
 		 */
 //		f.setDataNascimento(new DateFormat.);
 		f.setEmail(email);
-//		f.setFaixas(faixas);
+		f.setFaixas(faixasList);
 		f.setEndereco(enderecoForm.pegarBean());
 		f.setCpf(cpf);
 		f.setNome(nome);
@@ -54,6 +105,14 @@ public class FiliadoForm {
 		f.setObservacoes(observacoes);
 		
 		return f;
+	}
+	
+	public Faixa getFaixa() {
+		return faixa;
+	}
+
+	public void setFaixa(Faixa faixa) {
+		this.faixa = faixa;
 	}
 	
 	public String getEmail() {

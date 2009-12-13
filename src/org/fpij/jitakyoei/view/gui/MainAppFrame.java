@@ -41,7 +41,7 @@ public class MainAppFrame extends JFrame {
 	}
 
 	private void thisWindowOpened(WindowEvent e) {
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 	public JTabbedPane getTabbedPane() {
@@ -82,6 +82,7 @@ public class MainAppFrame extends JFrame {
 		buscarEntidadeIcon = new JButton();
 		tabbedPane = new JTabbedPane();
 		mainPanel = new JPanel();
+		button1 = new JButton();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
@@ -293,6 +294,11 @@ public class MainAppFrame extends JFrame {
 			{
 				mainPanel.setName("mainPanel");
 				mainPanel.setLayout(new BorderLayout());
+
+				//---- button1 ----
+				button1.setIcon(new ImageIcon(getClass().getResource("/FPIJ-splash.png")));
+				button1.setName("button1");
+				mainPanel.add(button1, BorderLayout.CENTER);
 			}
 			tabbedPane.addTab("JitaKyoei", mainPanel);
 
@@ -335,5 +341,6 @@ public class MainAppFrame extends JFrame {
 	private JButton buscarEntidadeIcon;
 	private JTabbedPane tabbedPane;
 	private JPanel mainPanel;
+	private JButton button1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
