@@ -42,7 +42,7 @@ public class EnderecoPanel extends JPanel {
 		CellConstraints cc = new CellConstraints();
 
 		//======== this ========
-		setBorder(new TitledBorder("Endere\u00e7o:"));
+		setBorder(new TitledBorder(null, "Endere\u00e7o:", TitledBorder.LEADING, TitledBorder.TOP));
 		setName("this");
 		setLayout(new FormLayout(
 			"40dlu, $lcgap, 129dlu:grow, $lcgap, 23dlu, $lcgap, 31dlu:grow, $lcgap, 29dlu, $lcgap, 96dlu:grow",

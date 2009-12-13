@@ -81,16 +81,16 @@ public class AlunoBuscarPanel extends JPanel {
 			//---- aluno ----
 			aluno.setModel(new DefaultTableModel(
 				new Object[][] {
-					{null},
-					{null},
-					{null},
-					{null},
-					{null},
 				},
 				new String[] {
-					null
+					"Regisro", "Nome", "Professor", "Entidade"
 				}
 			));
+			{
+				TableColumnModel cm = aluno.getColumnModel();
+				cm.getColumn(0).setMaxWidth(70);
+				cm.getColumn(0).setPreferredWidth(70);
+			}
 			aluno.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			aluno.setName("aluno");
 			aluno.addMouseListener(new MouseAdapter() {
