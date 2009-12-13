@@ -89,7 +89,6 @@ public class AlunoBuscarPanel extends JPanel {
 			//---- alunoTable ----
 			alunoTable.setModel(new DefaultTableModel(
 				new Object[][] {
-					{"1", null, null, null},
 				},
 				new String[] {
 					"Regisro", "Nome", "Professor", "Entidade"

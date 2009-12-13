@@ -21,15 +21,15 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 	private AlunoBuscarPanel gui;
 	private AppFacade facade;
 	private CamposBuscaForm campoBusca;
-	private  DefaultTableModel alunoTableModel;
+	private DefaultTableModel alunoTableModel;
 	private AlunoAtualizarView alunoAtualizarView;
 	
-	public AlunoBuscarView(){
-		gui = new AlunoBuscarPanel();
-		new SwingBinder(gui, this).bind();
-		campoBusca = new CamposBuscaForm(gui.getBuscaCamposPanel());
-		alunoTableModel = (DefaultTableModel) gui.getAlunoTable().getModel();
-	}
+//	public AlunoBuscarView(){
+//		gui = new AlunoBuscarPanel();
+//		new SwingBinder(gui, this).bind();
+//		campoBusca = new CamposBuscaForm(gui.getBuscaCamposPanel());
+//		alunoTableModel = (DefaultTableModel) gui.getAlunoTable().getModel();
+//	}
 	
 	public AlunoBuscarView(AlunoAtualizarView alunoAtualizarView) {
 		gui = new AlunoBuscarPanel();
@@ -41,33 +41,32 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 
 	@Action
 	public void buscar(){
-		
 		System.out.println("AlunoBuscarView.buscar()");
 		Aluno aluno = new Aluno();
 		Filiado filiado = new Filiado();
 		if(campoBusca.getRegistroFpij() != null){
 			filiado.setId(Long.parseLong(campoBusca.getRegistroFpij()));
+		} else {
+			filiado.setId(null);
 		}
 		if(campoBusca.getNome() != null){
 			filiado.setNome(campoBusca.getNome());
+		} else {
+			filiado.setNome(null);
 		}
-		Professor p = new Professor();
-		p.setFiliado(filiado);
-		aluno.setProfessor(p);
 		aluno.setFiliado(filiado);
+		aluno.setProfessor(null);
 		List<Aluno> aList = facade.searchAluno(aluno);//new ArrayList<Aluno>();
-//		aList.add(aluno);
-		System.out.println("antes de Object[][] data = new Object[aList.");
-		Object[][] data = new Object[aList.size()][3];
+
+		Object[][] data = new Object[aList.size()][4];
 		for (int i = 0; i < aList.size(); i++) {
 			data[i][0] = aList.get(i).getFiliado().getId();
 			data[i][1] = aList.get(i).getFiliado().getNome();
 			data[i][2] = aList.get(i).getProfessor().getFiliado().getNome();
-//			data[i][0] = aList.get(i).getEntidade().getNome();
-			System.out.println(aList.get(i).getFiliado().getNome());
+			data[i][3] = aList.get(i).getEntidade().getNome();
 		}
 		System.out.println("antes de alunoTableModel.setDataVector( ");
-		alunoTableModel.setDataVector( data, new String[]{"Resistro", "Nome", "Professor"});//, "Entidade"});
+		alunoTableModel.setDataVector( data, new String[]{"Resistro", "Nome", "Professor", "Entidade"});
 		System.out.println("depois de alunoTableModel.setDataVector( ");
 	}
 	

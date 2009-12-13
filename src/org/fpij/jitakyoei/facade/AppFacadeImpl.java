@@ -86,12 +86,14 @@ public class AppFacadeImpl implements AppFacade {
 	}
 
 	@Override
-	public void listProfessores() {
+	public List<Professor> listProfessores() {
+		List<Professor> result = null;
 		try{
-			professorBO.listAll();
+			result = professorBO.listAll();
 		}catch (Exception e) {
 			reportException(e);
 		}
+		return result;
 	}
 
 	@Override
@@ -122,12 +124,14 @@ public class AppFacadeImpl implements AppFacade {
 	}
 
 	@Override
-	public void listEntidade() {
+	public List<Entidade> listEntidade() {
+		List<Entidade> result = null;
 		try{
-			entidadeBO.listAll();
+			result = entidadeBO.listAll();
 		}catch (Exception e) {
 			reportException(e);
 		}
+		return result; 
 	}
 
 	@Override
