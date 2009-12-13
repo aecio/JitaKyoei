@@ -25,6 +25,7 @@ public class AlunoCadastrarView implements AlunoView, ViewComponent {
 		new SwingBinder(gui, this).bind();
 		gui.setVisible(true);
 		alunoForm = new AlunoForm(gui.getAlunoPanel());
+		alunoForm.registerFacade(facade);
 	}
 
 	@Action

@@ -87,7 +87,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void buscarAlunoMenuItem(){
 		System.out.println("MainAppForm.buscarAlunoMenuItem()");
-		displayTabPanel(new AlunoBuscarView(), "Buscar Aluno");
+		displayTabPanel(new AlunoBuscarView(null), "Buscar Aluno");
 	}
 	@Action
 	public void buscarAlunoIcon(){
