@@ -286,6 +286,28 @@
           <void property="name">
            <string>mainPanel</string>
           </void>
+          <void method="add">
+           <object class="com.jformdesigner.model.FormComponent">
+            <string>javax.swing.JButton</string>
+            <void method="setProperty">
+             <string>icon</string>
+             <object class="com.jformdesigner.model.SwingIcon">
+              <int>0</int>
+              <string>/FPIJ-splash.png</string>
+             </object>
+            </void>
+            <void property="name">
+             <string>button1</string>
+            </void>
+           </object>
+           <object class="com.jformdesigner.model.FormLayoutConstraints">
+            <class>java.lang.String</class>
+            <void method="setProperty">
+             <string>value</string>
+             <string>Center</string>
+            </void>
+           </object>
+          </void>
          </object>
          <object class="com.jformdesigner.model.FormLayoutConstraints">
           <null/>

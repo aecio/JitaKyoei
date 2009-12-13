@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.*;
+import javax.swing.table.*;
+import com.toedter.calendar.*;
 
 import org.fpij.jitakyoei.view.forms.EnderecoForm;
 
@@ -34,6 +37,14 @@ public class FiliadoPanel extends JPanel {
 	public EnderecoPanel getEnderecoPanel() {
 		return enderecoPanel;
 	}
+
+	public JTable getFaixasTable() {
+		return faixasTable;
+	}
+
+	public JDateChooser getDataEntregaDataChooser() {
+		return dataEntregaDataChooser;
+	}
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
@@ -45,7 +56,7 @@ public class FiliadoPanel extends JPanel {
 		label6 = new JLabel();
 		email = new JTextField();
 		label2 = new JLabel();
-		dataNascimento = new JTextField();
+		dataNascimentoDataChooser = new JDateChooser();
 		label3 = new JLabel();
 		rg = new JTextField();
 		label4 = new JLabel();
@@ -55,11 +66,14 @@ public class FiliadoPanel extends JPanel {
 		label11 = new JLabel();
 		telefone2 = new JTextField();
 		enderecoPanel = new EnderecoPanel();
+		panel1 = new JPanel();
 		label7 = new JLabel();
-		comboBox1 = new JComboBox();
+		corFaixa = new JComboBox();
 		label8 = new JLabel();
-		dataEntrega = new JTextField();
-		adicionar = new JButton();
+		dataEntregaDataChooser = new JDateChooser();
+		adicionarFaixa = new JButton();
+		scrollPane2 = new JScrollPane();
+		faixasTable = new JTable();
 		label13 = new JLabel();
 		scrollPane1 = new JScrollPane();
 		observacoes = new JTextArea();
@@ -69,7 +83,7 @@ public class FiliadoPanel extends JPanel {
 		setName("this");
 		setLayout(new FormLayout(
 			"$lcgap, pref, $lcgap, 109dlu:grow, $lcgap, 65dlu, $lcgap, 29dlu:grow, $lcgap, 46dlu, $lcgap",
-			"5*($lgap, default), $lgap, fill:61dlu, $lgap, default, $lgap, fill:55dlu"));
+			"5*($lgap, default), $lgap, fill:61dlu, $lgap, fill:95dlu, $lgap, fill:44dlu"));
 
 		//---- label1 ----
 		label1.setText("Nome:");
@@ -112,9 +126,9 @@ public class FiliadoPanel extends JPanel {
 		label2.setName("label2");
 		add(label2, cc.xy(6, 6));
 
-		//---- dataNascimento ----
-		dataNascimento.setName("dataNascimento");
-		add(dataNascimento, cc.xywh(8, 6, 3, 1));
+		//---- dataNascimentoDataChooser ----
+		dataNascimentoDataChooser.setName("dataNascimentoDataChooser");
+		add(dataNascimentoDataChooser, cc.xywh(8, 6, 3, 1));
 
 		//---- label3 ----
 		label3.setText("RG:");
@@ -156,28 +170,74 @@ public class FiliadoPanel extends JPanel {
 		enderecoPanel.setName("enderecoPanel");
 		add(enderecoPanel, cc.xywh(1, 12, 11, 1));
 
-		//---- label7 ----
-		label7.setText("Faixa");
-		label7.setName("label7");
-		add(label7, cc.xy(2, 14));
+		//======== panel1 ========
+		{
+			panel1.setBorder(new TitledBorder("Faixas"));
+			panel1.setName("panel1");
+			panel1.setLayout(new FormLayout(
+				"39dlu, $lcgap, 140dlu:grow, $lcgap, 63dlu, $lcgap, 56dlu:grow, $lcgap, 50dlu, $lcgap, default",
+				"default, $lgap, fill:60dlu"));
 
-		//---- comboBox1 ----
-		comboBox1.setName("comboBox1");
-		add(comboBox1, cc.xy(4, 14));
+			//---- label7 ----
+			label7.setText("Cor:");
+			label7.setName("label7");
+			panel1.add(label7, cc.xy(1, 1));
 
-		//---- label8 ----
-		label8.setText("Data de Entrega:");
-		label8.setName("label8");
-		add(label8, cc.xy(6, 14));
+			//---- corFaixa ----
+			corFaixa.setName("corFaixa");
+			panel1.add(corFaixa, cc.xy(3, 1));
 
-		//---- dataEntrega ----
-		dataEntrega.setName("dataEntrega");
-		add(dataEntrega, cc.xy(8, 14));
+			//---- label8 ----
+			label8.setText("Data de Entrega:");
+			label8.setName("label8");
+			panel1.add(label8, cc.xy(5, 1));
 
-		//---- adicionar ----
-		adicionar.setText("Adicionar");
-		adicionar.setName("adicionar");
-		add(adicionar, cc.xy(10, 14));
+			//---- dataEntregaDataChooser ----
+			dataEntregaDataChooser.setName("dataEntregaDataChooser");
+			panel1.add(dataEntregaDataChooser, cc.xy(7, 1));
+
+			//---- adicionarFaixa ----
+			adicionarFaixa.setText("Adicionar");
+			adicionarFaixa.setName("adicionarFaixa");
+			panel1.add(adicionarFaixa, cc.xy(9, 1));
+
+			//======== scrollPane2 ========
+			{
+				scrollPane2.setName("scrollPane2");
+
+				//---- faixasTable ----
+				faixasTable.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"Faixa", "Data de Entrega"
+					}
+				) {
+					Class[] columnTypes = new Class[] {
+						Object.class, Object.class
+					};
+					boolean[] columnEditable = new boolean[] {
+						false, true
+					};
+					@Override
+					public Class<?> getColumnClass(int columnIndex) {
+						return columnTypes[columnIndex];
+					}
+					@Override
+					public boolean isCellEditable(int rowIndex, int columnIndex) {
+						return columnEditable[columnIndex];
+					}
+				});
+				{
+					TableColumnModel cm = faixasTable.getColumnModel();
+					cm.getColumn(0).setResizable(false);
+				}
+				faixasTable.setName("faixasTable");
+				scrollPane2.setViewportView(faixasTable);
+			}
+			panel1.add(scrollPane2, cc.xywh(1, 3, 11, 1));
+		}
+		add(panel1, cc.xywh(1, 14, 11, 1));
 
 		//---- label13 ----
 		label13.setText("Observa\u00e7\u00f5es:");
@@ -207,7 +267,7 @@ public class FiliadoPanel extends JPanel {
 	private JLabel label6;
 	private JTextField email;
 	private JLabel label2;
-	private JTextField dataNascimento;
+	private JDateChooser dataNascimentoDataChooser;
 	private JLabel label3;
 	private JTextField rg;
 	private JLabel label4;
@@ -217,11 +277,14 @@ public class FiliadoPanel extends JPanel {
 	private JLabel label11;
 	private JTextField telefone2;
 	private EnderecoPanel enderecoPanel;
+	private JPanel panel1;
 	private JLabel label7;
-	private JComboBox comboBox1;
+	private JComboBox corFaixa;
 	private JLabel label8;
-	private JTextField dataEntrega;
-	private JButton adicionar;
+	private JDateChooser dataEntregaDataChooser;
+	private JButton adicionarFaixa;
+	private JScrollPane scrollPane2;
+	private JTable faixasTable;
 	private JLabel label13;
 	private JScrollPane scrollPane1;
 	private JTextArea observacoes;
