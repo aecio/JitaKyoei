@@ -17,7 +17,7 @@
        <class>com.jgoodies.forms.layout.FormLayout</class>
        <void method="setProperty">
         <string>$columnSpecs</string>
-        <string>40dlu, labelcompgap, 109dlu:grow, labelcompgap, 33dlu, labelcompgap, 41dlu, labelcompgap, 96dlu:grow</string>
+        <string>40dlu, labelcompgap, 129dlu:grow, labelcompgap, 23dlu, labelcompgap, 31dlu:grow, labelcompgap, 29dlu, labelcompgap, 96dlu:grow</string>
        </void>
        <void method="setProperty">
         <string>$rowSpecs</string>
@@ -72,7 +72,7 @@
         </void>
         <void method="setProperty">
          <string>gridWidth</string>
-         <int>3</int>
+         <int>5</int>
         </void>
        </object>
       </void>
@@ -91,7 +91,7 @@
         <class>com.jgoodies.forms.layout.CellConstraints</class>
         <void method="setProperty">
          <string>gridX</string>
-         <int>7</int>
+         <int>9</int>
         </void>
        </object>
       </void>
@@ -106,7 +106,7 @@
         <class>com.jgoodies.forms.layout.CellConstraints</class>
         <void method="setProperty">
          <string>gridX</string>
-         <int>9</int>
+         <int>11</int>
         </void>
         <void method="setProperty">
          <string>gridY</string>
@@ -194,7 +194,7 @@
         </void>
         <void method="setProperty">
          <string>gridWidth</string>
-         <int>3</int>
+         <int>5</int>
         </void>
        </object>
       </void>
@@ -278,7 +278,7 @@
         </void>
         <void method="setProperty">
          <string>gridWidth</string>
-         <int>3</int>
+         <int>5</int>
         </void>
        </object>
       </void>

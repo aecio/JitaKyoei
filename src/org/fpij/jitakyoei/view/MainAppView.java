@@ -1,7 +1,6 @@
 package org.fpij.jitakyoei.view;
 
 import java.awt.BorderLayout;
-import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
@@ -9,6 +8,7 @@ import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
+import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
 @Form
 public class MainAppView {
@@ -41,11 +41,20 @@ public class MainAppView {
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
+	
+	public void displayTabPanel(ViewComponent viewComponent, String titulo){
+		frame.getMainPanel().removeAll();
+		frame.getTabbedPane().addTab(" "+titulo, new CloseTabIcon(), viewComponent.getGui(), titulo);
+		frame.repaint();
+		frame.setVisible(true);
+		frame.validate();
+		System.out.println("MainAppView.display()");
+	}
 
 //	Ações de Aluno
 	@Action
 	private void cadastrarAlunoMenuItem(){
-		displayPanel(new AlunoCadastrarView());
+		displayTabPanel(new AlunoCadastrarView(), "Cadastrar Aluno");
 	}
 	
 	@Action
@@ -67,7 +76,7 @@ public class MainAppView {
 	@Action
 	public void buscarAlunoMenuItem(){
 		System.out.println("MainAppForm.buscarAlunoMenuItem()");
-		displayPanel(new AlunoBuscarView());
+		displayTabPanel(new AlunoBuscarView(), "Buscar Aluno");
 	}
 	@Action
 	public void buscarAlunoIcon(){
@@ -78,7 +87,7 @@ public class MainAppView {
 	@Action
 	public void cadastrarProfessorMenuItem(){
 		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
-		displayPanel(new ProfessorCadastrarView());
+		displayTabPanel(new ProfessorCadastrarView(), "Cadastrar Professor");
 	}
 	@Action
 	public void cadastrarProfessorIcon(){
