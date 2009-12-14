@@ -5,6 +5,7 @@ import java.util.List;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
+import org.fpij.jitakyoei.model.beans.ProfessorEntidade;
 
 public interface AppFacade {
 
@@ -22,4 +23,6 @@ public interface AppFacade {
 	public abstract void updateEntidade(Entidade entidade);
 	public abstract List<Entidade> searchEntidade(Entidade entidade);
 	public abstract List<Entidade> listEntidade();
+	public abstract void createProfessorEntidade(List<ProfessorEntidade> relacionamentos);
+
 }

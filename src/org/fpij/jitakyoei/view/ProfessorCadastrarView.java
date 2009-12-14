@@ -1,14 +1,18 @@
 package org.fpij.jitakyoei.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
+import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
+import org.fpij.jitakyoei.model.beans.ProfessorEntidade;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorCadastrarPanel;
 
@@ -26,12 +30,30 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	
 	@Action
 	public void cadastrar() {
-		/**
-		 * facade...
-		 */
+		try{
+			
 		
-		Professor professor = professorForm.pegarBean();
-		System.out.println(professor.toString());
+			Professor professor = professorForm.pegarBean();
+			List<Entidade> entidades = professorForm.getEntidadesList();
+			
+			List<ProfessorEntidade> relacionamentos = new ArrayList<ProfessorEntidade>();
+			for (Entidade entidade : entidades) {
+				relacionamentos.add(new ProfessorEntidade(professor, entidade));
+			}
+			
+			facade.createProfessor(professor);
+			facade.createProfessorEntidade(relacionamentos);
+		
+			JOptionPane.showMessageDialog(gui, "Professor cadastrado com sucesso!");
+			
+			System.out.println(professor.getFiliado().getNome());
+			System.out.println(professor.getFiliado().getCpf());
+			System.out.println(professor.getFiliado().getEmail());
+			System.out.println(professorForm.getEntidadesList());
+			
+		}catch (Exception e) {
+		}
+		
 	}
 
 	@Override

@@ -35,6 +35,7 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 
 	@Action
 	public void buscar(){
+		try{
 		System.out.println("AlunoBuscarView.buscar()");
 		Aluno aluno = new Aluno();
 		Filiado filiado = new Filiado();
@@ -62,6 +63,10 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 		System.out.println("antes de alunoTableModel.setDataVector( ");
 		alunoTableModel.setDataVector( data, new String[]{"Resistro", "Nome", "Professor", "Entidade"});
 		System.out.println("depois de alunoTableModel.setDataVector( ");
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public SwingBinder getBinder() {
 		return binder;
