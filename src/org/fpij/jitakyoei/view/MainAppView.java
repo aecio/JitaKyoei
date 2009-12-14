@@ -1,5 +1,8 @@
 package org.fpij.jitakyoei.view;
 
+import java.awt.Dialog.ModalityType;
+
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -9,6 +12,7 @@ import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
+import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
 import org.fpij.jitakyoei.view.gui.ProfessorBuscarPanel;
@@ -75,9 +79,23 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarAlunoMenuItem(){
 		System.out.println("MainAppForm.alterarAlunoMenuItem()");
-		AlunoAtualizarView alunoAtualizarView = new AlunoAtualizarView();
-		displayFrame(new AlunoBuscarView(alunoAtualizarView), "Buscar Aluno");
-		displayTabPanel(alunoAtualizarView, "Alterar Aluno");
+//		
+//		displayFrame(new AlunoBuscarView(alunoAtualizarView), "Buscar Aluno");
+//		displayTabPanel(alunoAtualizarView, "Alterar Aluno");
+		JDialog dialog = new JDialog(frame);
+		AlunoBuscarView buscarView = new AlunoBuscarView();
+		buscarView.registerFacade(facade);
+		dialog.getContentPane().add(buscarView.getGui());
+		dialog.setModalityType(ModalityType.APPLICATION_MODAL);
+		dialog.setSize(600, 450);
+		dialog.setLocationRelativeTo(frame);
+		dialog.setVisible(true);
+		System.out.println("----------------------");
+		Aluno selecionado = buscarView.getSelectedAluno();
+		if(selecionado!= null ){
+			AlunoAtualizarView atualizarView = new AlunoAtualizarView(selecionado);
+			displayTabPanel(atualizarView, "Alterar Aluno");
+		}
 	}
 	@Action
 	public void alterarAlunoIcon(){
@@ -87,7 +105,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void buscarAlunoMenuItem(){
 		System.out.println("MainAppForm.buscarAlunoMenuItem()");
-		displayTabPanel(new AlunoBuscarView(null), "Buscar Aluno");
+		displayTabPanel(new AlunoBuscarView(), "Buscar Aluno");
 	}
 	@Action
 	public void buscarAlunoIcon(){
@@ -139,7 +157,7 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarEntidadeMenuItem(){
 		System.out.println("MainAppForm.alterarEntidadeMenuItem()");
-		displayTabPanel(new EntidadeAtualizarView	(), "Alterar Entidade");
+		displayTabPanel(new EntidadeAtualizarView(), "Alterar Entidade");
 	}
 	
 	@Action

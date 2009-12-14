@@ -1,14 +1,11 @@
 package org.fpij.jitakyoei.view.forms;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.DataProvider;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
@@ -16,57 +13,84 @@ import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
-import org.fpij.jitakyoei.model.dao.DAO;
 import org.fpij.jitakyoei.model.dao.DAOImpl;
 import org.fpij.jitakyoei.view.ViewComponent;
 import org.fpij.jitakyoei.view.gui.AlunoPanel;
+import org.fpij.jitakyoei.view.gui.EntidadePanel;
+import org.fpij.jitakyoei.view.gui.FiliadoPanel;
 
 @Form
 public class AlunoForm implements ViewComponent{
 	private FiliadoForm filiadoForm;
 	private Professor professor;
-	private JComboBox professorCombo;
 	private Entidade entidade;
+	private JComboBox professorCombo;
 	private JComboBox entidadeCombo;
 	private AlunoPanel gui;
 	private AppFacade facade;
 	private List<Professor> resultProfessores;
 	private List<Entidade> resultEntidades;
+	private SwingBinder binder;
+	private FiliadoPanel filiadoPanel;
+	
+	public AlunoForm(AlunoPanel alunoPanel, Aluno aluno){
+		this.entidade = aluno.getEntidade();
+		this.professor = aluno.getProfessor();
+		this.gui = alunoPanel;
+		binder = new SwingBinder(gui, this);
+		binder.bind();
+		
+		filiadoForm = new FiliadoForm(gui.getFiliadoPanel());
+		professorCombo = gui.getProfessor();
+		entidadeCombo = gui.getEntidade();
+		populaProfessorCombo();
+		populaEntidadeCombo();
+		setFiliadoPanel(gui.getFiliadoPanel());
+	}
 	
 	public AlunoForm(AlunoPanel alunoPanel) {
 		this.gui = alunoPanel;
-		SwingBinder binder = new SwingBinder(gui, this);
+		binder = new SwingBinder(gui, this);
 		binder.bind();
 		filiadoForm = new FiliadoForm(gui.getFiliadoPanel());
 		professorCombo = gui.getProfessor();
 		entidadeCombo = gui.getEntidade();
-//		populaProfessorCombo();
+		populaProfessorCombo();
+		populaEntidadeCombo();
 	}
 	
+	public FiliadoPanel getFiliadoPanel() {
+		return filiadoPanel;
+	}
+
+	public void setFiliadoPanel(FiliadoPanel filiadoPanel) {
+		this.filiadoPanel = filiadoPanel;
+		binder.bind();
+	}
+
 	public void populaProfessorCombo(){
 		try{
-			resultProfessores = facade.listProfessores();
+			resultProfessores = new ArrayList<Professor>();
+			resultProfessores.addAll(new DAOImpl(Professor.class).list());
 		}catch (Exception e) {
-			System.out.println("eeeerrrrrrrrrrrrrooooooooooooooooo");
 			e.printStackTrace();
-			System.out.println("eeeerrrrrrrrrrrrrooooooooooooooooo");
 		}
 		for (Professor p : resultProfessores) {
 			professorCombo.addItem(p);
 		}
 	}
 	
-//	@DataProvider(objectField = "professor")
-//	public List<Professor> populaProfessor() {
-//		System.out.println("AlunoForm.populaProfessor()");
-//		return resultProfessores;
-//	}
-//	
-//	@DataProvider(objectField = "entidade")
-//	public List<Entidade> populaEntidade() {
-//		System.out.println("AlunoForm.populaEntidade()");
-//		return resultEntidades;
-//	}
+	public void populaEntidadeCombo(){
+		try{
+			resultEntidades = new ArrayList<Entidade>();
+			resultEntidades.addAll(new DAOImpl(Entidade.class).list());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		for (Entidade e : resultEntidades) {
+			entidadeCombo.addItem(e);
+		}
+	}
 	
 	public Entidade getEntidade() {
 		return entidade;

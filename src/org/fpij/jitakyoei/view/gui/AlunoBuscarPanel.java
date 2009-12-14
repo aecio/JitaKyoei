@@ -6,6 +6,8 @@ package org.fpij.jitakyoei.view.gui;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,6 +20,9 @@ import javax.swing.table.TableColumnModel;
 
 import net.java.dev.genesis.annotation.ViewHandler;
 
+import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.view.AlunoBuscarView;
+
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
@@ -26,10 +31,20 @@ import com.jgoodies.forms.layout.FormLayout;
  */
 @ViewHandler
 public class AlunoBuscarPanel extends JPanel {
-
+	
+	private AlunoBuscarView view;
+	
 	private static final long serialVersionUID = 1L;
 	public AlunoBuscarPanel() {
 		initComponents();
+	}
+	
+	public void registerView(AlunoBuscarView alunoBuscarView){
+		this.view = alunoBuscarView;
+	}
+	
+	public AlunoBuscarView getView(){
+		return this.view;
 	}
 
 	public BuscaCamposPanel getBuscaCamposPanel() {
@@ -42,6 +57,20 @@ public class AlunoBuscarPanel extends JPanel {
 
 	public JTable getAlunoTable() {
 		return alunoTable;
+	}
+	
+	public void refresh(){
+		this.repaint();
+		this.validate();
+		System.out.println("AlunoBuscarPanel.refresh()");
+	}
+
+	private void alunoTableMouseReleased(MouseEvent e) {
+		System.out.println("AlunoBuscarPanel.alunoTableMouseReleased()");
+		System.out.println(view.getAlunoList().get(this.getAlunoTable().getSelectedRow()));
+		Aluno callback = view.getAlunoList().get(this.getAlunoTable().getSelectedRow());
+		view.setSelectedAluno(callback);
+		this.getParent().getParent().getParent().getParent().setVisible(false);
 	}
 
 	private void initComponents() {
@@ -101,6 +130,12 @@ public class AlunoBuscarPanel extends JPanel {
 			}
 			alunoTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			alunoTable.setName("alunoTable");
+			alunoTable.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					alunoTableMouseReleased(e);
+				}
+			});
 			scrollPane1.setViewportView(alunoTable);
 		}
 		add(scrollPane1, cc.xy(1, 7));

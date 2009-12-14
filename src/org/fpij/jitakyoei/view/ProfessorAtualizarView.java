@@ -16,14 +16,20 @@ public class ProfessorAtualizarView implements ViewComponent{
 	private ProfessorAtualizarPanel gui;
 	private ProfessorForm professorForm;
 	private AppFacade facade;
+	private SwingBinder binder;
 
 	public ProfessorAtualizarView() {
 		gui = new ProfessorAtualizarPanel();
-		new SwingBinder(gui, this).bind();
+		binder = new SwingBinder(gui, this);
+		binder.bind();
 		professorForm = new ProfessorForm(gui.getProfessorPanel());
 		gui.setVisible(true);
 	}
-	
+
+	public SwingBinder getBinder() {
+		return binder;
+	}
+
 	@Action
 	public void atualizar() {
 		Professor professor = professorForm.pegarBean();
