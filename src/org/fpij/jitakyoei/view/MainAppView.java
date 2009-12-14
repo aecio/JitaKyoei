@@ -1,5 +1,6 @@
 package org.fpij.jitakyoei.view;
 
+import java.awt.Component;
 import java.awt.Dialog.ModalityType;
 
 import javax.swing.JDialog;
@@ -67,11 +68,15 @@ public class MainAppView implements AppView {
 		frame.validate();
 		System.out.println("MainAppView.display()");
 	}
+	
+	public void removeTabPanel(Component viewComponent){
+		frame.getTabbedPane().remove(viewComponent);
+	}
 
 	// Ações de Aluno
 	@Action
 	public void cadastrarAlunoMenuItem() {
-		displayTabPanel(new AlunoCadastrarView(), "Cadastrar Aluno");
+		displayTabPanel(new AlunoCadastrarView(this), "Cadastrar Aluno");
 	}
 
 	@Action
@@ -80,32 +85,27 @@ public class MainAppView implements AppView {
 	}
 
 	@Action
-
-	public void alterarAlunoMenuItem(){
-try{
-	/*TODO
-	 * Fix erros na busca ou aqui 
-	 */
-		System.out.println("MainAppForm.alterarAlunoMenuItem()");
-		JDialog dialog = new JDialog(frame);
-		AlunoBuscarView buscarView = new AlunoBuscarView();
-		buscarView.registerFacade(facade);
-		dialog.getContentPane().add(buscarView.getGui());
-		dialog.setModalityType(ModalityType.APPLICATION_MODAL);
-		dialog.setSize(600, 450);
-		dialog.setLocationRelativeTo(frame);
-		dialog.setVisible(true);
-		Aluno selecionado = buscarView.getSelectedAluno();
-		if(selecionado!= null ){
-			AlunoAtualizarView atualizarView = new AlunoAtualizarView();
-			atualizarView.popularCampos(selecionado);
-			displayTabPanel(atualizarView, "Alterar Aluno");
+	public void alterarAlunoMenuItem() {
+		try {
+			System.out.println("MainAppForm.alterarAlunoMenuItem()");
+			JDialog dialog = new JDialog(frame);
+			dialog.setTitle("Selecione o Aluno a ser Alterado");
+			AlunoBuscarView buscarView = new AlunoBuscarView(AlunoBuscarView.ALTERACAO);
+			buscarView.registerFacade(facade);
+			dialog.getContentPane().add(buscarView.getGui());
+			dialog.setModalityType(ModalityType.APPLICATION_MODAL);
+			dialog.setSize(600, 450);
+			dialog.setLocationRelativeTo(frame);
+			dialog.setVisible(true);
+			Aluno selecionado = buscarView.getSelectedAluno();
+			if (selecionado != null) {
+				AlunoAtualizarView atualizarView = new AlunoAtualizarView(this);
+				atualizarView.popularCampos(selecionado);
+				displayTabPanel(atualizarView, "Alterar Aluno");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-}catch (Exception e) {
-	System.out.println("EEEEEEEEEEEerrrrrrrrrrrrrroooooooooooooooooooo");
-	e.printStackTrace();
-	System.out.println("EEEEEEEEEEEerrrrrrrrrrrrrroooooooooooooooooooo");
-}
 	}
 
 	@Action
@@ -128,11 +128,11 @@ try{
 	@Action
 	public void cadastrarProfessorMenuItem() {
 		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
-		
+
 		int i = JOptionPane.showConfirmDialog(frame,
-				"O professor já tem registro como aluno na FPIJ?", "Confirmação",
-				JOptionPane.YES_NO_OPTION);
-		
+				"O professor já tem registro como aluno na FPIJ?",
+				"Confirmação", JOptionPane.YES_NO_OPTION);
+
 		if (i == JOptionPane.YES_OPTION) {
 			JDialog dialog = new JDialog(frame);
 			ProfessorBuscarView view = new ProfessorBuscarView();
@@ -143,12 +143,12 @@ try{
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);
 			
-			System.out.println("Passou por aquii... =)");
+//			view.get
 		} else {
-			// bote sua operaçao aqui!
-			displayTabPanel(new ProfessorCadastrarView(), "Cadastrar Professor");
+
+			displayTabPanel(new ProfessorCadastrarView(this), "Cadastrar Professor");
 		}
-		
+
 	}
 
 	@Action
@@ -182,7 +182,7 @@ try{
 	@Action
 	public void cadastrarEntidadeMenuItem() {
 		System.out.println("MainAppForm.cadastrarEntidadeMenuItem()");
-		displayTabPanel(new EntidadeCadastrarView(), "Cadastrar Entidade");
+		displayTabPanel(new EntidadeCadastrarView(this), "Cadastrar Entidade");
 	}
 
 	@Action

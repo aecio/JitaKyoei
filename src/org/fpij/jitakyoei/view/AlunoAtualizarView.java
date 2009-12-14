@@ -2,6 +2,7 @@ package org.fpij.jitakyoei.view;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.java.dev.genesis.annotation.Action;
@@ -18,8 +19,10 @@ public class AlunoAtualizarView implements AlunoView, ViewComponent{
 	private AlunoForm alunoForm;
 	private AppFacade facade;
 	private SwingBinder binder;
+	private MainAppView parent;
 	
-	public AlunoAtualizarView(){
+	public AlunoAtualizarView(MainAppView parent){
+		this.parent = parent;
 		gui = new AlunoAtualizarPanel();
 		alunoForm = new AlunoForm(gui.getAlunoPanel());
 		new SwingBinder(gui , this).bind();
@@ -38,6 +41,19 @@ public class AlunoAtualizarView implements AlunoView, ViewComponent{
 	public void atualizar(){
 		Aluno aluno = alunoForm.pegarBean();
 		System.out.println(aluno.toString());
+		
+		try {
+			facade.updateAluno(aluno);
+			JOptionPane.showMessageDialog(gui, "Aluno atualizado com sucesso!");
+			parent.removeTabPanel(gui);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Action
+	public void cancelar(){
+		parent.removeTabPanel(gui);
 	}
 	
 	@Override

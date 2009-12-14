@@ -22,7 +22,7 @@ import org.fpij.jitakyoei.view.gui.FiliadoPanel;
 @Form
 public class AlunoForm implements ViewComponent{
 	private FiliadoForm filiadoForm;
-	private Professor professor;
+	private Professor professor = null;
 	private Entidade entidade;
 	private JComboBox professorCombo;
 	private JComboBox entidadeCombo;
@@ -77,25 +77,27 @@ public class AlunoForm implements ViewComponent{
 	public void populaProfessorCombo(){
 		try{
 			resultProfessores = new ArrayList<Professor>();
-			resultProfessores.addAll(new DAOImpl(Professor.class).list());
+			resultProfessores.addAll(new DAOImpl<Professor>(Professor.class).list());
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		for (Professor p : resultProfessores) {
 			professorCombo.addItem(p);
 		}
+		professorCombo.setSelectedItem(null);
 	}
 	
 	public void populaEntidadeCombo(){
 		try{
 			resultEntidades = new ArrayList<Entidade>();
-			resultEntidades.addAll(new DAOImpl(Entidade.class).list());
+			resultEntidades.addAll(new DAOImpl<Entidade>(Entidade.class).list());
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		for (Entidade e : resultEntidades) {
 			entidadeCombo.addItem(e);
 		}
+		entidadeCombo.setSelectedItem(null);
 	}
 	
 	public Entidade getEntidade() {

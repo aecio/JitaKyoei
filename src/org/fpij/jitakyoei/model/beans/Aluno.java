@@ -43,4 +43,10 @@ public class Aluno {
 	public String toString(){
 		return filiado.toString();
 	}
+	
+	public void copyProperties(Aluno other){
+		this.filiado.copyProperties(other.getFiliado());
+		this.entidade = other.getEntidade();
+		this.professor = other.getProfessor();
+	}
 }

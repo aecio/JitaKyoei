@@ -11,6 +11,8 @@ import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.model.beans.Entidade;
+import org.fpij.jitakyoei.model.dao.DAO;
+import org.fpij.jitakyoei.model.dao.DAOImpl;
 import org.fpij.jitakyoei.view.gui.AddEntidadesPanel;
 
 @Form
@@ -44,23 +46,28 @@ public class AddEntidadeForm {
 		entidadesTableModel.setDataVector( data, new String[]{"Entidade"});
 		professorForm.getEntidadesTableModel().setDataVector( data, new String[]{"Entidade"});
 	}
+	
 	@Action
 	public void retornar(){
 		gui.dispose();
 	}
+	
 	@DataProvider(objectField="entidade")
 	public List<Entidade> populaEntidade(){
-		List<Entidade> entidades = new ArrayList<Entidade>();
-		Entidade e = new Entidade();
-		e.setNome("Academi 1");
-		e.setCnpj("916666570001");
-		entidades.add(e);
-		e = new Entidade();
-		e.setNome("Academi 2");
-		e.setCnpj("1234560001");
-		entidades.add(e);
-		
-		return entidades;		
+		DAO<Entidade> dao = new DAOImpl<Entidade>(Entidade.class);
+		return dao.list();
+//		List<Entidade> entidades = new ArrayList<Entidade>();
+//		Entidade e = new Entidade();
+//		e.setNome("Academi 1");
+//		e.setCnpj("916666570001");
+//		entidades.add(e);
+//		
+//		e = new Entidade();
+//		e.setNome("Academi 2");
+//		e.setCnpj("1234560001");
+//		entidades.add(e);
+//		
+//		return entidades;		
 	}
 	
 	public Entidade getEntidade() {

@@ -4,6 +4,7 @@
 
 package org.fpij.jitakyoei.view.gui;
 
+import java.awt.event.*;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,12 +31,16 @@ public class AlunoPanel extends JPanel {
 		return filiadoPanel;
 	}
 
+	public JComboBox getEntidade() {
+		return entidade;
+	}
+
 	public JComboBox getProfessor() {
 		return professor;
 	}
 
-	public JComboBox getEntidade() {
-		return entidade;
+	private void professorActionPerformed(ActionEvent e) {
+		System.out.println( professor.getSelectedItem() );
 	}
 
 	private void initComponents() {
@@ -72,7 +77,12 @@ public class AlunoPanel extends JPanel {
 
 			//---- professor ----
 			professor.setName("professor");
-			panel.add(professor, cc.xywh(3, 1, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
+			professor.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					professorActionPerformed(e);
+				}
+			});
+			panel.add(professor, cc.xy(3, 1));
 
 			//---- label2 ----
 			label2.setText("Entidade:");
@@ -81,7 +91,7 @@ public class AlunoPanel extends JPanel {
 
 			//---- entidade ----
 			entidade.setName("entidade");
-			panel.add(entidade, cc.xywh(3, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
+			panel.add(entidade, cc.xy(3, 3));
 		}
 		add(panel, cc.xywh(1, 3, 1, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents

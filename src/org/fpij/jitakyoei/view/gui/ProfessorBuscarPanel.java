@@ -6,6 +6,8 @@ package org.fpij.jitakyoei.view.gui;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,6 +17,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.java.dev.genesis.annotation.ViewHandler;
+
+import org.fpij.jitakyoei.view.ProfessorBuscarView;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -26,6 +30,7 @@ import com.jgoodies.forms.layout.FormLayout;
 public class ProfessorBuscarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private ProfessorBuscarView view;
 	public ProfessorBuscarPanel() {
 		initComponents();
 	}
@@ -36,6 +41,19 @@ public class ProfessorBuscarPanel extends JPanel {
 
 	public JTable getProfessores() {
 		return professores;
+	}
+	
+	public void registerView(ProfessorBuscarView view){
+		this.view = view;
+	}
+
+	private void professoresTableMouseClicked(MouseEvent e) {
+		System.out.println(this.professores.getSelectedRow());
+//		System.out.println(view.getAlunoList().get(this.getAlunoTable().getSelectedRow()));
+//
+//		Aluno callback = view.getAlunoList().get(this.getAlunoTable().getSelectedRow());
+//		view.setSelectedAluno(callback);
+//		this.getParent().getParent().getParent().getParent().setVisible(false);
 	}
 
 	private void initComponents() {
@@ -91,6 +109,12 @@ public class ProfessorBuscarPanel extends JPanel {
 				}
 			));
 			professores.setName("professores");
+			professores.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					professoresTableMouseClicked(e);
+				}
+			});
 			scrollPane1.setViewportView(professores);
 		}
 		add(scrollPane1, cc.xy(1, 7));

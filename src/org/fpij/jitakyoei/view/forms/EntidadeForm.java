@@ -1,6 +1,5 @@
 package org.fpij.jitakyoei.view.forms;
 
-import net.java.dev.genesis.annotation.Action;
 import net.java.dev.genesis.annotation.Form;
 import net.java.dev.genesis.ui.binding.AbstractBinder;
 import net.java.dev.genesis.ui.swing.SwingBinder;
@@ -12,7 +11,7 @@ import org.fpij.jitakyoei.view.gui.EntidadePanel;
 public class EntidadeForm {
 	private EnderecoForm enderecoForm;
 	
-	private Entidade entidade;
+	private Entidade entidade = new Entidade();
 
 	private AbstractBinder binder;
 
@@ -33,14 +32,6 @@ public class EntidadeForm {
 		enderecoForm.limpar();
 	}
 	
-	@Action
-	public void teste(){
-		Entidade e = pegarBean();
-		System.out.println(e.getNome());
-		System.out.println(e.getTelefone1());
-		System.out.println(e.getEndereco().getBairro());
-	}
-
 	public Entidade getEntidade() {
 		return entidade;
 	}

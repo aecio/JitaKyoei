@@ -5,6 +5,7 @@ import java.util.List;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.dao.DAO;
 import org.fpij.jitakyoei.model.dao.DAOImpl;
+import org.fpij.jitakyoei.util.FiliadoID;
 import org.fpij.jitakyoei.view.AppView;
 
 public class AlunoBOImpl implements AlunoBO {
@@ -23,6 +24,7 @@ public class AlunoBOImpl implements AlunoBO {
 	public void createAluno(Aluno aluno) throws Exception {
 		System.out.println("AlunoBOImpl.createAluno()");
 		try {
+			aluno.getFiliado().setId(FiliadoID.getNextID());
 			dao.save(aluno);
 			fireModelChangeEvent(aluno);
 		} catch (IllegalArgumentException e) {
@@ -37,9 +39,14 @@ public class AlunoBOImpl implements AlunoBO {
 	@Override
 	public void updateAluno(Aluno aluno) throws Exception{
 		try {
-			dao.save(aluno);
-			fireModelChangeEvent(aluno);
+			Aluno old = null;
+			old = dao.get(aluno);
+			if(old!=null){		
+				old.copyProperties(aluno);
+			}
+			fireModelChangeEvent(old);
 		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
 			throw new IllegalArgumentException( "Ocorreu um erro ao salvar os dados do aluno."
 				+ " Verifique se todos os dados foram preenchidos corretamente!");
 		} catch (Exception e) {

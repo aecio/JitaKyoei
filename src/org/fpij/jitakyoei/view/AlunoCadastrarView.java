@@ -19,8 +19,10 @@ public class AlunoCadastrarView implements AlunoView, ViewComponent {
 	AlunoCadastrarPanel gui;
 	private AlunoForm alunoForm;
 	private AppFacade facade;
+	private MainAppView parent;
 
-	public AlunoCadastrarView() {
+	public AlunoCadastrarView(MainAppView parent) {
+		this.parent = parent;
 		gui = new AlunoCadastrarPanel();
 		new SwingBinder(gui, this).bind();
 		gui.setVisible(true);
@@ -34,11 +36,19 @@ public class AlunoCadastrarView implements AlunoView, ViewComponent {
 		try {
 			System.out.println(facade);
 			facade.createAluno(aluno);
-//			System.out.println(aluno.toString());
+			System.out.println(aluno.toString());
+			
 			JOptionPane.showMessageDialog(gui, "Aluno cadastrado com sucesso!");
+			
+			parent.removeTabPanel(gui);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Action
+	public void cancelar(){
+		parent.removeTabPanel(gui);
 	}
 
 	@Override

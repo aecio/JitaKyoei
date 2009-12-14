@@ -313,7 +313,7 @@ public class MainAppFrame extends JFrame {
 
 		}
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
-		setSize(825, 720);
+		setSize(965, 720);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 

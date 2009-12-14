@@ -22,6 +22,7 @@ public class EntidadeBOImpl implements EntidadeBO {
 
 	@Override
 	public void createEntidade(Entidade entidade) throws Exception {
+		System.out.println("EntidadeBOImpl.createEntidade()");
 		try {
 			dao.save(entidade);
 			fireModelChangeEvent(entidade);

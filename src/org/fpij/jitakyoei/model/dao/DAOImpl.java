@@ -14,9 +14,17 @@ public class DAOImpl<E> implements DAO<E> {
 	private static ExtObjectContainer db = DatabaseManager.getConnection();
 	private Class<E> clazz;
 	private Validator<E> validator;
+	private boolean useEquals;
 	
-	public DAOImpl(Class<E> clazz, Validator<E> validator){
-		this.validator = validator;
+	public DAOImpl(Class<E> clazz, Validator<E> val, boolean comp){
+		this.validator = val;
+		this.useEquals = comp;
+		this.clazz = clazz;
+	}
+	
+	public DAOImpl(Class<E> clazz, boolean useEquals){
+		this.validator = new DefaultValidator<E>();
+		this.useEquals = useEquals;
 		this.clazz = clazz;
 	}
 	
@@ -27,6 +35,8 @@ public class DAOImpl<E> implements DAO<E> {
 	
 	@Override
 	public synchronized boolean save(E object) {
+		System.out.println("DAOImpl.save()");
+		System.out.println(object);
 		if(validator.validate(object)){
 			db.store(object);
 			db.commit();
@@ -56,13 +66,20 @@ public class DAOImpl<E> implements DAO<E> {
 	@Override
 	public E get(E object) throws IllegalArgumentException{
 		List<E> objectList = db.queryByExample(clazz);
-		int index = objectList.indexOf(object);
-		if(index < 0){
-			throw new IllegalArgumentException("Nenhum objeto encontrado!");
+		if(useEquals){
+			for(E each: objectList){
+				if(each.equals(object)){
+					return each;
+				}
+			}
 		}
 		else{
-			return objectList.get(index);
+			int index = objectList.indexOf(object);
+			if(index >= 0){
+				return objectList.get(index);
+			}
 		}
+		throw new IllegalArgumentException("Nenhum objeto encontrado!");
 	}
 
 	@Override

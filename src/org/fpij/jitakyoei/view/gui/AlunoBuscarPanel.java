@@ -66,11 +66,13 @@ public class AlunoBuscarPanel extends JPanel {
 	}
 
 	private void alunoTableMouseReleased(MouseEvent e) {
-		System.out.println("AlunoBuscarPanel.alunoTableMouseReleased()");
-		System.out.println(view.getAlunoList().get(this.getAlunoTable().getSelectedRow()));
-		Aluno callback = view.getAlunoList().get(this.getAlunoTable().getSelectedRow());
-		view.setSelectedAluno(callback);
-		this.getParent().getParent().getParent().getParent().setVisible(false);
+		if(view.MODO == AlunoBuscarView.ALTERACAO){
+			System.out.println("AlunoBuscarPanel.alunoTableMouseReleased()");
+			System.out.println(view.getAlunoList().get(this.getAlunoTable().getSelectedRow()));
+			Aluno callback = view.getAlunoList().get(this.getAlunoTable().getSelectedRow());
+			view.setSelectedAluno(callback);
+			this.getParent().getParent().getParent().getParent().setVisible(false);
+		}
 	}
 
 	private void initComponents() {

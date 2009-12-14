@@ -52,7 +52,7 @@ public class EntidadeBuscarView implements ViewComponent {
 	@Action
 	public void btnBuscar() {
 		System.out.println("EntidadeBuscarView.buscar()");
-		if(nome.trim().equals("")){
+		if(nome!=null && nome.trim().equals("")){
 			nome = null;
 		}
 		buscarEntidades(nome);
@@ -67,6 +67,7 @@ public class EntidadeBuscarView implements ViewComponent {
 	@Override
 	public void registerFacade(AppFacade fac) {
 		this.facade = fac;
+		btnBuscar();
 	}
 	public String getNome() {
 		return nome;

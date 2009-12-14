@@ -20,8 +20,10 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 	ProfessorCadastrarPanel gui;
 	private ProfessorForm professorForm;
 	private AppFacade facade;
+	private MainAppView parent;
 	
-	public ProfessorCadastrarView(){
+	public ProfessorCadastrarView(MainAppView parent){
+		this.parent = parent;
 		gui = new ProfessorCadastrarPanel();
 		new SwingBinder(gui, this).bind();
 		gui.setVisible(true);
@@ -46,14 +48,15 @@ public class ProfessorCadastrarView implements ProfessorView, ViewComponent {
 		
 			JOptionPane.showMessageDialog(gui, "Professor cadastrado com sucesso!");
 			
-			System.out.println(professor.getFiliado().getNome());
-			System.out.println(professor.getFiliado().getCpf());
-			System.out.println(professor.getFiliado().getEmail());
-			System.out.println(professorForm.getEntidadesList());
-			
+			parent.removeTabPanel(gui);			
 		}catch (Exception e) {
 		}
 		
+	}
+	
+	@Action
+	public void cancelar(){
+		parent.removeTabPanel(gui);
 	}
 
 	@Override

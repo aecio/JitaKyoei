@@ -58,4 +58,12 @@ public class Entidade {
 	public String toString(){
 		return this.nome;
 	}
+
+	public void copyProperties(Entidade entidade) {
+		nome = entidade.nome;
+		cnpj = entidade.cnpj;
+		telefone1 = entidade.telefone1;
+		telefone2 = entidade.telefone2;
+		endereco = entidade.endereco;
+	}
 }

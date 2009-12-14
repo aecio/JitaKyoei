@@ -24,8 +24,7 @@ public class Filiado {
 						"\nRegistroCbj: "+registroCbj+
 						"\nDataNasc: "+dataNascimento+
 						"\nE-mail: "+email+
-						"\nCPF: "+cpf+
-						endereco.toString();
+						"\nCPF: "+cpf;
 		return filiado;
 	}
 	
@@ -129,5 +128,23 @@ public class Filiado {
 
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
+	}
+
+	public void copyProperties(Filiado f) {
+		id = f.id;
+		nome = f.nome;
+		registroCbj = f.registroCbj;
+		dataNascimento = f.dataNascimento;
+		dataCadastro = f.dataCadastro;
+		endereco = f.endereco;
+		telefone1 = f.telefone1;
+		telefone2 = f.telefone2;
+		email = f.email;
+		rg = f.rg;
+		cpf = f.cpf;
+		ultimaAnuidade = f.ultimaAnuidade;
+		observacoes = f.observacoes;
+		faixas.clear();
+		faixas.addAll(f.faixas);
 	}
 }
