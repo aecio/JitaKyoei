@@ -36,8 +36,6 @@ public class Main {
 		AppView view = new MainAppView();
 		AppFacade facade = new AppFacadeImpl(view);
 		view.registerFacade(facade);
-		
-		
 	}
 	
 	private static void dbPopulator(){
@@ -50,7 +48,7 @@ public class Main {
 		endereco.setRua("Rua Des. Berilo Mota");
 		
 		Filiado filiadoProf = new Filiado();
-		filiadoProf.setNome("Francisco Antonio");
+		filiadoProf.setNome("Neto");
 		filiadoProf.setCpf("036.464.453-27");
 		filiadoProf.setDataNascimento(new Date());
 		filiadoProf.setDataCadastro(new Date());
@@ -62,7 +60,7 @@ public class Main {
 		
 		Entidade entidade = new Entidade();
 		entidade.setEndereco(endereco);
-		entidade.setNome("Sertão Judo");
+		entidade.setNome("Ricardo Paraguasu");
 		entidade.setTelefone1("(086)1234-5432");
 		
 		DAO<Professor> dao = new DAOImpl<Professor>(Professor.class);

@@ -19,14 +19,17 @@ public class AlunoAtualizarView implements AlunoView, ViewComponent{
 	private AppFacade facade;
 	private SwingBinder binder;
 	
-	public AlunoAtualizarView(Aluno aluno){
+	public AlunoAtualizarView(){
 		gui = new AlunoAtualizarPanel();
 		alunoForm = new AlunoForm(gui.getAlunoPanel());
-		alunoForm.setEntidade(aluno.getEntidade());
-		alunoForm.setProfessor(aluno.getProfessor());
 		new SwingBinder(gui , this).bind();
 		gui.setVisible(true);
 	}
+	
+	public void popularCampos(Aluno aluno){
+		alunoForm.popularCampos(aluno);
+	}
+	
 	public SwingBinder getBinder() {
 		return binder;
 	}

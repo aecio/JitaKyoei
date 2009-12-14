@@ -59,6 +59,12 @@ public class AlunoForm implements ViewComponent{
 		populaEntidadeCombo();
 	}
 	
+	public void popularCampos(Aluno aluno) {
+		filiadoForm.popuparCampos(aluno.getFiliado());
+		professorCombo.setSelectedItem(aluno.getProfessor());
+		entidadeCombo.setSelectedItem(aluno.getEntidade());
+	}	
+	
 	public FiliadoPanel getFiliadoPanel() {
 		return filiadoPanel;
 	}
