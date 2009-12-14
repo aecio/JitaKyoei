@@ -12,9 +12,12 @@ import org.fpij.jitakyoei.business.EntidadeBO;
 import org.fpij.jitakyoei.business.EntidadeBOImpl;
 import org.fpij.jitakyoei.business.ProfessorBO;
 import org.fpij.jitakyoei.business.ProfessorBOImpl;
+import org.fpij.jitakyoei.business.ProfessorEntidadeBO;
+import org.fpij.jitakyoei.business.ProfessorEntidadeBOImpl;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
+import org.fpij.jitakyoei.model.beans.ProfessorEntidade;
 import org.fpij.jitakyoei.view.AppView;
 
 public class AppFacadeImpl implements AppFacade {
@@ -23,12 +26,14 @@ public class AppFacadeImpl implements AppFacade {
 	private AlunoBO alunoBO;
 	private ProfessorBO professorBO;
 	private EntidadeBO entidadeBO;
+	private ProfessorEntidadeBO professorEntidadeBO;
 	
 	public AppFacadeImpl(AppView view) {
 		this.view = view;
 		this.alunoBO = new AlunoBOImpl(view);
 		this.professorBO = new ProfessorBOImpl(view);
 		this.entidadeBO = new EntidadeBOImpl(view);
+		this.professorEntidadeBO = new ProfessorEntidadeBOImpl(view);
 	}
 
 	private void reportException(Exception e){
@@ -145,6 +150,15 @@ public class AppFacadeImpl implements AppFacade {
 	public void updateEntidade(Entidade entidade) {
 		try{
 			entidadeBO.updateEntidade(entidade);
+		}catch (Exception e) {
+			reportException(e);
+		}
+	}
+
+	@Override
+	public void createProfessorEntidade(List<ProfessorEntidade> relacionamentos) {
+		try{
+			professorEntidadeBO.createProfessorEntidade(relacionamentos);
 		}catch (Exception e) {
 			reportException(e);
 		}

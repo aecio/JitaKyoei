@@ -4,6 +4,12 @@ public class ProfessorEntidade {
 	Professor professor;
 	Entidade entidade;
 	
+	public ProfessorEntidade(Professor professor, Entidade entidade) {
+		super();
+		this.professor = professor;
+		this.entidade = entidade;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof ProfessorEntidade){
@@ -13,6 +19,7 @@ public class ProfessorEntidade {
 		}
 		return false;
 	}
+	
 	@Override
 	public int hashCode() {
 		return professor.hashCode()+entidade.hashCode();
