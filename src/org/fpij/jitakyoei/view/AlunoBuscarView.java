@@ -36,22 +36,22 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 	@Action
 	public void buscar(){
 		try{
+		System.out.println(campoBusca.getRegistroFpij().trim());
+		System.out.println(campoBusca.getNome().trim());
 		System.out.println("AlunoBuscarView.buscar()");
 		Aluno aluno = new Aluno();
 		Filiado filiado = new Filiado();
-		if(campoBusca.getRegistroFpij() != null){
-			filiado.setId(Long.parseLong(campoBusca.getRegistroFpij()));
-		} else {
-			filiado.setId(null);
-		}
-		if(campoBusca.getNome() != null){
-			filiado.setNome(campoBusca.getNome());
-		} else {
-			filiado.setNome(null);
-		}
+//		filiado.setId(Long.parseLong(campoBusca.getRegistroFpij()));
+		filiado.setNome(campoBusca.getNome());
+		System.out.println(filiado);
 		aluno.setFiliado(filiado);
-		aluno.setProfessor(null);
-		alunoList = new DAOImpl<Aluno>(Aluno.class).search(aluno);
+		try{
+			alunoList = new DAOImpl<Aluno>(Aluno.class).search(aluno);
+		} catch (Exception e) {
+			System.out.println("eeeeeeerrrrrrrrrrrooooooooo");
+			e.printStackTrace();
+			System.out.println("eeeeeeerrrrrrrrrrrooooooooo");
+		}
 
 		Object[][] data = new Object[alunoList.size()][4];
 		for (int i = 0; i < alunoList.size(); i++) {
@@ -59,8 +59,8 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 			data[i][1] = alunoList.get(i).getFiliado().getNome();
 			data[i][2] = alunoList.get(i).getProfessor().getFiliado().getNome();
 			data[i][3] = alunoList.get(i).getEntidade().getNome();
+			System.out.println(alunoList.get(i).getFiliado().getNome());
 		}
-		System.out.println("antes de alunoTableModel.setDataVector( ");
 		alunoTableModel.setDataVector( data, new String[]{"Resistro", "Nome", "Professor", "Entidade"});
 		System.out.println("depois de alunoTableModel.setDataVector( ");
 		
@@ -68,6 +68,7 @@ public class AlunoBuscarView implements AlunoView, ViewComponent {
 			e.printStackTrace();
 		}
 	}
+	
 	public SwingBinder getBinder() {
 		return binder;
 	}

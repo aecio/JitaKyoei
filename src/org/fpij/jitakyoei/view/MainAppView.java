@@ -80,11 +80,13 @@ public class MainAppView implements AppView {
 	}
 
 	@Action
-	public void alterarAlunoMenuItem() {
+
+	public void alterarAlunoMenuItem(){
+try{
+	/*TODO
+	 * Fix erros na busca ou aqui 
+	 */
 		System.out.println("MainAppForm.alterarAlunoMenuItem()");
-//		
-//		displayFrame(new AlunoBuscarView(alunoAtualizarView), "Buscar Aluno");
-//		displayTabPanel(alunoAtualizarView, "Alterar Aluno");
 		JDialog dialog = new JDialog(frame);
 		AlunoBuscarView buscarView = new AlunoBuscarView();
 		buscarView.registerFacade(facade);
@@ -93,12 +95,17 @@ public class MainAppView implements AppView {
 		dialog.setSize(600, 450);
 		dialog.setLocationRelativeTo(frame);
 		dialog.setVisible(true);
-		System.out.println("----------------------");
 		Aluno selecionado = buscarView.getSelectedAluno();
 		if(selecionado!= null ){
-			AlunoAtualizarView atualizarView = new AlunoAtualizarView(selecionado);
+			AlunoAtualizarView atualizarView = new AlunoAtualizarView();
+			atualizarView.popularCampos(selecionado);
 			displayTabPanel(atualizarView, "Alterar Aluno");
 		}
+}catch (Exception e) {
+	System.out.println("EEEEEEEEEEEerrrrrrrrrrrrrroooooooooooooooooooo");
+	e.printStackTrace();
+	System.out.println("EEEEEEEEEEEerrrrrrrrrrrrrroooooooooooooooooooo");
+}
 	}
 
 	@Action

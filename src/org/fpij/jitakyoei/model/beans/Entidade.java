@@ -56,6 +56,6 @@ public class Entidade {
 
 	@Override
 	public String toString(){
-		return this.nome + " - " + this.cnpj;
+		return this.nome;
 	}
 }

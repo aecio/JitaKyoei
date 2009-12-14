@@ -54,12 +54,38 @@ public class FiliadoForm {
 		faixasList = new ArrayList<Faixa>();
 		dataFormater = new SimpleDateFormat("dd/MM/yyyy");
 	}
+	
+	public void popuparCampos(Filiado filiado) {
+		this.nome = filiado.getNome();
+		this.cpf = filiado.getCpf();
+		this.email = filiado.getEmail();
+		this.observacoes = filiado.getObservacoes();
+		this.rg = filiado.getRg().getNumero();
+		this.orgaoExpedidor = filiado.getRg().getOrgaoExpedidor();
+		this.telefone1 = filiado.getTelefone1();
+		this.telefone2 = filiado.getTelefone2();
+		this.registroCbj = filiado.getRegistroCbj();
+		this.dataNascimento.setDate(filiado.getDataNascimento());
+		faixasList.addAll(filiado.getFaixas());
+		Object[][] data = new Object[faixasList.size()][2];
+		for (int i = 0; i < faixasList.size(); i++) {
+			data[i][0] = faixasList.get(i).getCor();
+			data[i][1] = dataFormater.format(faixasList.get(i).getDataEntrega());
+		}
+		faixasModel.setDataVector( data, new String[]{"Faixa","Data de Entrega"});
+		enderecoForm.popularCampos(filiado.getEndereco());
+		
+		
+		binder.bind();
+		System.out.println("FiliadoForm.popuparCampos() - "+filiado.getNome());
+	}
+	
 
 	@Action
 	public void adicionarFaixa(){
 		System.out.println("FiliadoForm.adicionarFaixa()");
 		faixa = new Faixa(corFaixa, dataEntregaDataChooser.getDate());
-		faixasList.add(faixa);  
+		faixasList.add(faixa);
 
 		Object[][] data = new Object[faixasList.size()][2];
 		for (int i = 0; i < faixasList.size(); i++) {
