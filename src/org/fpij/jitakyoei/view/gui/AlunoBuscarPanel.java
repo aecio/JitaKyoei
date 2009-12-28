@@ -18,8 +18,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-import net.java.dev.genesis.annotation.ViewHandler;
-
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.AlunoBuscarView;
 
@@ -29,7 +27,6 @@ import com.jgoodies.forms.layout.FormLayout;
 /**
  * @author wansoul
  */
-@ViewHandler
 public class AlunoBuscarPanel extends JPanel {
 	
 	private AlunoBuscarView view;
@@ -67,12 +64,14 @@ public class AlunoBuscarPanel extends JPanel {
 
 	private void alunoTableMouseReleased(MouseEvent e) {
 		if(view.MODO == AlunoBuscarView.ALTERACAO){
-			System.out.println("AlunoBuscarPanel.alunoTableMouseReleased()");
-			System.out.println(view.getAlunoList().get(this.getAlunoTable().getSelectedRow()));
 			Aluno callback = view.getAlunoList().get(this.getAlunoTable().getSelectedRow());
 			view.setSelectedAluno(callback);
 			this.getParent().getParent().getParent().getParent().setVisible(false);
 		}
+	}
+
+	public JButton getBuscar() {
+		return buscar;
 	}
 
 	private void initComponents() {

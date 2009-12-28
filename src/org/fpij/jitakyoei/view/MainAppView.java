@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.awt.Dialog.ModalityType;
 
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -32,48 +31,37 @@ public class MainAppView implements AppView {
 
 	@Override
 	public void handleModelChange(Object obj) {
-		// Atualizar os panels
+		/**
+		 * TODO: Atualizar os dados dos panels abertos
+		 */
 	}
 
 	public void displayException(Exception e) {
 		JOptionPane.showMessageDialog(frame, e.getMessage());
 	}
 
-	private void displayFrame(ViewComponent alunoView, String titulo) {
-		JFrame f = new JFrame(titulo);
-		f.getContentPane().add(alunoView.getGui());
-		f.setSize(600, 350);
-		f.setLocationRelativeTo(frame);
-		f.setAlwaysOnTop(true);
-		f.setVisible(true);
-	}
-
 	private void displayTabPanel(ViewComponent viewComponent, String titulo) {
 		viewComponent.registerFacade(this.facade);
-		frame.getTabbedPane().addTab(" " + titulo + "  ", new CloseTabIcon(),
-				viewComponent.getGui(), titulo);
+		frame.getTabbedPane().addTab(" " + titulo + "  ", new CloseTabIcon(), viewComponent.getGui(), titulo);
 		frame.getTabbedPane().setSelectedComponent(viewComponent.getGui());
 		frame.repaint();
 		frame.setVisible(true);
 		frame.validate();
-		System.out.println("MainAppView.display()");
 	}
 
 	private void displayPanel(JPanel panel, String titulo) {
-		frame.getTabbedPane().addTab(" " + titulo + "  ", new CloseTabIcon(),
-				panel, titulo);
+		frame.getTabbedPane().addTab(" " + titulo + "  ", new CloseTabIcon(), panel, titulo);
 		frame.getTabbedPane().setSelectedComponent(panel);
 		frame.repaint();
 		frame.setVisible(true);
 		frame.validate();
-		System.out.println("MainAppView.display()");
 	}
 	
 	public void removeTabPanel(Component viewComponent){
 		frame.getTabbedPane().remove(viewComponent);
 	}
 
-	// Ações de Aluno
+	/* Ações de Aluno */
 	@Action
 	public void cadastrarAlunoMenuItem() {
 		displayTabPanel(new AlunoCadastrarView(this), "Cadastrar Aluno");
@@ -87,7 +75,6 @@ public class MainAppView implements AppView {
 	@Action
 	public void alterarAlunoMenuItem() {
 		try {
-			System.out.println("MainAppForm.alterarAlunoMenuItem()");
 			JDialog dialog = new JDialog(frame);
 			dialog.setTitle("Selecione o Aluno a ser Alterado");
 			AlunoBuscarView buscarView = new AlunoBuscarView(AlunoBuscarView.ALTERACAO);
@@ -97,10 +84,9 @@ public class MainAppView implements AppView {
 			dialog.setSize(600, 450);
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);
-			Aluno selecionado = buscarView.getSelectedAluno();
-			if (selecionado != null) {
-				AlunoAtualizarView atualizarView = new AlunoAtualizarView(this);
-				atualizarView.popularCampos(selecionado);
+			Aluno alunoSelecionado = buscarView.getSelectedAluno();
+			if (alunoSelecionado != null) {
+				AlunoAtualizarView atualizarView = new AlunoAtualizarView(this, alunoSelecionado);
 				displayTabPanel(atualizarView, "Alterar Aluno");
 			}
 		} catch (Exception e) {
@@ -115,7 +101,6 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void buscarAlunoMenuItem() {
-		System.out.println("MainAppForm.buscarAlunoMenuItem()");
 		displayTabPanel(new AlunoBuscarView(), "Buscar Aluno");
 	}
 
@@ -127,8 +112,6 @@ public class MainAppView implements AppView {
 	// Ações de Professor
 	@Action
 	public void cadastrarProfessorMenuItem() {
-		System.out.println("MainAppForm.cadastrarProfessorMenuItem()");
-
 		int i = JOptionPane.showConfirmDialog(frame,
 				"O professor já tem registro como aluno na FPIJ?",
 				"Confirmação", JOptionPane.YES_NO_OPTION);
@@ -142,13 +125,9 @@ public class MainAppView implements AppView {
 			dialog.setSize(600, 400);
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);
-			
-//			view.get
 		} else {
-
 			displayTabPanel(new ProfessorCadastrarView(this), "Cadastrar Professor");
 		}
-
 	}
 
 	@Action
@@ -158,7 +137,6 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void alterarProfessorMenuItem() {
-		System.out.println("MainAppForm.alterarProfessorMenuItem()");
 		displayTabPanel(new ProfessorAtualizarView(), "Alterar Professor");
 	}
 
@@ -169,7 +147,6 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void buscarProfessorMenuItem() {
-		System.out.println("MainAppForm.buscarProfessorMenuItem()");
 		displayPanel(new ProfessorBuscarPanel(), "Buscar Professor");
 	}
 
@@ -181,7 +158,6 @@ public class MainAppView implements AppView {
 	// Ações de Entidade
 	@Action
 	public void cadastrarEntidadeMenuItem() {
-		System.out.println("MainAppForm.cadastrarEntidadeMenuItem()");
 		displayTabPanel(new EntidadeCadastrarView(this), "Cadastrar Entidade");
 	}
 
@@ -192,19 +168,16 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void alterarEntidadeMenuItem() {
-		System.out.println("MainAppForm.alterarEntidadeMenuItem()");
 		displayTabPanel(new EntidadeAtualizarView(), "Alterar Entidade");
 	}
 
 	@Action
 	public void alterarEntidadeIcon() {
-		System.out.println("MainAppView.alterarEntidadeIcon()");
 		alterarEntidadeMenuItem();
 	}
 
 	@Action
 	public void buscarEntidadeMenuItem() {
-		System.out.println("MainAppForm.buscarEntidadeMenuItem()");
 		displayTabPanel(new EntidadeBuscarView(), "Busca de Entidade");
 	}
 
@@ -213,10 +186,6 @@ public class MainAppView implements AppView {
 		buscarEntidadeMenuItem();
 	}
 
-	@Override
-	public void registerFacade(AppFacade facade) {
-		this.facade = facade;
-	}
 
 	@Action
 	public void sobreMenuItem() {
@@ -224,8 +193,12 @@ public class MainAppView implements AppView {
 	}
 
 	@Action
-	public void botaoSphash() {
+	public void botaoSplash() {
 		sobreMenuItem();
 	}
 
+	@Override
+	public void registerFacade(AppFacade facade) {
+		this.facade = facade;
+	}
 }

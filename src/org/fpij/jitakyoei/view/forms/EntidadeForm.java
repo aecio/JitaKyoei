@@ -23,13 +23,12 @@ public class EntidadeForm {
 	}
 	
 	public Entidade pegarBean(){
-		entidade.setEndereco(enderecoForm.pegarBean());
+		entidade.setEndereco(enderecoForm.getEndereco());
 		return entidade;
 	}
 	
 	public void limpar(){
 		this.entidade = new Entidade();
-		enderecoForm.limpar();
 	}
 	
 	public Entidade getEntidade() {

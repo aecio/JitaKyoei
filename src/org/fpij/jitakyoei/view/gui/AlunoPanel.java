@@ -4,13 +4,9 @@
 
 package org.fpij.jitakyoei.view.gui;
 
-import java.awt.event.*;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import net.java.dev.genesis.annotation.ViewHandler;
-import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -18,11 +14,9 @@ import com.jgoodies.forms.layout.FormLayout;
 /**
  * @author wansoul
  */
-@ViewHandler
 public class AlunoPanel extends JPanel {
-	SwingBinder binder;
-
 	private static final long serialVersionUID = 1L;
+	
 	public AlunoPanel() {
 		initComponents();
 	}
@@ -37,10 +31,6 @@ public class AlunoPanel extends JPanel {
 
 	public JComboBox getProfessor() {
 		return professor;
-	}
-
-	private void professorActionPerformed(ActionEvent e) {
-		System.out.println( professor.getSelectedItem() );
 	}
 
 	private void initComponents() {
@@ -77,11 +67,6 @@ public class AlunoPanel extends JPanel {
 
 			//---- professor ----
 			professor.setName("professor");
-			professor.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					professorActionPerformed(e);
-				}
-			});
 			panel.add(professor, cc.xy(3, 1));
 
 			//---- label2 ----

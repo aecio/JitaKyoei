@@ -1,5 +1,6 @@
 package org.fpij.jitakyoei.model.beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,15 +10,14 @@ public class Filiado {
 	String registroCbj;
 	Date dataNascimento;
 	Date dataCadastro;
-	Endereco endereco;
 	String telefone1;
 	String telefone2;
 	String email;
-	Rg rg;
 	String cpf;
-	Date ultimaAnuidade;
 	String observacoes;
-	List<Faixa> faixas;
+	Rg rg = new Rg();
+	Endereco endereco = new Endereco();
+	List<Faixa> faixas = new ArrayList<Faixa>();
 	
 	public String toString(){
 		String filiado = "Nome: "+nome+
@@ -109,12 +109,6 @@ public class Filiado {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getUltimaAnuidade() {
-		return ultimaAnuidade;
-	}
-	public void setUltimaAnuidade(Date ultimaAnuidade) {
-		this.ultimaAnuidade = ultimaAnuidade;
-	}
 	public List<Faixa> getFaixas() {
 		return faixas;
 	}
@@ -142,7 +136,6 @@ public class Filiado {
 		email = f.email;
 		rg = f.rg;
 		cpf = f.cpf;
-		ultimaAnuidade = f.ultimaAnuidade;
 		observacoes = f.observacoes;
 		faixas.clear();
 		faixas.addAll(f.faixas);

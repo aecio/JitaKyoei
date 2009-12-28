@@ -74,7 +74,7 @@ public class MainAppFrame extends JFrame {
 		menuItem7 = new JMenuItem();
 		menuItem8 = new JMenuItem();
 		menu2 = new JMenu();
-		menuItem1 = new JMenuItem();
+		sobreMenuItem = new JMenuItem();
 		mainToolBar = new JToolBar();
 		cadastrarAlunoIcon = new JButton();
 		alterarAlunoIcon = new JButton();
@@ -87,7 +87,7 @@ public class MainAppFrame extends JFrame {
 		buscarEntidadeIcon = new JButton();
 		tabbedPane = new JTabbedPane();
 		mainPanel = new JPanel();
-		button1 = new JButton();
+		botaoSplash = new JButton();
 
 		//======== this ========
 		setTitle("JitaKyoei - Federa\u00e7\u00e3o Piauiense de Jud\u00f4");
@@ -222,11 +222,11 @@ public class MainAppFrame extends JFrame {
 				menu2.setText("Ajuda");
 				menu2.setName("menu2");
 
-				//---- menuItem1 ----
-				menuItem1.setText("Sobre");
-				menuItem1.setIcon(new ImageIcon(getClass().getResource("/info.png")));
-				menuItem1.setName("menuItem1");
-				menu2.add(menuItem1);
+				//---- sobreMenuItem ----
+				sobreMenuItem.setText("Sobre");
+				sobreMenuItem.setIcon(new ImageIcon(getClass().getResource("/info.png")));
+				sobreMenuItem.setName("sobreMenuItem");
+				menu2.add(sobreMenuItem);
 			}
 			mainMenuBar.add(menu2);
 		}
@@ -304,10 +304,10 @@ public class MainAppFrame extends JFrame {
 				mainPanel.setName("mainPanel");
 				mainPanel.setLayout(new BorderLayout());
 
-				//---- button1 ----
-				button1.setIcon(new ImageIcon(getClass().getResource("/FPIJ-splash.png")));
-				button1.setName("button1");
-				mainPanel.add(button1, BorderLayout.CENTER);
+				//---- botaoSplash ----
+				botaoSplash.setIcon(new ImageIcon(getClass().getResource("/FPIJ-splash.png")));
+				botaoSplash.setName("botaoSplash");
+				mainPanel.add(botaoSplash, BorderLayout.CENTER);
 			}
 			tabbedPane.addTab("JitaKyoei", mainPanel);
 
@@ -337,7 +337,7 @@ public class MainAppFrame extends JFrame {
 	private JMenuItem menuItem7;
 	private JMenuItem menuItem8;
 	private JMenu menu2;
-	private JMenuItem menuItem1;
+	private JMenuItem sobreMenuItem;
 	private JToolBar mainToolBar;
 	private JButton cadastrarAlunoIcon;
 	private JButton alterarAlunoIcon;
@@ -350,6 +350,6 @@ public class MainAppFrame extends JFrame {
 	private JButton buscarEntidadeIcon;
 	private JTabbedPane tabbedPane;
 	private JPanel mainPanel;
-	private JButton button1;
+	private JButton botaoSplash;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

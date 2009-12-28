@@ -305,7 +305,7 @@
              </object> 
             </void> 
             <void property="name"> 
-             <string>button1</string> 
+             <string>botaoSplash</string> 
             </void> 
            </object> 
            <object class="com.jformdesigner.model.FormLayoutConstraints"> 
@@ -678,7 +678,7 @@
              </object> 
             </void> 
             <void property="name"> 
-             <string>menuItem1</string> 
+             <string>sobreMenuItem</string> 
             </void> 
            </object> 
           </void> 

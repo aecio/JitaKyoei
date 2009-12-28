@@ -25,6 +25,30 @@ public class EnderecoPanel extends JPanel {
 		initComponents();
 	}
 
+	public JTextField getRua() {
+		return rua;
+	}
+
+	public JTextField getNumero() {
+		return numero;
+	}
+
+	public JTextField getBairro() {
+		return bairro;
+	}
+
+	public JTextField getCidade() {
+		return cidade;
+	}
+
+	public JTextField getEstado() {
+		return estado;
+	}
+
+	public JTextField getCep() {
+		return cep;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();

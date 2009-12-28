@@ -4,22 +4,19 @@
 
 package org.fpij.jitakyoei.view.gui;
 import java.awt.BorderLayout;
-import javax.swing.*;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-
-import net.java.dev.genesis.annotation.ViewHandler;
-import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -28,9 +25,7 @@ import com.toedter.calendar.JDateChooser;
 /**
  * @author wansoul
  */
-@ViewHandler
 public class FiliadoPanel extends JPanel {
-	SwingBinder binder;
 
 	private static final long serialVersionUID = 1L;
 	public FiliadoPanel() {
@@ -51,6 +46,50 @@ public class FiliadoPanel extends JPanel {
 
 	public JDateChooser getDataNascimentoDataChooser() {
 		return dataNascimentoDataChooser;
+	}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public JTextField getRegistroCbj() {
+		return registroCbj;
+	}
+
+	public JTextField getCpf() {
+		return cpf;
+	}
+
+	public JTextField getEmail() {
+		return email;
+	}
+
+	public JTextField getRg() {
+		return rg;
+	}
+
+	public JTextField getOrgaoExpedidor() {
+		return orgaoExpedidor;
+	}
+
+	public JTextField getTelefone1() {
+		return telefone1;
+	}
+
+	public JTextField getTelefone2() {
+		return telefone2;
+	}
+
+	public JComboBox getCorFaixa() {
+		return corFaixa;
+	}
+
+	public JButton getAdicionarFaixa() {
+		return adicionarFaixa;
+	}
+
+	public JTextArea getObservacoes() {
+		return observacoes;
 	}
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents

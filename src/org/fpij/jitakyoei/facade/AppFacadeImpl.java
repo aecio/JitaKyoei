@@ -38,7 +38,6 @@ public class AppFacadeImpl implements AppFacade {
 
 	private void reportException(Exception e){
 		view.displayException(e);
-		throw new RuntimeException();
 	}
 	
 	@Override

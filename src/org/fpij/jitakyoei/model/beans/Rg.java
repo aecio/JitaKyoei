@@ -4,7 +4,8 @@ public class Rg {
 	String numero;
 	String orgaoExpedidor;
 	
-
+	public Rg() {}
+	
 	public Rg(String numero, String orgaoExpedidor) {
 		this.numero = numero;
 		this.orgaoExpedidor = orgaoExpedidor;

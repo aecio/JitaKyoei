@@ -1,6 +1,5 @@
 package org.fpij.jitakyoei.view.forms;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;

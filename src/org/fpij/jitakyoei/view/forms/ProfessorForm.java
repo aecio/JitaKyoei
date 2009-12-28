@@ -38,7 +38,7 @@ public class ProfessorForm {
 	
 	public Professor pegarBean(){
 		Professor p = new Professor();
-		p.setFiliado(filiadoForm.pegarBean());
+		p.setFiliado(filiadoForm.getFiliado());
 		return p;
 	}
 	

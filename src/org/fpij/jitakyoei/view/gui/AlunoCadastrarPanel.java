@@ -10,15 +10,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.java.dev.genesis.annotation.ViewHandler;
-
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
  */
-@ViewHandler
 public class AlunoCadastrarPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -28,6 +25,14 @@ public class AlunoCadastrarPanel extends JPanel {
 
 	public AlunoPanel getAlunoPanel() {
 		return alunoPanel;
+	}
+
+	public JButton getCadastrar() {
+		return cadastrar;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
 	}
 
 	private void initComponents() {

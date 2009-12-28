@@ -1,104 +1,112 @@
 package org.fpij.jitakyoei.view.forms;
 
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.swing.SwingBinder;
-
 import org.fpij.jitakyoei.model.beans.Endereco;
 import org.fpij.jitakyoei.view.gui.EnderecoPanel;
 
-@Form
 public class EnderecoForm {
-	private String rua;
-	private String numero;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String cep;
-	
-	private SwingBinder binder;
-	
+	private Endereco endereco;
+	private EnderecoPanel enderecoPanel;
+
+	/**
+	 * Contrutor padrão que recebe somente EnderecoPanel. Um novo Endereco será
+	 * instanciado.
+	 * 
+	 * @param enderecoPanel
+	 * @param endereco
+	 */
 	public EnderecoForm(EnderecoPanel enderecoPanel) {
-		binder = new SwingBinder(enderecoPanel, this);
-		binder.bind();
-	}
-	
-	public Endereco pegarBean(){
-		System.out.println("EnderecoForm.pegarBean()");
-		Endereco e = new Endereco();
-		e.setRua(rua);
-		e.setNumero(numero);
-		e.setBairro(bairro);
-		e.setCidade(cidade);
-		e.setEstado(estado);
-		e.setCep(cep);
-		return e;
-	}
-	
-	public void limpar(){
-		rua = null;
-		numero = null;
-		bairro = null;
-		cidade = null;
-		estado = null;
-		cep = null;
-		binder.bind();
+		this(enderecoPanel, new Endereco());
 	}
 
-	public void popularCampos(Endereco endereco) {
-		rua = endereco.getRua();
-		numero = endereco.getNumero();
-		bairro = endereco.getBairro();
-		cidade = endereco.getCidade();
-		estado = endereco.getEstado();
-		cep = endereco.getCep();
-		binder.bind();
+	/**
+	 * Contrutor que recebe um EnderecoPanel e um endereco. O EnderecoPanel será
+	 * iniciado com os valores do Endereco passado por parâmetro.
+	 * 
+	 * @param enderecoPanel
+	 * @param endereco
+	 */
+	public EnderecoForm(EnderecoPanel enderecoPanel, Endereco endereco) {
+		this.enderecoPanel = enderecoPanel;
+		this.setEndereco(endereco);
 	}
 
+	/**
+	 * Retorna um endereço com os valores atualizados da GUI.
+	 * 
+	 * @return endereco
+	 */
+	public Endereco getEndereco() {
+		endereco.setBairro(getBairro());
+		endereco.setCep(getCep());
+		endereco.setCidade(getCidade());
+		endereco.setEstado(getEstado());
+		endereco.setNumero(getNumero());
+		endereco.setRua(getRua());
+		return endereco;
+	}
+
+	/**
+	 * Atualiza a GUI com endereço passado no parâmetro.
+	 * 
+	 * @param endereco
+	 */
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+		setRua(endereco.getRua());
+		setNumero(endereco.getNumero());
+		setBairro(endereco.getBairro());
+		setCidade(endereco.getCidade());
+		setEstado(endereco.getEstado());
+		setCep(endereco.getCep());
+	}
+
+	/* Métodos de acesso aos valores da GUI */
 	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
+		return enderecoPanel.getRua().getText();
 	}
 
 	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
+		return enderecoPanel.getNumero().getText();
 	}
 
 	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+		return enderecoPanel.getBairro().getText();
 	}
 
 	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		return enderecoPanel.getCidade().getText();
 	}
 
 	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
+		return enderecoPanel.getEstado().getText();
 	}
 
 	public String getCep() {
-		return cep;
+		return enderecoPanel.getCep().getText();
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	/* Métodos modificadores da GUI */
+	private void setCep(String cep) {
+		enderecoPanel.getCep().setText(cep);
+	}
+
+	private void setEstado(String estado) {
+		enderecoPanel.getEstado().setText(estado);
+	}
+
+	private void setCidade(String cidade) {
+		enderecoPanel.getCidade().setText(cidade);
+	}
+
+	private void setBairro(String bairro) {
+		enderecoPanel.getBairro().setText(bairro);
+	}
+
+	private void setNumero(String numero) {
+		enderecoPanel.getNumero().setText(numero);
+	}
+
+	private void setRua(String rua) {
+		enderecoPanel.getRua().setText(rua);
 	}
 }

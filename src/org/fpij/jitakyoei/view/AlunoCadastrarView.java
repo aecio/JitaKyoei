@@ -1,22 +1,19 @@
 package org.fpij.jitakyoei.view;
 
-import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.view.forms.AlunoForm;
 import org.fpij.jitakyoei.view.gui.AlunoCadastrarPanel;
 
-@Form
-public class AlunoCadastrarView implements AlunoView, ViewComponent {
-	AlunoCadastrarPanel gui;
+public class AlunoCadastrarView implements ViewComponent {
+
+	private AlunoCadastrarPanel gui;
 	private AlunoForm alunoForm;
 	private AppFacade facade;
 	private MainAppView parent;
@@ -24,53 +21,51 @@ public class AlunoCadastrarView implements AlunoView, ViewComponent {
 	public AlunoCadastrarView(MainAppView parent) {
 		this.parent = parent;
 		gui = new AlunoCadastrarPanel();
-		new SwingBinder(gui, this).bind();
+		gui.getCadastrar().addActionListener(new CadastrarActionHandler());
+		gui.getCancelar().addActionListener(new CancelarActionHandler());
 		gui.setVisible(true);
 		alunoForm = new AlunoForm(gui.getAlunoPanel());
-		alunoForm.registerFacade(facade);
-	}
-
-	@Action
-	public void cadastrar() {
-		Aluno aluno = alunoForm.pegarBean();
-		try {
-			System.out.println(facade);
-			facade.createAluno(aluno);
-			System.out.println(aluno.toString());
-			
-			JOptionPane.showMessageDialog(gui, "Aluno cadastrado com sucesso!");
-			
-			parent.removeTabPanel(gui);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@Action
-	public void cancelar(){
-		parent.removeTabPanel(gui);
 	}
 
 	@Override
 	public JPanel getGui() {
 		return gui;
 	}
-
-	@Override
-	public void displayResult(Aluno aluno) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void displayResult(List<Aluno> searchResult) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void registerFacade(AppFacade fac) {
 		this.facade = fac;
 	}
-
+	
+	
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Cadastrar".
+	 * 
+	 * @author Aécio
+	 */
+	public class CadastrarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Aluno aluno = alunoForm.getAluno();
+			try {
+				facade.createAluno(aluno);
+				JOptionPane.showMessageDialog(gui, "Aluno cadastrado com sucesso!");
+				parent.removeTabPanel(gui);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Cancelar".
+	 * 
+	 * @author Aécio
+	 */
+	public class CancelarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			parent.removeTabPanel(gui);
+		}
+	}
 }
