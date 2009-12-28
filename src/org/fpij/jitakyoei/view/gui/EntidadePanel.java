@@ -8,15 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.java.dev.genesis.annotation.ViewHandler;
-
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author wansoul
  */
-@ViewHandler
 public class EntidadePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -26,6 +23,22 @@ public class EntidadePanel extends JPanel {
 
 	public EnderecoPanel getEnderecoPanel() {
 		return enderecoPanel;
+	}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public JTextField getCnpj() {
+		return cnpj;
+	}
+
+	public JTextField getTelefone1() {
+		return telefone1;
+	}
+
+	public JTextField getTelefone2() {
+		return telefone2;
 	}
 
 	private void initComponents() {

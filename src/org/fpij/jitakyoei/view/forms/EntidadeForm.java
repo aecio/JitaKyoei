@@ -1,42 +1,71 @@
 package org.fpij.jitakyoei.view.forms;
 
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.binding.AbstractBinder;
-import net.java.dev.genesis.ui.swing.SwingBinder;
-
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.view.gui.EntidadePanel;
 
-@Form
 public class EntidadeForm {
+	private Entidade entidade;
+	private EntidadePanel entidadePanel;
 	private EnderecoForm enderecoForm;
-	
-	private Entidade entidade = new Entidade();
-
-	private AbstractBinder binder;
 
 	public EntidadeForm(EntidadePanel entidadePanel) {
-		this.entidade = new Entidade();
-		binder = new SwingBinder(entidadePanel, entidade);
-		binder.bind();
-		enderecoForm =  new EnderecoForm(entidadePanel.getEnderecoPanel());  
+		init(entidadePanel, new Entidade());
 	}
 	
-	public Entidade pegarBean(){
+	public EntidadeForm(EntidadePanel entidadePanel, Entidade entidade) {
+		init(entidadePanel, entidade);
+		setEntidade(entidade);
+	}
+	
+	private void init(EntidadePanel entidadePanel, Entidade entidade) {
+		this.entidade = entidade;
+		this.entidadePanel = entidadePanel;
+		this.enderecoForm =  new EnderecoForm(entidadePanel.getEnderecoPanel());
+	}
+	
+	public Entidade getEntidade(){
+		entidade.setNome(getNome());
+		entidade.setCnpj(getCnpj());
+		entidade.setTelefone1(getTelefone1());
+		entidade.setTelefone2(getTelefone2());
 		entidade.setEndereco(enderecoForm.getEndereco());
 		return entidade;
 	}
 	
-	public void limpar(){
-		this.entidade = new Entidade();
+	public void setEntidade(Entidade e){
+		this.entidade = e;
+		setNome(e.getNome());
+		setCnpj(e.getCnpj());
+		setTelefone1(e.getTelefone1());
+		setTelefone2(e.getTelefone2());
+		enderecoForm.setEndereco(e.getEndereco());
 	}
 	
-	public Entidade getEntidade() {
-		return entidade;
+	/*Métodos de acesso aos dados da GUI*/
+	public String getNome() {
+		return entidadePanel.getNome().getText();
 	}
-
-	public void setEntidade(Entidade entidade) {
-		this.entidade = entidade;
+	public String getCnpj(){
+		return entidadePanel.getCnpj().getText();
+	}
+	public String getTelefone1(){
+		return entidadePanel.getTelefone1().getText();
+	}
+	public String getTelefone2(){
+		return entidadePanel.getTelefone2().getText();
 	}
 	
+	/*Métodos modificadores do dados da GUI */
+	public void setNome(String nome) {
+		entidadePanel.getNome().setText(nome);
+	}
+	public void setCnpj(String cnpj){
+		entidadePanel.getCnpj().setText(cnpj);
+	}
+	public void setTelefone1(String telefone1){
+		entidadePanel.getTelefone1().setText(telefone1);
+	}
+	public void setTelefone2(String telefone2){
+		entidadePanel.getTelefone2().setText(telefone2);
+	}
 }

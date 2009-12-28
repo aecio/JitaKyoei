@@ -22,7 +22,6 @@ public class EntidadeAtualizarView implements ViewComponent {
 	
 	
 	public EntidadeAtualizarView() {
-		System.out.println("EntidadeAtualizarView.novoForm()");
 		gui = new EntidadeAtualizarPanel();
 		new SwingBinder(gui, this).bind();
 		entidadeForm = new EntidadeForm(gui.getEntidadePanel());
@@ -42,7 +41,7 @@ public class EntidadeAtualizarView implements ViewComponent {
 	@Action
 	public void atualizarEntidade(){
 		try {
-			entidade = entidadeForm.pegarBean(); 
+			entidade = entidadeForm.getEntidade(); 
 			facade.updateEntidade(entidade);
 			JOptionPane.showMessageDialog(gui, "Entidade alterada com sucesso!");
 		} catch (Exception e) {
