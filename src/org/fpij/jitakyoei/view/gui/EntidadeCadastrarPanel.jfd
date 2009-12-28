@@ -89,6 +89,12 @@
         <void property="name"> 
          <string>cadastrarEntidade</string> 
         </void> 
+        <void method="auxiliary"> 
+         <void method="setProperty"> 
+          <string>JavaCodeGenerator.variableGetter</string> 
+          <boolean>true</boolean> 
+         </void> 
+        </void> 
        </object> 
        <object class="com.jformdesigner.model.FormLayoutConstraints"> 
         <class>com.jgoodies.forms.layout.CellConstraints</class> 
@@ -111,6 +117,12 @@
         </void> 
         <void property="name"> 
          <string>cancelar</string> 
+        </void> 
+        <void method="auxiliary"> 
+         <void method="setProperty"> 
+          <string>JavaCodeGenerator.variableGetter</string> 
+          <boolean>true</boolean> 
+         </void> 
         </void> 
        </object> 
        <object class="com.jformdesigner.model.FormLayoutConstraints"> 

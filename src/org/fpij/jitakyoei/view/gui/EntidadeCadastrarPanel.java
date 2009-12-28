@@ -19,7 +19,6 @@ import com.jgoodies.forms.layout.FormLayout;
  * @author ASantos
  */
 
-@ViewHandler
 public class EntidadeCadastrarPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
@@ -29,6 +28,14 @@ public class EntidadeCadastrarPanel extends JPanel {
 
 	public EntidadePanel getEntidadePanel() {
 		return entidadePanel;
+	}
+
+	public JButton getCadastrarEntidade() {
+		return cadastrarEntidade;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
 	}
 
 	private void initComponents() {

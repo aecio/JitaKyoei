@@ -37,6 +37,10 @@ public class EntidadeBuscarPanel extends JPanel {
 		return nome;
 	}
 
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();
@@ -85,6 +89,7 @@ public class EntidadeBuscarPanel extends JPanel {
 					"Nome", "CNPJ", "Telefone 1", "Telefone 2"
 				}
 			));
+			tblEntidades.setCellSelectionEnabled(true);
 			tblEntidades.setName("tblEntidades");
 			scrollPane1.setViewportView(tblEntidades);
 		}

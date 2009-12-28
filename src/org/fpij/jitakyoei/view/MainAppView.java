@@ -13,6 +13,7 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
+import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
 import org.fpij.jitakyoei.view.gui.ProfessorBuscarPanel;
@@ -168,7 +169,20 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void alterarEntidadeMenuItem() {
-		displayTabPanel(new EntidadeAtualizarView(), "Alterar Entidade");
+		JDialog dialog = new JDialog(frame);
+		dialog.setTitle("Selecione a Entidade a ser alterada");
+		EntidadeBuscarView buscarView = new EntidadeBuscarView(EntidadeBuscarView.ALTERACAO);
+		buscarView.registerFacade(facade);
+		dialog.getContentPane().add(buscarView.getGui());
+		dialog.setModalityType(ModalityType.APPLICATION_MODAL);
+		dialog.setSize(600, 450);
+		dialog.setLocationRelativeTo(frame);
+		dialog.setVisible(true);
+		Entidade entidadeSelecionada = buscarView.getSelectedEntidade();
+		if (entidadeSelecionada != null) {
+			EntidadeAtualizarView atualizarView = new EntidadeAtualizarView(this, entidadeSelecionada);
+			displayTabPanel(atualizarView, "Alterar Entidade");
+		}
 	}
 
 	@Action

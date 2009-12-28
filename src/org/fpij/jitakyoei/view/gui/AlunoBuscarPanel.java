@@ -59,7 +59,6 @@ public class AlunoBuscarPanel extends JPanel {
 	public void refresh(){
 		this.repaint();
 		this.validate();
-		System.out.println("AlunoBuscarPanel.refresh()");
 	}
 
 	private void alunoTableMouseReleased(MouseEvent e) {

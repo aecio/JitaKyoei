@@ -18,7 +18,6 @@ import com.jgoodies.forms.layout.FormLayout;
 /**
  * @author ASantos
  */
-@ViewHandler
 public class EntidadeAtualizarPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	public EntidadeAtualizarPanel() {
@@ -27,6 +26,14 @@ public class EntidadeAtualizarPanel extends JPanel {
 
 	public EntidadePanel getEntidadePanel() {
 		return entidadePanel;
+	}
+
+	public JButton getAtualizarEntidade() {
+		return atualizarEntidade;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
 	}
 
 	private void initComponents() {

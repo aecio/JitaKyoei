@@ -1,31 +1,28 @@
 package org.fpij.jitakyoei.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.swing.SwingBinder;
-
 import org.fpij.jitakyoei.facade.AppFacade;
-import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.view.forms.EntidadeForm;
 import org.fpij.jitakyoei.view.gui.EntidadeCadastrarPanel;
 
-@Form
 public class EntidadeCadastrarView implements ViewComponent {
 
 	private EntidadeCadastrarPanel gui;
 	private AppFacade facade;
 	private EntidadeForm entidadeForm;
-	private Entidade entidade;
 	private MainAppView parent;
 	
 	
 	public EntidadeCadastrarView(MainAppView parent) {
 		this.parent = parent;
 		gui = new EntidadeCadastrarPanel();
-		new SwingBinder(gui, this).bind();
+		gui.getCancelar().addActionListener(new CancelarActionHandler());
+		gui.getCadastrarEntidade().addActionListener(new CadastrarActionHandler());
 		entidadeForm = new EntidadeForm(gui.getEntidadePanel());
 		gui.setVisible(true);
 	}
@@ -40,21 +37,33 @@ public class EntidadeCadastrarView implements ViewComponent {
 		this.facade = fac;
 	}
 	
-	@Action
-	public void cadastrarEntidade(){
-		System.out.println("EntidadeCadastrarView.cadastrarEntidade()");
-		try {
-			Entidade novaEntidade = entidadeForm.getEntidade();
-			facade.createEntidade(novaEntidade);
-			JOptionPane.showMessageDialog(gui, "Entidade cadastrada com sucesso!");
-			parent.removeTabPanel(gui);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Cadastrar".
+	 * 
+	 * @author Aécio
+	 */
+	public class CadastrarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			try {
+				facade.createEntidade(entidadeForm.getEntidade());
+				JOptionPane.showMessageDialog(gui, "Entidade cadastrada com sucesso!");
+				parent.removeTabPanel(gui);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+		}
 	}
 	
-	@Action
-	public void cancelar(){
-		parent.removeTabPanel(gui);
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Cancelar".
+	 * 
+	 * @author Aécio
+	 */
+	public class CancelarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			parent.removeTabPanel(gui);
+		}
 	}
 }
