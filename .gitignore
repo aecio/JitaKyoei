@@ -1,5 +1,6 @@
 ﻿bin/
-bin/Thumbs.db
+bin/*
+Thumbs.db
 *.class
 DER.mwb.bak
 DER.mwb.beforefix
