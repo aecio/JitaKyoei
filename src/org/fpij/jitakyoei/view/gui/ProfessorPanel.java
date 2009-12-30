@@ -4,6 +4,7 @@
 
 package org.fpij.jitakyoei.view.gui;
 
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,12 +36,17 @@ public class ProfessorPanel extends JPanel {
 		return adicionarEntidade;
 	}
 
+	public JComboBox getEntidade() {
+		return entidade;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		filiadoPanel = new FiliadoPanel();
 		panel1 = new JPanel();
 		panel2 = new JPanel();
 		label1 = new JLabel();
+		entidade = new JComboBox();
 		adicionarEntidade = new JButton();
 		scrollPane1 = new JScrollPane();
 		entidadesTable = new JTable();
@@ -49,7 +55,7 @@ public class ProfessorPanel extends JPanel {
 		//======== this ========
 		setName("this");
 		setLayout(new FormLayout(
-			"default:grow",
+			"475dlu:grow",
 			"3*(default, $lgap), top:58dlu"));
 
 		//---- filiadoPanel ----
@@ -60,7 +66,7 @@ public class ProfessorPanel extends JPanel {
 		{
 			panel1.setName("panel1");
 			panel1.setLayout(new FormLayout(
-				"45dlu, 2*($lcgap), 59dlu, 134dlu:grow, $lcgap",
+				"45dlu, 2*($lcgap), default, $lcgap, 308dlu, 134dlu:grow, $lcgap",
 				"default"));
 
 			//======== panel2 ========
@@ -77,10 +83,14 @@ public class ProfessorPanel extends JPanel {
 			}
 			panel1.add(panel2, cc.xy(1, 1));
 
+			//---- entidade ----
+			entidade.setName("entidade");
+			panel1.add(entidade, cc.xywh(4, 1, 3, 1));
+
 			//---- adicionarEntidade ----
-			adicionarEntidade.setText("Adicionar");
+			adicionarEntidade.setText("Adicionar Entidade");
 			adicionarEntidade.setName("adicionarEntidade");
-			panel1.add(adicionarEntidade, cc.xy(4, 1));
+			panel1.add(adicionarEntidade, cc.xy(7, 1));
 		}
 		add(panel1, cc.xy(1, 3));
 
@@ -101,6 +111,7 @@ public class ProfessorPanel extends JPanel {
 	private JPanel panel1;
 	private JPanel panel2;
 	private JLabel label1;
+	private JComboBox entidade;
 	private JButton adicionarEntidade;
 	private JScrollPane scrollPane1;
 	private JTable entidadesTable;

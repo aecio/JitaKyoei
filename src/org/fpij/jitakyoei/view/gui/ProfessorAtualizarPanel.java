@@ -27,6 +27,14 @@ public class ProfessorAtualizarPanel extends JPanel {
 		return professorPanel;
 	}
 
+	public JButton getAtualizar() {
+		return atualizar;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();

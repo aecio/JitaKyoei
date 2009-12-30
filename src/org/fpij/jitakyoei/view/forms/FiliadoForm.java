@@ -27,7 +27,8 @@ public class FiliadoForm {
 	 * @param endereco
 	 */
 	public FiliadoForm(FiliadoPanel filiadoPanel) {
-		init(filiadoPanel, new Filiado());
+		this.filiado = new Filiado();
+		init(filiadoPanel);
 	}
 
 	/**
@@ -38,7 +39,7 @@ public class FiliadoForm {
 	 * @param endereco
 	 */
 	public FiliadoForm(FiliadoPanel filiadoPanel, Filiado filiado) {
-		init(filiadoPanel, filiado);
+		init(filiadoPanel);
 		this.setFiliado(filiado);
 	}
 
@@ -49,7 +50,7 @@ public class FiliadoForm {
 	 * @param filiadoPanel
 	 * @param filiado
 	 */
-	private void init(FiliadoPanel filiadoPanel, Filiado filiado) {
+	private void init(FiliadoPanel filiadoPanel) {
 		this.filiadoPanel = filiadoPanel;
 		this.enderecoForm = new EnderecoForm(filiadoPanel.getEnderecoPanel());
 		this.dataFormater = new SimpleDateFormat("dd/MM/yyyy");

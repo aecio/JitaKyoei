@@ -5,6 +5,7 @@ import java.util.List;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.model.dao.DAO;
 import org.fpij.jitakyoei.model.dao.DAOImpl;
+import org.fpij.jitakyoei.util.FiliadoID;
 import org.fpij.jitakyoei.view.AppView;
 
 public class ProfessorBOImpl implements ProfessorBO {
@@ -23,6 +24,7 @@ public class ProfessorBOImpl implements ProfessorBO {
 	@Override
 	public void createProfessor(Professor professor) throws Exception {
 		try {
+			professor.getFiliado().setId(FiliadoID.getNextID());
 			dao.save(professor);
 			fireModelChangeEvent(professor);
 		} catch (IllegalArgumentException e) {

@@ -14,9 +14,9 @@ import net.java.dev.genesis.ui.swing.SwingBinder;
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Entidade;
+import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.util.CloseTabIcon;
 import org.fpij.jitakyoei.view.gui.MainAppFrame;
-import org.fpij.jitakyoei.view.gui.ProfessorBuscarPanel;
 import org.fpij.jitakyoei.view.gui.SobrePanel;
 
 @Form
@@ -138,7 +138,24 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void alterarProfessorMenuItem() {
-		displayTabPanel(new ProfessorAtualizarView(), "Alterar Professor");
+		try {
+			JDialog dialog = new JDialog(frame);
+			dialog.setTitle("Selecione o Professor a ser Alterado");
+			ProfessorBuscarView buscarView = new ProfessorBuscarView(ProfessorBuscarView.ALTERACAO);
+			buscarView.registerFacade(facade);
+			dialog.getContentPane().add(buscarView.getGui());
+			dialog.setModalityType(ModalityType.APPLICATION_MODAL);
+			dialog.setSize(600, 450);
+			dialog.setLocationRelativeTo(frame);
+			dialog.setVisible(true);
+			Professor professorSelecionado = buscarView.getSelectedProfessor();
+			if (professorSelecionado != null) {
+				ProfessorAtualizarView atualizarView = new ProfessorAtualizarView(this, professorSelecionado);
+				displayTabPanel(atualizarView, "Alterar Professor");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Action
@@ -148,7 +165,7 @@ public class MainAppView implements AppView {
 
 	@Action
 	public void buscarProfessorMenuItem() {
-		displayPanel(new ProfessorBuscarPanel(), "Buscar Professor");
+		displayTabPanel(new ProfessorBuscarView(), "Buscar Professor");
 	}
 
 	@Action

@@ -26,7 +26,7 @@ public class EntidadeBuscarView implements ViewComponent {
 	public EntidadeBuscarView() {
 		gui = new EntidadeBuscarPanel();
 		gui.getBtnBuscar().addActionListener(new BuscarActionHandler());
-		gui.getTblEntidades().addMouseListener(new TableMouseReleasedHandler());
+		gui.getTblEntidades().addMouseListener(new TableMouseClickedHandler());
 		gui.setVisible(true);
 	}
 	public EntidadeBuscarView(int MODO) {
@@ -57,7 +57,7 @@ public class EntidadeBuscarView implements ViewComponent {
 		}
 	}
 	
-	public class TableMouseReleasedHandler implements MouseListener{
+	public class TableMouseClickedHandler implements MouseListener{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if(MODO == ALTERACAO){

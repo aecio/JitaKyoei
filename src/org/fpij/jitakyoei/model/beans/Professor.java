@@ -1,8 +1,13 @@
 package org.fpij.jitakyoei.model.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Professor {
-	Filiado filiado;
+	Filiado filiado = new Filiado();
+	List<Entidade> entidades = new ArrayList<Entidade>();
 	
+
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof Professor){
@@ -24,6 +29,14 @@ public class Professor {
 
 	public void setFiliado(Filiado filiado) {
 		this.filiado = filiado;
+	}
+	
+	public List<Entidade> getEntidades() {
+		return entidades;
+	}
+	
+	public void setEntidades(List<Entidade> entidades) {
+		this.entidades = entidades;
 	}
 	
 	public String toString(){

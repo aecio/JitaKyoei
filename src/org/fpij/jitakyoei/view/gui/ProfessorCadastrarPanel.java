@@ -30,6 +30,14 @@ public class ProfessorCadastrarPanel extends JPanel {
 		return professorPanel;
 	}
 
+	public JButton getCadastrar() {
+		return cadastrar;
+	}
+
+	public JButton getCancelar() {
+		return cancelar;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		panel2 = new JPanel();

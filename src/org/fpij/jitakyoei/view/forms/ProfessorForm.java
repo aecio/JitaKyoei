@@ -1,69 +1,83 @@
 package org.fpij.jitakyoei.view.forms;
 
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
-
-import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.swing.SwingBinder;
 
 import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Professor;
+import org.fpij.jitakyoei.model.dao.DAOImpl;
 import org.fpij.jitakyoei.view.gui.ProfessorPanel;
 
-@Form
 public class ProfessorForm {
+	private Professor professor;
+	private ProfessorPanel professorPanel;
 	private FiliadoForm filiadoForm;
-	private Entidade entidade;
-	private SwingBinder binder;
-	private DefaultTableModel entidadesTableModel;
-	private List<Entidade> entidadesList;
-	
-	
+
 	public ProfessorForm(ProfessorPanel professorPanel) {
-		binder = new SwingBinder(professorPanel, this);
-		binder.bind();
-		filiadoForm = new FiliadoForm(professorPanel.getFiliadoPanel());
-		entidadesTableModel = (DefaultTableModel) professorPanel.getEntidadesTable().getModel();
-		entidadesList = new ArrayList<Entidade>();
+		init(professorPanel, new Professor());
 	}
-	
-	@Action
-	public void adicionarEntidade(){
-		System.out.println("ProfessorForm.adicionar()");
-		new AddEntidadeForm(this);
+
+	public ProfessorForm(ProfessorPanel professorPanel, Professor professor) {
+		init(professorPanel, professor);
+		setProfessor(professor);
 	}
-	
-	public Professor pegarBean(){
-		Professor p = new Professor();
-		p.setFiliado(filiadoForm.getFiliado());
-		return p;
+
+	private void init(ProfessorPanel professorPanel, Professor professor) {
+		this.professor = professor;
+		this.professorPanel = professorPanel;
+		this.professorPanel.getAdicionarEntidade().addActionListener(
+				new AdicionarEntidadeActionHandler());
+		this.filiadoForm = new FiliadoForm(professorPanel.getFiliadoPanel());
+		populaEntidadeCombo();
 	}
-	
-	public Entidade getEntidade() {
-		return entidade;
+
+	private void setProfessor(Professor professor) {
+		this.professor = professor;
+		filiadoForm.setFiliado(professor.getFiliado());
+		setEntidadesList(professor.getEntidades());
 	}
-	
-	public void setEntidade(Entidade entidade) {
-		this.entidade = entidade;
+
+	public Professor getProfessor() {
+		professor.setFiliado(filiadoForm.getFiliado());
+		return professor;
+	}
+
+	public class AdicionarEntidadeActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			professor.getEntidades().add(getEntidade());
+			setEntidadesList(professor.getEntidades());
+		}
+	}
+
+	private void populaEntidadeCombo() {
+		JComboBox entidadeCombo = professorPanel.getEntidade();
+		List<Entidade> resultEntidades = new DAOImpl<Entidade>(Entidade.class).list();
+		for (Entidade e : resultEntidades) {
+			entidadeCombo.addItem(e);
+		}
+		entidadeCombo.setSelectedItem(null);
+	}
+
+	private Entidade getEntidade() {
+		return (Entidade) professorPanel.getEntidade().getSelectedItem();
 	}
 
 	public List<Entidade> getEntidadesList() {
-		return entidadesList;
+		return professor.getEntidades();
 	}
 
 	public void setEntidadesList(List<Entidade> entidadesList) {
-		this.entidadesList = entidadesList;
+		Object[][] data = new Object[entidadesList.size()][2];
+		for (int i = 0; i < entidadesList.size(); i++) {
+			data[i][0] = entidadesList.get(i).getNome();
+		}
+		DefaultTableModel entidadesTableModel = (DefaultTableModel) professorPanel
+				.getEntidadesTable().getModel();
+		entidadesTableModel.setDataVector(data, new String[] { "Entidade" });
 	}
-
-	public DefaultTableModel getEntidadesTableModel() {
-		return entidadesTableModel;
-	}
-
-	public void setEntidadesTableModel(DefaultTableModel entidadesTableModel) {
-		this.entidadesTableModel = entidadesTableModel;
-	}
-	
 }

@@ -24,6 +24,14 @@ public class BuscaCamposPanel extends JPanel {
 		initComponents();
 	}
 
+	public JTextField getRegistroFpij() {
+		return registroFpij;
+	}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label2 = new JLabel();

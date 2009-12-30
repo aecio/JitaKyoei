@@ -24,7 +24,6 @@ public class AlunoAtualizarView implements ViewComponent{
 		alunoForm.setAluno(aluno);
 		gui.getAtualizar().addActionListener(new AtualizarActionHandler());
 		gui.getCancelar().addActionListener(new CancelarActionHandler());
-		gui.setVisible(true);
 	}
 	
 	@Override

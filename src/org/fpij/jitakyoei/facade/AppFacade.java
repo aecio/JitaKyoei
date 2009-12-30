@@ -16,7 +16,7 @@ public interface AppFacade {
 	
 	public abstract void createProfessor(Professor professor);
 	public abstract void updateProfessor(Professor professor);
-	public abstract void searchProfessor(Professor professor);
+	public abstract List<Professor> searchProfessor(Professor professor);
 	public abstract List<Professor> listProfessores();
 
 	public abstract void createEntidade(Entidade entidade);

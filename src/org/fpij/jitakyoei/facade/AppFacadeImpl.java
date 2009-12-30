@@ -101,12 +101,14 @@ public class AppFacadeImpl implements AppFacade {
 	}
 
 	@Override
-	public void searchProfessor(Professor professor) {
+	public List<Professor> searchProfessor(Professor professor) {
+		List<Professor> result = null;
 		try{
-			professorBO.searchProfessor(professor);
+			result = professorBO.searchProfessor(professor);
 		}catch (Exception e) {
 			reportException(e);
 		}
+		return result;
 	}
 
 	@Override

@@ -1,39 +1,28 @@
 package org.fpij.jitakyoei.view;
 
-import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import net.java.dev.genesis.annotation.Action;
-import net.java.dev.genesis.annotation.Form;
-import net.java.dev.genesis.ui.swing.SwingBinder;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.view.forms.ProfessorForm;
 import org.fpij.jitakyoei.view.gui.ProfessorAtualizarPanel;
 
-@Form
 public class ProfessorAtualizarView implements ViewComponent{
 	private ProfessorAtualizarPanel gui;
 	private ProfessorForm professorForm;
 	private AppFacade facade;
-	private SwingBinder binder;
+	private MainAppView parent;
 
-	public ProfessorAtualizarView() {
+	public ProfessorAtualizarView(MainAppView parent, Professor professor){
+		this.parent = parent;
 		gui = new ProfessorAtualizarPanel();
-		binder = new SwingBinder(gui, this);
-		binder.bind();
-		professorForm = new ProfessorForm(gui.getProfessorPanel());
-		gui.setVisible(true);
-	}
-
-	public SwingBinder getBinder() {
-		return binder;
-	}
-
-	@Action
-	public void atualizar() {
-		Professor professor = professorForm.pegarBean();
-		System.out.println(professor.toString());
+		professorForm = new ProfessorForm(gui.getProfessorPanel(), professor);
+		gui.getCancelar().addActionListener(new CancelarActionHandler());
+		gui.getAtualizar().addActionListener(new AtualizarActionHandler());
 	}
 
 	@Override
@@ -44,5 +33,36 @@ public class ProfessorAtualizarView implements ViewComponent{
 	@Override
 	public void registerFacade(AppFacade fac) {
 		this.facade = fac;		
+	}
+	
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Atualizar".
+	 * 
+	 * @author Aécio
+	 */
+	public class AtualizarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			Professor professor = professorForm.getProfessor();
+			try {
+				facade.updateProfessor(professor);
+				JOptionPane.showMessageDialog(gui, "Professor atualizado com sucesso!");
+				parent.removeTabPanel(gui);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Classe interna responsável por responder aos cliques no botão "Cancelar".
+	 * 
+	 * @author Aécio
+	 */
+	public class CancelarActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			parent.removeTabPanel(gui);
+		}
 	}
 }

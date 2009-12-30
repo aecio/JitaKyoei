@@ -110,6 +110,12 @@
           <void property="name"> 
            <string>buscar</string> 
           </void> 
+          <void method="auxiliary"> 
+           <void method="setProperty"> 
+            <string>JavaCodeGenerator.variableGetter</string> 
+            <boolean>true</boolean> 
+           </void> 
+          </void> 
          </object> 
         </void> 
        </object> 
@@ -204,14 +210,6 @@
             <string>JavaCodeGenerator.variableGetter</string> 
             <boolean>true</boolean> 
            </void> 
-          </void> 
-          <void method="addEvent"> 
-           <object class="com.jformdesigner.model.FormEvent"> 
-            <string>java.awt.event.MouseListener</string> 
-            <string>mouseClicked</string> 
-            <string>professoresTableMouseClicked</string> 
-            <boolean>true</boolean> 
-           </object> 
           </void> 
          </object> 
         </void> 

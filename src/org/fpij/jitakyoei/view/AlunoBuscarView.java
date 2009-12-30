@@ -68,12 +68,13 @@ public class AlunoBuscarView implements ViewComponent {
 				return;
 			}
 		}
-		
 		Aluno aluno = new Aluno();
 		aluno.setFiliado(filiado);
-		
 		alunoList = new DAOImpl<Aluno>(Aluno.class).search(aluno);
-		
+		setAlunoList(alunoList);
+	}
+	
+	private void setAlunoList(List<Aluno> alunoList) {
 		Object[][] data = new Object[alunoList.size()][4];
 		for (int i = 0; i < alunoList.size(); i++) {
 			try{
@@ -87,9 +88,8 @@ public class AlunoBuscarView implements ViewComponent {
 		}
 		alunoTableModel.setDataVector(data, new String[] { 
 				"Resistro", "Nome", "Professor", "Entidade" });
-
 	}
-	
+
 	public class BuscarActionHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
