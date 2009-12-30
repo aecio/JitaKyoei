@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import org.fpij.jitakyoei.facade.AppFacade;
 import org.fpij.jitakyoei.model.beans.Aluno;
 import org.fpij.jitakyoei.model.beans.Filiado;
-import org.fpij.jitakyoei.model.dao.DAOImpl;
 import org.fpij.jitakyoei.view.forms.CamposBuscaForm;
 import org.fpij.jitakyoei.view.gui.AlunoBuscarPanel;
 
@@ -70,7 +69,7 @@ public class AlunoBuscarView implements ViewComponent {
 		}
 		Aluno aluno = new Aluno();
 		aluno.setFiliado(filiado);
-		alunoList = new DAOImpl<Aluno>(Aluno.class).search(aluno);
+		alunoList = facade.searchAluno(aluno);
 		setAlunoList(alunoList);
 	}
 	

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 /**
  * @author Brainrain
  */
+@SuppressWarnings("serial")
 public class SobrePanel extends JPanel {
 	public SobrePanel() {
 		initComponents();

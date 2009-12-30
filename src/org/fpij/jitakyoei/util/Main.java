@@ -38,8 +38,7 @@ public class Main {
 		view.registerFacade(facade);
 	}
 	
-	private static void dbPopulator(){
-		
+	public static void dbPopulator(){
 		Endereco endereco = new Endereco();
 		endereco.setBairro("Dirceu");
 		endereco.setCep("64078-213");
@@ -68,6 +67,5 @@ public class Main {
 		
 		DAO<Entidade> daoEnt = new DAOImpl<Entidade>(Entidade.class);
 		daoEnt.save(entidade);
-		
 	}
 }

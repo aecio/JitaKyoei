@@ -18,8 +18,7 @@ public class ProfessorEntidadeBOImpl implements ProfessorEntidadeBO {
 	}
 
 	private void fireModelChangeEvent(List<ProfessorEntidade> relacionamentos) {
-		// TODO Auto-generated method stub
-		
+		view.handleModelChange(relacionamentos);
 	}
 
 	@Override

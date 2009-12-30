@@ -10,16 +10,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.java.dev.genesis.annotation.ViewHandler;
-
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 /**
  * @author ASantos
  */
+@SuppressWarnings("serial")
 public class EntidadeAtualizarPanel extends JPanel {
-	private static final long serialVersionUID = 1L;
+
 	public EntidadeAtualizarPanel() {
 		initComponents();
 	}

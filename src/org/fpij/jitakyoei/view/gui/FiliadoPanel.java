@@ -25,9 +25,9 @@ import com.toedter.calendar.JDateChooser;
 /**
  * @author wansoul
  */
+@SuppressWarnings("serial")
 public class FiliadoPanel extends JPanel {
 
-	private static final long serialVersionUID = 1L;
 	public FiliadoPanel() {
 		initComponents();
 	}
@@ -91,6 +91,8 @@ public class FiliadoPanel extends JPanel {
 	public JTextArea getObservacoes() {
 		return observacoes;
 	}
+	
+	@SuppressWarnings("unchecked")
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		label1 = new JLabel();

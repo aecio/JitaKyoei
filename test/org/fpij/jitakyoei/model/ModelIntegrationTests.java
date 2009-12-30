@@ -8,13 +8,11 @@ import org.fpij.jitakyoei.model.beans.Entidade;
 import org.fpij.jitakyoei.model.beans.Filiado;
 import org.fpij.jitakyoei.model.beans.Professor;
 import org.fpij.jitakyoei.model.beans.Rg;
-import org.fpij.jitakyoei.model.dao.DAO;
-import org.fpij.jitakyoei.model.dao.DAOImpl;
 import org.fpij.jitakyoei.util.DatabaseManager;
 import org.junit.BeforeClass;
 
 public class ModelIntegrationTests {
-	private static DAO<Aluno> alunoDao;
+//	private static DAO<Aluno> alunoDao;
 	private static Aluno aluno;
 	private static Entidade entidade;
 	private static Endereco endereco;
@@ -61,7 +59,7 @@ public class ModelIntegrationTests {
 		aluno.setProfessor(professor);
 		aluno.setEntidade(entidade);
 		
-		alunoDao = new DAOImpl<Aluno>(Aluno.class);
+//		alunoDao = new DAOImpl<Aluno>(Aluno.class);
 	}
 	
 }
